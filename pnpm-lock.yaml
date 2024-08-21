@@ -8,6 +8,9 @@ dependencies:
   '@angular/animations':
     specifier: ^18.2.0
     version: 18.2.0(@angular/core@18.2.0)
+  '@angular/cdk':
+    specifier: 18.2.0
+    version: 18.2.0(@angular/common@18.2.0)(@angular/core@18.2.0)(rxjs@7.8.1)
   '@angular/common':
     specifier: ^18.2.0
     version: 18.2.0(@angular/core@18.2.0)(rxjs@7.8.1)
@@ -20,6 +23,9 @@ dependencies:
   '@angular/forms':
     specifier: ^18.2.0
     version: 18.2.0(@angular/common@18.2.0)(@angular/core@18.2.0)(@angular/platform-browser@18.2.0)(rxjs@7.8.1)
+  '@angular/material':
+    specifier: 18.2.0
+    version: 18.2.0(@angular/animations@18.2.0)(@angular/cdk@18.2.0)(@angular/common@18.2.0)(@angular/core@18.2.0)(@angular/forms@18.2.0)(@angular/platform-browser@18.2.0)(rxjs@7.8.1)
   '@angular/platform-browser':
     specifier: ^18.2.0
     version: 18.2.0(@angular/animations@18.2.0)(@angular/common@18.2.0)(@angular/core@18.2.0)
@@ -372,6 +378,21 @@ packages:
       - terser
     dev: true
 
+  /@angular/cdk@18.2.0(@angular/common@18.2.0)(@angular/core@18.2.0)(rxjs@7.8.1):
+    resolution: {integrity: sha512-hjuUWNhxU48WB2i1j4NLwnPTaCnucRElfp7DBX5Io0rY5Lwl3HXafvyi7/A1D0Ah+YsJpktKOWPDGv8r7vxymg==}
+    peerDependencies:
+      '@angular/common': ^18.0.0 || ^19.0.0
+      '@angular/core': ^18.0.0 || ^19.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    dependencies:
+      '@angular/common': 18.2.0(@angular/core@18.2.0)(rxjs@7.8.1)
+      '@angular/core': 18.2.0(rxjs@7.8.1)(zone.js@0.14.10)
+      rxjs: 7.8.1
+      tslib: 2.6.3
+    optionalDependencies:
+      parse5: 7.1.2
+    dev: false
+
   /@angular/cli@18.2.1:
     resolution: {integrity: sha512-SomUFDHanY4o7k3XBGf1eFt4z1h05IGJHfcbl2vxoc0lY59VN13m/pZsD2AtpqtJTzLQT02XQOUP4rmBbGoQ+Q==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -468,6 +489,27 @@ packages:
     dependencies:
       '@angular/common': 18.2.0(@angular/core@18.2.0)(rxjs@7.8.1)
       '@angular/core': 18.2.0(rxjs@7.8.1)(zone.js@0.14.10)
+      '@angular/platform-browser': 18.2.0(@angular/animations@18.2.0)(@angular/common@18.2.0)(@angular/core@18.2.0)
+      rxjs: 7.8.1
+      tslib: 2.6.3
+    dev: false
+
+  /@angular/material@18.2.0(@angular/animations@18.2.0)(@angular/cdk@18.2.0)(@angular/common@18.2.0)(@angular/core@18.2.0)(@angular/forms@18.2.0)(@angular/platform-browser@18.2.0)(rxjs@7.8.1):
+    resolution: {integrity: sha512-lOXk8pAVP4Mr0/Q6YrNnVYQVTnR8aEG5D9QSEWjs+607gONuh/9n7ERBdzX7xO9D0vYyXq+Vil32zcF41/Q8Cg==}
+    peerDependencies:
+      '@angular/animations': ^18.0.0 || ^19.0.0
+      '@angular/cdk': 18.2.0
+      '@angular/common': ^18.0.0 || ^19.0.0
+      '@angular/core': ^18.0.0 || ^19.0.0
+      '@angular/forms': ^18.0.0 || ^19.0.0
+      '@angular/platform-browser': ^18.0.0 || ^19.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    dependencies:
+      '@angular/animations': 18.2.0(@angular/core@18.2.0)
+      '@angular/cdk': 18.2.0(@angular/common@18.2.0)(@angular/core@18.2.0)(rxjs@7.8.1)
+      '@angular/common': 18.2.0(@angular/core@18.2.0)(rxjs@7.8.1)
+      '@angular/core': 18.2.0(rxjs@7.8.1)(zone.js@0.14.10)
+      '@angular/forms': 18.2.0(@angular/common@18.2.0)(@angular/core@18.2.0)(@angular/platform-browser@18.2.0)(rxjs@7.8.1)
       '@angular/platform-browser': 18.2.0(@angular/animations@18.2.0)(@angular/common@18.2.0)(@angular/core@18.2.0)
       rxjs: 7.8.1
       tslib: 2.6.3
@@ -4425,7 +4467,6 @@ packages:
   /entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
-    dev: true
 
   /env-paths@2.2.1:
     resolution: {integrity: sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==}
@@ -6447,7 +6488,6 @@ packages:
     resolution: {integrity: sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==}
     dependencies:
       entities: 4.5.0
-    dev: true
 
   /parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
