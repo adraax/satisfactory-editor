@@ -1,4 +1,4 @@
-import { Position } from '../types/position.types';
+import { Position } from '../types/position.type';
 
 export interface HandlePositions {
     source: Position

@@ -1,15 +1,20 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   effect,
   inject,
   Input,
   signal,
 } from '@angular/core';
 import { RootSvgReferenceDirective } from '../../../directives/reference.directive';
-import { Background } from '../../../types/background.types';
+import { ViewportService } from '../../../services/viewport.service';
+import { Background } from '../../../types/background.type';
 
 const defaultBg = '#fff';
+const defaultGap = 20;
+const defaultDotSize = 2;
+const defaultDotColor = 'rgb(177, 177, 183)';
 
 @Component({
   selector: 'g[background]',
@@ -17,6 +22,7 @@ const defaultBg = '#fff';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BackgroundComponent {
+  private viewPortService = inject(ViewportService);
   private rootSvg = inject(RootSvgReferenceDirective).element;
 
   @Input({ required: true, transform })
@@ -28,15 +34,53 @@ export class BackgroundComponent {
     type: 'solid',
     color: defaultBg,
   });
-    
-    protected patterId = 'test'
-    protected patternUrl = `url(#${this.patterId})`
+
+  protected scaledGap = computed(() => {
+    const background = this.backgroundSignal();
+
+    if (background.type === 'dots' || background.type === 'grid') {
+      const zoom = this.viewPortService.readableViewport().zoom;
+
+      return zoom * (background.gap ?? defaultGap);
+    }
+
+    return 0;
+  });
+
+  protected x = computed(
+    () => this.viewPortService.readableViewport().x % this.scaledGap()
+  );
+
+  protected y = computed(
+    () => this.viewPortService.readableViewport().y % this.scaledGap()
+  );
+
+  protected patternSize = computed(() => {
+    const background = this.backgroundSignal();
+
+    if (background.type === 'dots' || background.type === 'grid') {
+      return (
+        (this.viewPortService.readableViewport().zoom *
+          (background.size ?? defaultDotSize)) /
+        2
+      );
+    }
+
+    return 0;
+  });
+
+  protected patternPath = computed(() => `M ${this.scaledGap()} 0 L 0 0 0 ${this.scaledGap()}`)
+
+  protected patternColor = computed(() => this.backgroundSignal().color ?? defaultDotColor)
+
+  protected patterId = 'test';
+  protected patternUrl = `url(#${this.patterId})`;
 
   constructor() {
     effect(() => {
       const background = this.backgroundSignal();
 
-      if (background.type === 'dots') {
+      if (background.type === 'dots' || background.type === 'grid') {
         this.rootSvg.style.backgroundColor = background.color ?? defaultBg;
       }
 

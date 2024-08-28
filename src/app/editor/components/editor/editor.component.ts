@@ -6,14 +6,15 @@ import {
   Input,
 } from '@angular/core';
 import { EditorSettingsService } from '../../services/editor-settings.service';
-import { Background } from '../../types/background.types';
+import { Background } from '../../types/background.type';
+import { ViewportService } from '../../services/viewport.service';
 
 @Component({
   selector: 'editor',
   templateUrl: './editor.component.html',
-  styleUrl: './editor.component.html',
+  styleUrl: './editor.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [EditorSettingsService],
+  providers: [EditorSettingsService, ViewportService],
 })
 export class EditorComponent {
   private flowSettingsService = inject(EditorSettingsService);
