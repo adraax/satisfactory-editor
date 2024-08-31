@@ -7,9 +7,9 @@ import {
   Input,
   signal,
 } from '@angular/core';
-import { RootSvgReferenceDirective } from '../../../directives/reference.directive';
-import { ViewportService } from '../../../services/viewport.service';
-import { Background } from '../../../types/background.type';
+import { RootSvgReferenceDirective } from '../../directives/reference.directive';
+import { ViewportService } from '../../services/viewport.service';
+import { Background } from '../../types/background.type';
 
 const defaultBg = '#fff';
 const defaultGap = 20;
@@ -69,9 +69,13 @@ export class BackgroundComponent {
     return 0;
   });
 
-  protected patternPath = computed(() => `M ${this.scaledGap()} 0 L 0 0 0 ${this.scaledGap()}`)
+  protected patternPath = computed(
+    () => `M ${this.scaledGap()} 0 L 0 0 0 ${this.scaledGap()}`
+  );
 
-  protected patternColor = computed(() => this.backgroundSignal().color ?? defaultDotColor)
+  protected patternColor = computed(
+    () => this.backgroundSignal().color ?? defaultDotColor
+  );
 
   protected patterId = 'test';
   protected patternUrl = `url(#${this.patterId})`;

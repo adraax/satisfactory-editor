@@ -18,6 +18,8 @@
 } @else if (backgroundSignal().type === 'grid') {
 <svg:pattern
   [attr.id]="patterId"
+  [attr.x]="x()"
+  [attr.y]="y()"
   [attr.width]="scaledGap()"
   [attr.height]="scaledGap()"
   patternUnits="userSpaceOnUse"
