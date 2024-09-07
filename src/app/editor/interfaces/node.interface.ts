@@ -98,7 +98,7 @@ export function isStaticNode<T>(node: Node | DynamicNode): node is Node<T> {
 }
 
 export function isDynamicNode<T>(node: Node | DynamicNode): node is DynamicNode<T> {
-  return typeof node.point !== "function";
+  return typeof node.point === "function";
 }
 
 export function isComponentStaticNode<T>(node: Node): node is ComponentNode<T> {

@@ -1,7 +1,7 @@
 import { Directive, effect, ElementRef, inject, OnInit, untracked } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { select } from "d3-selection";
-import { D3ZoomEvent, zoom, ZoomBehavior, zoomIdentity, ZoomTransform } from "d3-zoom";
+import { D3ZoomEvent, zoom, ZoomBehavior, zoomIdentity, zoomTransform, ZoomTransform } from "d3-zoom";
 import { ViewportState } from "../interfaces/viewport.interface";
 import { EditorSettingsService } from "../services/editor-settings.service";
 import { ViewportService } from "../services/viewport.service";
@@ -29,9 +29,13 @@ export class MapContextDirective implements OnInit {
     () => {
       if (this.pointer()! !== undefined) {
         const zoom = untracked(this.viewportService.readableViewport).zoom;
+        const transform = zoomTransform(this.rootSvg);
+
         this.rootSvgSelection.call(
           this.zoomBehavior.transform,
-          zoomIdentity.translate(this.pointer()!.tX, this.pointer()!.tY).scale(zoom)
+          zoomIdentity
+            .translate(this.pointer()!.tX / transform.k + transform.x, this.pointer()!.tY / transform.k + transform.y)
+            .scale(zoom)
         );
       }
     },
@@ -42,7 +46,6 @@ export class MapContextDirective implements OnInit {
     () => {
       const viewport = this.viewportService.writableViewport();
       const state = viewport.state;
-
 
       if (viewport.changeType === "initial") {
         return;
@@ -94,6 +97,7 @@ export class MapContextDirective implements OnInit {
   }
 
   private handleZoom({ transform }: ZoomEvent) {
+    console.log(transform);
     this.viewportService.readableViewport.set(mapTransformToViewportState(transform));
 
     this.zoomableSelection.attr("transform", transform.toString());

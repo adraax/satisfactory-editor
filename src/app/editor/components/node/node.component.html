@@ -1,0 +1,20 @@
+<!-- Default node -->
+<svg:foreignObject
+  *ngIf="nodeModel.node.type === 'default'"
+  class="selectable"
+  #nodeContent
+  [attr.width]="nodeModel.size().width"
+  [attr.height]="nodeModel.size().height"
+  (mousedown)="pullNode(); selectNode()"
+>
+  <div
+    #htmlWrapper
+    class="default-node"
+    [style.width]="styleWidth()"
+    [style.max-width]="styleWidth()"
+    [style.height]="styleHeight()"
+    [style.max-height]="styleHeight()"
+  >
+    <div [outerHTML]="nodeModel.text()"></div>
+</div>
+</svg:foreignObject>

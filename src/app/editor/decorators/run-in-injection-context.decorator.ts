@@ -1,0 +1,21 @@
+import { Injector, runInInjectionContext } from "@angular/core";
+
+export function InjectionContext(target: any, key: string, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value;
+
+  descriptor.value = function (...args: any[]) {
+    if (implementsWithInjector(this)) {
+      return runInInjectionContext(this.injector, () => originalMethod.apply(this, args));
+    } else {
+      throw new Error("Class that contains decorated method must extends WithInjectorDirective class");
+    }
+  };
+}
+
+export interface WithInjector {
+  injector: Injector;
+}
+
+const implementsWithInjector = (instance: {}): instance is WithInjector => {
+  return "injector" in instance && "get" in (instance.injector as Injector);
+};

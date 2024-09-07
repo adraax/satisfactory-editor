@@ -1,47 +1,32 @@
-import { Directive, ElementRef, inject } from '@angular/core';
-import {
-  animationFrameScheduler,
-  fromEvent,
-  map,
-  mergeMap,
-  observeOn,
-  share,
-  Subject,
-  takeUntil,
-  tap,
-} from 'rxjs';
+import { Directive, ElementRef, inject } from "@angular/core";
+import { animationFrameScheduler, fromEvent, map, mergeMap, observeOn, share, skip, Subject, takeUntil, tap } from "rxjs";
 
-@Directive({ selector: 'svg[rootPointer]' })
+@Directive({ selector: "svg[rootPointer]" })
 export class RootPointerDirective {
   private host = inject<ElementRef<SVGSVGElement>>(ElementRef).nativeElement;
 
   private initialTouch$ = new Subject<TouchEvent>();
 
-  private translate = {x: 0, y: 0}
-  private translateStart = {x: 0, y: 0};
+  private previous = { x: 0, y: 0 };
 
-  private mouseDown$ = fromEvent<MouseEvent>(this.host, 'mousedown');
-  private mouseUp$ = fromEvent(document, 'mouseup');
-  private mouseMove$ = fromEvent<MouseEvent>(this.host, 'mousemove');
+  private mouseDown$ = fromEvent<MouseEvent>(this.host, "mousedown");
+  private mouseUp$ = fromEvent(document, "mouseup");
+  private mouseMove$ = fromEvent<MouseEvent>(this.host, "mousemove");
 
   public mouseMovement$ = this.mouseDown$.pipe(
-    tap(() => {
-      this.translateStart = this.translate;
-    }),
+    tap((event) => this.previous = {x: event.clientX, y: event.clientY}),
     mergeMap((down) => {
       return this.mouseMove$.pipe(
-        tap((event) => {
-          this.translate.x = (this.translateStart.x + event.pageX - down.pageX) / 2;
-          this.translate.y = (this.translateStart.y + event.pageY - down.pageY) / 2;
-        }),
+        skip(1),
         map((event) => ({
-          tX: this.translate.x,
-          tY: this.translate.y,
+          tX: event.clientX - this.previous.x,
+          tY: event.clientY - this.previous.y,
           x: event.x,
           y: event.y,
           originalEvent: event,
         })),
         observeOn(animationFrameScheduler),
+        tap((event) => (this.previous = { x: event.x, y: event.y })),
         share(),
         takeUntil(this.mouseUp$)
       );

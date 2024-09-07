@@ -1,5 +1,12 @@
 <svg:svg rootSvgRef editorSizeController rootPointer class="root-svg">
   <g [background]="background" />
 
-  <svg:g mapContext spacePointContext></svg:g>
+  <svg:g mapContext spacePointContext>
+    <svg:g
+      *ngFor="let model of nodeModels(); trackBy: trackNodes"
+      node
+      [nodeModel]="model"
+      [nodeTemplate]="nodeTemplateDirective?.templateRef"
+    ></svg:g>
+  </svg:g>
 </svg:svg>
