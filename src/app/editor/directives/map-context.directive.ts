@@ -97,7 +97,6 @@ export class MapContextDirective implements OnInit {
   }
 
   private handleZoom({ transform }: ZoomEvent) {
-    console.log(transform);
     this.viewportService.readableViewport.set(mapTransformToViewportState(transform));
 
     this.zoomableSelection.attr("transform", transform.toString());

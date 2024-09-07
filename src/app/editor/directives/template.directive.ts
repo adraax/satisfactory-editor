@@ -4,3 +4,8 @@ import { Directive, inject, TemplateRef } from "@angular/core";
 export class NodeHtmlTemplateDirective {
   public templateRef = inject(TemplateRef);
 }
+
+@Directive({ selector: "ng-template[groupNode]" })
+export class GroupNodeTemplateDirective {
+  public templateRef = inject(TemplateRef);
+}

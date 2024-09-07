@@ -65,6 +65,8 @@ export class NodeModel<T = unknown> implements Entity {
 
   public draggable = signal(true);
 
+  public readonly magnetRadius = 20;
+
   public isComponentType =
     CustomNodeComponent.isPrototypeOf(this.node.type) || CustomDynamicNodeComponent.isPrototypeOf(this.node.type);
 
