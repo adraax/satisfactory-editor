@@ -8,6 +8,15 @@
       [nodeModel]="model"
       [nodeTemplate]="nodeTemplateDirective?.templateRef"
       [groupNodeTemplate]="groupNodeTemplateDirective?.templateRef"
+      [attr.transform]="model.pointTransform()"
+    ></svg:g>
+
+    <svg:g
+      *ngFor="let model of edgeModels(); trackBy: trackEdges"
+      edge
+      [model]="model"
+      [edgeTemplate]="edgeTemplateDirective?.templateRef"
+      [edgeLabelHtmlTemplate]="edgeLabelHtmlTemplateDirective?.templateRef"
     ></svg:g>
   </svg:g>
 </svg:svg>

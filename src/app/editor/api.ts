@@ -2,10 +2,10 @@
 export * from "./editor.module";
 
 // interfaces
+export * from "./interfaces/edge-label.interface";
+export * from "./interfaces/edge.interface";
 export * from "./interfaces/node.interface";
 export * from "./interfaces/point.interface";
-// TODO edge interface
-// TODO edge label interface
 // TODO connection interface
 // TODO connection service interface
 export * from "./interfaces/handle-positions.interface";
@@ -24,12 +24,12 @@ export * from "./types/position.type";
 
 // Components
 export * from "./components/editor/editor.component";
-// TODO handle component
+export * from "./components/handle/handle.component";
 export * from "./public-components/custom-dynamic-node.component";
 export * from "./public-components/custom-node.component";
 
 // Directives
-// TODO template directive
+export * from "./directives/template.directive";
 // TODO connection controller directive
 // TODO changes-controller directive
 // TODO selectable directive

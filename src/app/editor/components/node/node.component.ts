@@ -18,10 +18,12 @@ import { map, startWith, switchMap, tap } from "rxjs";
 import { Microtask } from "../../decorators/microtask.decorator";
 import { InjectionContext, WithInjector } from "../../decorators/run-in-injection-context.decorator";
 import { NodeModel } from "../../models/node.model";
+import { DraggableService } from "../../services/draggable.service";
 import { EditorSettingsService } from "../../services/editor-settings.service";
 import { HandleService } from "../../services/handle.service";
 import { NodeRenderingService } from "../../services/node-rendering.service";
 import { resizable } from "../../utils/resizable";
+import { RootSvgReferenceDirective } from '../../directives/reference.directive';
 
 @Component({
   selector: "g[node]",
@@ -33,12 +35,14 @@ import { resizable } from "../../utils/resizable";
 export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInjector {
   public injector = inject(Injector);
   private handleService = inject(HandleService);
-  // TODO draggable service
+  private draggableService = inject(DraggableService);
   // TODO status service
   private nodeRenderingService = inject(NodeRenderingService);
   private editorSettingsService = inject(EditorSettingsService);
   // TODO selection service
   // TODO connection controller
+  private host = inject<ElementRef<SVGElement>>(ElementRef);
+  protected rootSvg = inject(RootSvgReferenceDirective).element;
 
   @Input()
   public nodeModel!: NodeModel;
@@ -69,6 +73,7 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
     effect(() => {
       if (this.nodeModel.draggable()) {
         // TODO draggable services
+        this.draggableService.enable(this.host.nativeElement, this.rootSvg, this.nodeModel);
       }
     });
 
@@ -103,15 +108,15 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
         .subscribe();
     }
   }
-  
+
   ngOnDestroy(): void {
-    // TODO draggable service
+    this.draggableService.destroy(this.host.nativeElement);
   }
 
   // TODO connection methods
 
   protected pullNode() {
-    this.nodeRenderingService.pullNode(this.nodeModel)
+    this.nodeRenderingService.pullNode(this.nodeModel);
   }
 
   protected selectNode() {

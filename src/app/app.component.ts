@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
-import { Node } from "./editor/api";
+import { Edge, Node } from "./editor/api";
 import { EditorModule } from "./editor/editor.module";
 
 @Component({
@@ -19,8 +19,22 @@ export class AppComponent {
     {
       id: "1",
       point: { x: 10, y: 10 },
-      type: 'default',
-      text: "default"
+      type: "default",
+      text: "default",
+    },
+    {
+      id: "2",
+      point: { x: 200, y: 200 },
+      type: "default",
+      text: "default 2",
+    },
+  ];
+
+  public edges: Edge[] = [
+    {
+      id: "1 -> 2",
+      source: "1",
+      target: "2",
     },
   ];
 
