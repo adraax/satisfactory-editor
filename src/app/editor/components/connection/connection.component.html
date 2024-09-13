@@ -1,14 +1,5 @@
-<ng-container *ngIf="model.type === 'default'">
-  <svg:path
-    *ngIf="path() as path"
-    [attr.d]="path"
-    [attr.marker-end]="markerUrl()"
-    [attr.stroke]="defaultColor"
-    fill="none"
-    stroke-width="2"
-  />
-</ng-container>
-
-<ng-container *ngIf="model.type === 'template' && template">
-    <ng-container *ngTemplateOutlet="template; context: getContext()"/>
-</ng-container>
+@if(model.type === 'default') { @if(path(); as path) {
+<svg:path [attr.d]="path" [attr.marker-end]="markerUrl()" [attr.stroke]="defaultColor" fill="none" stroke-width="2" />
+} } @else if (model.type === 'template' && template){
+<ng-container *ngTemplateOutlet="template; context: getContext()" />
+}

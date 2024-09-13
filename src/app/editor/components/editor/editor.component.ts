@@ -204,14 +204,6 @@ export class EditorComponent implements OnInit {
   }
   // #endregion
 
-  protected trackNodes(idx: number, { node }: NodeModel) {
-    return node;
-  }
-
-  protected trackEdges(idx: number, { edge }: EdgeModel) {
-    return edge;
-  }
-
   private setInitialNodesOrder() {
     this.nodeModels().forEach((model) => {
       switch (model.node.type) {

@@ -1,6 +1,6 @@
+@if (nodeModel.node.type === 'default') {
 <!-- Default node -->
 <svg:foreignObject
-  *ngIf="nodeModel.node.type === 'default'"
   class="selectable"
   #nodeContent
   [attr.width]="nodeModel.size().width"
@@ -21,10 +21,9 @@
     <handle type="target" [position]="nodeModel.targetPosition()" />
   </div>
 </svg:foreignObject>
-
+} @else if (nodeModel.node.type === 'html-template' && nodeTemplate) {
 <!-- Template Node -->
 <svg:foreignObject
-  *ngIf="nodeModel.node.type === 'html-template' && nodeTemplate"
   class="selectable"
   [style.width]="nodeModel.size().width"
   [style.height]="nodeModel.size().height"
@@ -38,10 +37,9 @@
     />
   </div>
 </svg:foreignObject>
-
+} @else if (nodeModel.isComponentType) {
 <!-- Component node -->
 <svg:foreignObject
-  *ngIf="nodeModel.isComponentType"
   class="selectable"
   [style.width]="nodeModel.size().width"
   [style.height]="nodeModel.size().height"
@@ -55,10 +53,9 @@
     />
   </div>
 </svg:foreignObject>
-
+} @else if (nodeModel.node.type === 'default-group') {
 <!-- Default group node -->
 <svg:rect
-  *ngIf="nodeModel.node.type === 'default-group'"
   class="default-group-node"
   rx="5"
   yx="5"
@@ -69,44 +66,43 @@
   [style.fill]="nodeModel.color()"
   (mousedown)="pullNode(); selectNode()"
 />
-
-<svg:g
-  *ngIf="nodeModel.node.type === 'template-group' && groupNodeTemplate"
-  class="selectable"
-  (mousedown)="pullNode()"
->
+} @else if (nodeModel.node.type === 'template-group' && groupNodeTemplate) {
+<svg:g class="selectable" (mousedown)="pullNode()">
   <ng-container
     [ngTemplateOutlet]="groupNodeTemplate"
     [ngTemplateOutletContext]="{ $implicit: { node: nodeModel.node, selected: nodeModel.selected } }"
     [ngTemplateOutletInjector]="injector"
   />
 </svg:g>
+}
 
 <!-- Handles -->
-<ng-container *ngFor="let handle of nodeModel.handles()">
-  <svg:circle
-    *ngIf="!handle.template"
-    class="default-handle"
-    [attr.cx]="handle.offset().x"
-    [attr.cy]="handle.offset().y"
-    [attr.stroke-width]="handle.strokeWidth"
-    r="5"
-    (pointerStart)="startConnection($event, handle)"
-    (pointerEnd)="endConnection(handle)"
-  />
-
-  <svg:g *ngIf="handle.template" [handleSizeController]="handle" (pointerStart)="startConnection($event, handle)" (pointerEnd)="endConnection(handle)">
-    <ng-container *ngTemplateOutlet="handle.template; context: handle.templateContext" />
-  </svg:g>
-
-  <svg:circle
-    *ngIf="showMagnet()"
-    class="magnet"
-    [attr.r]="nodeModel.magnetRadius"
-    [attr.cx]="handle.offset().x"
-    [attr.cy]="handle.offset().y"
-    (pointerEnd)="endConnection(handle); resetValidateConnection(handle)"
-    (pointerOver)="validateConnection(handle)"
-    (pointerOut)="resetValidateConnection(handle)"
-  />
-</ng-container>
+@for (handle of nodeModel.handles(); track $index) { @if (!handle.template) {
+<svg:circle
+  class="default-handle"
+  [attr.cx]="handle.offset().x"
+  [attr.cy]="handle.offset().y"
+  [attr.stroke-width]="handle.strokeWidth"
+  r="5"
+  (pointerStart)="startConnection($event, handle)"
+  (pointerEnd)="endConnection(handle)"
+/>
+} @else if (handle.template) {
+<svg:g
+  [handleSizeController]="handle"
+  (pointerStart)="startConnection($event, handle)"
+  (pointerEnd)="endConnection(handle)"
+>
+  <ng-container *ngTemplateOutlet="handle.template; context: handle.templateContext" />
+</svg:g>
+} @if(showMagnet()) {
+<svg:circle
+  class="magnet"
+  [attr.r]="nodeModel.magnetRadius"
+  [attr.cx]="handle.offset().x"
+  [attr.cy]="handle.offset().y"
+  (pointerEnd)="endConnection(handle); resetValidateConnection(handle)"
+  (pointerOver)="validateConnection(handle)"
+  (pointerOut)="resetValidateConnection(handle)"
+/>
+} }
