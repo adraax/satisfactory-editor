@@ -1,10 +1,10 @@
-import { computed, Directive, effect, ElementRef, inject, Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Point } from '../interfaces/point.interface';
-import { RootSvgReferenceDirective } from './reference.directive';
-import { RootPointerDirective } from './root-pointer.directive';
+import { computed, Directive, ElementRef, inject, Signal } from "@angular/core";
+import { toSignal } from "@angular/core/rxjs-interop";
+import { Point } from "../interfaces/point.interface";
+import { RootSvgReferenceDirective } from "./reference.directive";
+import { RootPointerDirective } from "./root-pointer.directive";
 
-@Directive({ selector: 'g[spacePointContext]' })
+@Directive({ selector: "g[spacePointContext]" })
 export class SpacePointContextDirective {
   private rootPointerDirective = inject(RootPointerDirective);
   private rootSvg = inject(RootSvgReferenceDirective).element;
@@ -17,12 +17,12 @@ export class SpacePointContextDirective {
       return { x: 0, y: 0 };
     }
 
-    return { x: movement.x, y: movement.y };
+    return this.documentPointToEditorPoint({ x: movement.x, y: movement.y });
   });
 
-  public pointerMovement = toSignal(this.rootPointerDirective.mouseMovement$);
+  public pointerMovement = toSignal(this.rootPointerDirective.mousePosition$);
 
-  public documentPointToFlowPoint(documentPoint: Point) {
+  public documentPointToEditorPoint(documentPoint: Point) {
     const point = this.rootSvg.createSVGPoint();
     point.x = documentPoint.x;
     point.y = documentPoint.y;

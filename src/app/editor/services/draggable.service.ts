@@ -43,7 +43,6 @@ export class DraggableService {
       }),
       mergeMap((down) => {
         return mouseMove$.pipe(
-          tap((event) => event.stopPropagation()),
           skip(1),
           map((event) => ({
             dx: down.x,

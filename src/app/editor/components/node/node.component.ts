@@ -17,13 +17,16 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { map, startWith, switchMap, tap } from "rxjs";
 import { Microtask } from "../../decorators/microtask.decorator";
 import { InjectionContext, WithInjector } from "../../decorators/run-in-injection-context.decorator";
+import { ConnectionControllerDirective } from "../../directives/connection-controller.directive";
+import { RootSvgReferenceDirective } from "../../directives/reference.directive";
+import { HandleModel } from "../../models/handle.model";
 import { NodeModel } from "../../models/node.model";
+import { ConnectionStatusService } from "../../services/connection-status.service";
 import { DraggableService } from "../../services/draggable.service";
 import { EditorSettingsService } from "../../services/editor-settings.service";
 import { HandleService } from "../../services/handle.service";
 import { NodeRenderingService } from "../../services/node-rendering.service";
 import { resizable } from "../../utils/resizable";
-import { RootSvgReferenceDirective } from '../../directives/reference.directive';
 
 @Component({
   selector: "g[node]",
@@ -36,11 +39,11 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
   public injector = inject(Injector);
   private handleService = inject(HandleService);
   private draggableService = inject(DraggableService);
-  // TODO status service
+  private connectionStatusService = inject(ConnectionStatusService);
   private nodeRenderingService = inject(NodeRenderingService);
   private editorSettingsService = inject(EditorSettingsService);
   // TODO selection service
-  // TODO connection controller
+  private connectionController = inject(ConnectionControllerDirective);
   private host = inject<ElementRef<SVGElement>>(ElementRef);
   protected rootSvg = inject(RootSvgReferenceDirective).element;
 
@@ -59,9 +62,11 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
   @ViewChild("htmlWrapper")
   public htmlWrapperRef!: ElementRef<HTMLDivElement>;
 
-  protected showMagnet = computed(() => {
-    // TODO status service
-  });
+  protected showMagnet = computed(
+    () =>
+      this.connectionStatusService.status().state === "connection-start" ||
+      this.connectionStatusService.status().state === "connection-validation"
+  );
 
   protected styleWidth = computed(() => `${this.nodeModel.size().width}px`);
   protected styleHeight = computed(() => `${this.nodeModel.size().height}px`);
@@ -72,7 +77,6 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
 
     effect(() => {
       if (this.nodeModel.draggable()) {
-        // TODO draggable services
         this.draggableService.enable(this.host.nativeElement, this.rootSvg, this.nodeModel);
       }
     });
@@ -113,7 +117,23 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
     this.draggableService.destroy(this.host.nativeElement);
   }
 
-  // TODO connection methods
+  protected startConnection(event: Event, handle: HandleModel) {
+    event.stopPropagation();
+
+    this.connectionController.startConnection(handle);
+  }
+
+  protected validateConnection(handle: HandleModel) {
+    this.connectionController.validateConnection(handle);
+  }
+
+  protected resetValidateConnection(handle: HandleModel) {
+    this.connectionController.resetValidateConnection(handle);
+  }
+
+  protected endConnection(handle: HandleModel) {
+    this.connectionController.endConnection(handle);
+  }
 
   protected pullNode() {
     this.nodeRenderingService.pullNode(this.nodeModel);

@@ -25,3 +25,8 @@ export class EdgeLabelHtmlTemplateDirective {
 export class HandleTemplateDirective {
   public templateRef = inject(TemplateRef);
 }
+
+@Directive({ selector: "ng-template[connection]" })
+export class ConnectionTemplateDirective {
+  public templateRef = inject(TemplateRef);
+}

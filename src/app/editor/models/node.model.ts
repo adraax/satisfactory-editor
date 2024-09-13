@@ -81,7 +81,31 @@ export class NodeModel<T = unknown> implements Entity {
 
   public color = signal(NodeModel.defaultColor);
 
-  constructor(public node: Node<T> | DynamicNode<T>) {}
+  constructor(public node: Node<T> | DynamicNode<T>) {
+    if (node.draggable !== undefined) {
+      if (isDynamicNode(node)) {
+        this.draggable = node.draggable;
+      } else {
+        this.draggable.set(node.draggable);
+      }
+    }
+
+    if (node.parentId !== undefined) {
+      if (isDynamicNode(node)) {
+        this.parentId = node.parentId;
+      } else {
+        this.parentId.set(node.parentId);
+      }
+    }
+
+    if (node.type === "default-group" && node.color) {
+      if (isDynamicNode(node)) {
+        this.color = node.color;
+      } else {
+        this.color.set(node.color);
+      }
+    }
+  }
 
   private createTextSignal(): Signal<string> {
     const node = this.node;

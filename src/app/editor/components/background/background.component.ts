@@ -13,8 +13,8 @@ import { Background } from '../../types/background.type';
 
 const defaultBg = '#fff';
 const defaultGap = 20;
-const defaultDotSize = 2;
-const defaultDotColor = 'rgb(177, 177, 183)';
+const defaultPatternSize = 2;
+const defaultPatternColor = 'rgb(177, 177, 183)';
 
 @Component({
   selector: 'g[background]',
@@ -61,7 +61,7 @@ export class BackgroundComponent {
     if (background.type === 'dots' || background.type === 'grid') {
       return (
         (this.viewPortService.readableViewport().zoom *
-          (background.size ?? defaultDotSize)) /
+          (background.size ?? defaultPatternSize)) /
         2
       );
     }
@@ -74,7 +74,7 @@ export class BackgroundComponent {
   );
 
   protected patternColor = computed(
-    () => this.backgroundSignal().color ?? defaultDotColor
+    () => this.backgroundSignal().color ?? defaultPatternColor
   );
 
   protected patterId = 'test';
@@ -85,7 +85,7 @@ export class BackgroundComponent {
       const background = this.backgroundSignal();
 
       if (background.type === 'dots' || background.type === 'grid') {
-        this.rootSvg.style.backgroundColor = background.color ?? defaultBg;
+        this.rootSvg.style.backgroundColor = background.backgroundColor ?? defaultBg;
       }
 
       if (background.type === 'solid') {

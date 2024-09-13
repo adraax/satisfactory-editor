@@ -84,7 +84,6 @@
 
 <!-- Handles -->
 <ng-container *ngFor="let handle of nodeModel.handles()">
-  <!-- TODO connections -->
   <svg:circle
     *ngIf="!handle.template"
     class="default-handle"
@@ -92,9 +91,11 @@
     [attr.cy]="handle.offset().y"
     [attr.stroke-width]="handle.strokeWidth"
     r="5"
+    (pointerStart)="startConnection($event, handle)"
+    (pointerEnd)="endConnection(handle)"
   />
 
-  <svg:g *ngIf="handle.template" [handleSizeController]="handle">
+  <svg:g *ngIf="handle.template" [handleSizeController]="handle" (pointerStart)="startConnection($event, handle)" (pointerEnd)="endConnection(handle)">
     <ng-container *ngTemplateOutlet="handle.template; context: handle.templateContext" />
   </svg:g>
 
@@ -104,5 +105,8 @@
     [attr.r]="nodeModel.magnetRadius"
     [attr.cx]="handle.offset().x"
     [attr.cy]="handle.offset().y"
+    (pointerEnd)="endConnection(handle); resetValidateConnection(handle)"
+    (pointerOver)="validateConnection(handle)"
+    (pointerOut)="resetValidateConnection(handle)"
   />
 </ng-container>

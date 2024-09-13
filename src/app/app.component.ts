@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
-import { Edge, Node } from "./editor/api";
+import { Background, Connection, ConnectionSettings, Edge, Node } from "./editor/api";
 import { EditorModule } from "./editor/editor.module";
 
 @Component({
@@ -13,7 +13,15 @@ import { EditorModule } from "./editor/editor.module";
   styleUrl: "./app.component.css",
 })
 export class AppComponent {
+  public connectionSettings: ConnectionSettings = {
+    marker: {
+      type: "arrow",
+    },
+  };
   greetingMessage = "";
+
+  //protected background: Background = { type: "grid", backgroundColor: "#191c1c" };
+  protected background: Background = { type: "grid", backgroundColor: "#ffffff" };
 
   public nodes: Node[] = [
     {
@@ -27,6 +35,7 @@ export class AppComponent {
       point: { x: 200, y: 200 },
       type: "default",
       text: "default 2",
+      draggable: false,
     },
   ];
 
@@ -37,6 +46,17 @@ export class AppComponent {
       target: "2",
     },
   ];
+
+  public createEdge({ source, target }: Connection) {
+    this.edges = [
+      ...this.edges,
+      {
+        id: `${source} -> ${target}`,
+        source,
+        target,
+      },
+    ];
+  }
 
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
