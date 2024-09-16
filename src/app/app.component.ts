@@ -1,10 +1,11 @@
-import { OverlayModule } from "@angular/cdk/overlay";
+import { ConnectedPosition, Overlay, OverlayModule, OverlayRef } from "@angular/cdk/overlay";
+import { ComponentPortal } from "@angular/cdk/portal";
 import { CommonModule } from "@angular/common";
-import { Component, ElementRef, inject, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, inject, ViewChild } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
-import { DataService } from "./data.service";
-import { Background, Connection, ConnectionSettings, Edge, Node } from "./editor/api";
+import { ContextMenuComponent } from "./components/context-menu/context-menu.component";
+import { Background, Connection, ConnectionSettings, Edge, EditorComponent, Node } from "./editor/api";
 import { EditorModule } from "./editor/editor.module";
 
 @Component({
@@ -13,15 +14,19 @@ import { EditorModule } from "./editor/editor.module";
   imports: [CommonModule, RouterOutlet, EditorModule, OverlayModule],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
-  providers: [DataService],
 })
-export class AppComponent {
-  private dataService = inject(DataService);
+export class AppComponent implements AfterViewInit {
+  private overlay = inject(Overlay);
 
-  public isOpen = false;
+  private overlayRef!: OverlayRef;
+
+  private lastRightClick = { x: 0, y: 0 };
 
   @ViewChild("anchor")
-  public anchorRef!: ElementRef<HTMLDivElement>;
+  public anchorRef!: ElementRef;
+
+  @ViewChild(EditorComponent)
+  public editor!: EditorComponent;
 
   public connectionSettings: ConnectionSettings = {
     marker: {
@@ -30,7 +35,6 @@ export class AppComponent {
   };
   greetingMessage = "";
 
-  //protected background: Background = { type: "grid", backgroundColor: "#191c1c" };
   protected background: Background = { type: "grid", backgroundColor: "#32323a", color: "#707070" };
 
   public nodes: Node[] = [
@@ -77,16 +81,55 @@ export class AppComponent {
     });
   }
 
-  public rightClick(event: MouseEvent) {
-    this.isOpen = false;
-    this.anchorRef.nativeElement.style.left = event.x + "px";
-    this.anchorRef.nativeElement.style.top = event.y + "px";
-    this.isOpen = true;
-    event.preventDefault();
-    event.stopPropagation();
+  ngAfterViewInit(): void {
+    this.overlayRef = this.overlay.create({
+      positionStrategy: this.overlay
+        .position()
+        .flexibleConnectedTo(this.anchorRef)
+        .withPositions([
+          { originX: "start", originY: "bottom", overlayX: "start", overlayY: "top" } as ConnectedPosition,
+          { originX: "start", originY: "top", overlayX: "start", overlayY: "bottom" } as ConnectedPosition,
+          { originX: "end", originY: "bottom", overlayX: "end", overlayY: "top" } as ConnectedPosition,
+          { originX: "end", originY: "top", overlayX: "end", overlayY: "bottom" } as ConnectedPosition,
+        ]),
+      hasBackdrop: true,
+      backdropClass: "cdk-overlay-transparent-backdrop",
+    });
+
+    this.overlayRef._outsidePointerEvents.subscribe((e) => {
+      if (e.button === 2) {
+        this.rightClick(e);
+      } else {
+        this.overlayRef.detach();
+      }
+    });
   }
 
-  public hide() {
-    this.isOpen = false;
+  public rightClick(event: MouseEvent) {
+    event.preventDefault();
+    this.lastRightClick = { x: event.x, y: event.y };
+    const componentPortal = new ComponentPortal(ContextMenuComponent);
+
+    this.anchorRef.nativeElement.style.left = event.x + "px";
+    this.anchorRef.nativeElement.style.top = event.y + "px";
+
+    if (this.overlayRef.hasAttached()) {
+      this.overlayRef.updatePosition();
+    } else {
+      this.overlayRef.attach(componentPortal).instance.click.subscribe((e) => this.addNode(e));
+    }
+  }
+
+  public addNode(text: string) {
+    this.nodes = [
+      ...this.nodes,
+      {
+        id: crypto.randomUUID(),
+        type: "default",
+        text,
+        point: this.editor.documentPointToEditorPoint(this.lastRightClick),
+      },
+    ];
+    this.overlayRef.detach();
   }
 }

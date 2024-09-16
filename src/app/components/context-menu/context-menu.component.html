@@ -1,0 +1,8 @@
+<mat-list class="mat-app-background" >
+    @for(b of buildings; track b) {
+        <mat-list-item (click)="onClick(b.name)">{{b.name}}</mat-list-item>
+        @if(!$last){
+            <mat-divider></mat-divider>
+        }
+    }
+</mat-list>

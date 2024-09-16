@@ -11,12 +11,15 @@ name = "satisfactory_editor_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.0.0-rc", features = [] }
+tauri-build = { workspace = true, features = [] }
+satisfactory-extractor = { workspace = true }
+
 
 [dependencies]
-tauri = { version = "2.0.0-rc", features = [] }
-tauri-plugin-shell = "2.0.0-rc"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1.0.125"
+tauri = { workspace = true, features = [] }
+tauri-plugin-shell = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+satisfactory-extractor = { workspace = true }
 #tauri-plugin-devtools = "2.0.0-rc"
 #tauri-plugin-devtools-app = "2.0.0-rc.0"

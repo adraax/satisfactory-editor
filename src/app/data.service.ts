@@ -1,16 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from "@angular/core";
 
-import data from '../assets/output.json'
-import { Building } from './interfaces/building.interface';
+import data from "../assets/data.json";
+import { Building } from "./interfaces/building.interface";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DataService {
-    private buildings: Map<string, Building> = new Map()
-    constructor() {
-        for (let k in data.buildings) {
-            console.log(k)
-            //this.buildings.set(k, data.buildings[k])
-        }
-        console.log(data)
-    }
+  public buildings: Building[] = [];
+
+  constructor() {
+    this.buildings = data.buildings as Building[];
+  }
 }

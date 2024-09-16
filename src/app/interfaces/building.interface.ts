@@ -1,5 +1,5 @@
 export interface Building {
   name: string;
   power: number;
-  somersloopMult: number;
+  somersloop_mult: number;
 }
