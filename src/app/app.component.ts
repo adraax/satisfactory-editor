@@ -58,6 +58,9 @@ export class AppComponent implements AfterViewInit {
       id: "1 -> 2",
       source: "1",
       target: "2",
+      markers: {
+        end: { type: "arrow" },
+      },
     },
   ];
 
@@ -68,6 +71,9 @@ export class AppComponent implements AfterViewInit {
         id: `${source} -> ${target}`,
         source,
         target,
+        markers: {
+          end: { type: "arrow" },
+        },
       },
     ];
   }

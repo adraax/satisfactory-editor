@@ -1,7 +1,3 @@
-use std::env::current_dir;
-
-use satisfactory_extractor::parse_docs;
-
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -12,11 +8,17 @@ fn greet(name: &str) -> String {
 pub fn run() {
     #[cfg(debug_assertions)]
     {
+        use satisfactory_extractor::parse_docs;
+        use std::env::current_dir;
+
         let input_path = current_dir().unwrap().join("assets").join("Docs.json");
-        let output_path = current_dir().unwrap().join("..").join("src").join("assets").join("data.json");
-        dbg!(input_path.clone());
-        dbg!(output_path.clone());
-        
+        let output_path = current_dir()
+            .unwrap()
+            .join("..")
+            .join("src")
+            .join("assets")
+            .join("data.json");
+
         parse_docs(input_path, output_path).unwrap();
     }
 

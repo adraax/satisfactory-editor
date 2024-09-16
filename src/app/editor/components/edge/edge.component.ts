@@ -39,13 +39,13 @@ export class EdgeComponent implements OnInit {
   public markerStartUrl = computed(() => {
     const marker = this.model.edge.markers?.start;
 
-    return marker ? `url(${hashCode(JSON.stringify(marker))})` : "";
+    return marker ? `url(#${hashCode(JSON.stringify(marker))})` : "";
   });
 
   public markerEndUrl = computed(() => {
     const marker = this.model.edge.markers?.end;
 
-    return marker ? `url(${hashCode(JSON.stringify(marker))})` : "";
+    return marker ? `url(#${hashCode(JSON.stringify(marker))})` : "";
   });
 
   protected edgeContext!: EdgeContext;
