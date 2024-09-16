@@ -23,3 +23,6 @@ serde_json = { workspace = true }
 satisfactory-extractor = { workspace = true }
 #tauri-plugin-devtools = "2.0.0-rc"
 #tauri-plugin-devtools-app = "2.0.0-rc.0"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
