@@ -1,4 +1,19 @@
 <div class="container">
   <h1>Welcome to Tauri + Angular!</h1>
-  <editor view="auto" [background]="background" [nodes]="nodes" [edges]="edges" [connection]="connectionSettings" (onConnect)="createEdge($event)"></editor>
+  
+  <editor view="auto" [background]="background" [nodes]="nodes" [edges]="edges" [connection]="connectionSettings" (onConnect)="createEdge($event)" (contextmenu)="rightClick($event)"></editor>
 </div>
+
+<!-- hidden anchor for overlay -->
+<div id="overlay-anchor" #anchor cdkOverlayOrigin #trigger="cdkOverlayOrigin"></div>
+
+<!-- Overlay -->
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen" (overlayOutsideClick)="isOpen = false">
+  <ul (click)="hide()">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+</ng-template>

@@ -8,7 +8,6 @@ import {
   Observable,
   observeOn,
   share,
-  skip,
   Subscription,
   takeUntil,
   tap,
@@ -43,10 +42,7 @@ export class DraggableService {
       }),
       mergeMap((down) => {
         return mouseMove$.pipe(
-          skip(1),
           map((event) => ({
-            dx: down.x,
-            dy: down.y,
             tx: event.x - previous.x,
             ty: event.y - previous.y,
             x: event.x,
@@ -54,9 +50,9 @@ export class DraggableService {
             originalEvent: event,
           })),
           observeOn(animationFrameScheduler),
+          takeUntil(mouseUp$),
           tap((event) => (previous = { x: event.x, y: event.y })),
-          share(),
-          takeUntil(mouseUp$)
+          share()
         );
       })
     );

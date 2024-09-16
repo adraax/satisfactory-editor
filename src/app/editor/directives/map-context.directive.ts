@@ -34,7 +34,7 @@ export class MapContextDirective implements OnInit {
         this.rootSvgSelection.call(
           this.zoomBehavior.transform,
           zoomIdentity
-            .translate(this.pointer()!.tX / transform.k + transform.x, this.pointer()!.tY / transform.k + transform.y)
+            .translate(this.pointer()!.tX + transform.x, this.pointer()!.tY + transform.y)
             .scale(zoom)
         );
       }

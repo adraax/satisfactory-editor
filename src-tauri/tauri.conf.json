@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "identifier": "com.satisfactory-editor.app",
   "build": {
-    "beforeDevCommand": "pnpm start --host $HOST --public-host $HOST",
+    "beforeDevCommand": "pnpm start",
     "devUrl": "http://localhost:1420",
     "beforeBuildCommand": "pnpm build",
     "frontendDist": "../dist/satisfactory-editor/browser"

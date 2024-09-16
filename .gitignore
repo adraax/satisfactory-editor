@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 **/target/
+**/assets/Docs.json

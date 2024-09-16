@@ -1,18 +1,28 @@
+import { OverlayModule } from "@angular/cdk/overlay";
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, ElementRef, inject, ViewChild } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
+import { DataService } from "./data.service";
 import { Background, Connection, ConnectionSettings, Edge, Node } from "./editor/api";
 import { EditorModule } from "./editor/editor.module";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [CommonModule, RouterOutlet, EditorModule],
+  imports: [CommonModule, RouterOutlet, EditorModule, OverlayModule],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
+  providers: [DataService],
 })
 export class AppComponent {
+  private dataService = inject(DataService);
+
+  public isOpen = false;
+
+  @ViewChild("anchor")
+  public anchorRef!: ElementRef<HTMLDivElement>;
+
   public connectionSettings: ConnectionSettings = {
     marker: {
       type: "arrow",
@@ -21,7 +31,7 @@ export class AppComponent {
   greetingMessage = "";
 
   //protected background: Background = { type: "grid", backgroundColor: "#191c1c" };
-  protected background: Background = { type: "grid", backgroundColor: "#ffffff" };
+  protected background: Background = { type: "grid", backgroundColor: "#32323a", color: "#707070" };
 
   public nodes: Node[] = [
     {
@@ -65,5 +75,18 @@ export class AppComponent {
     invoke<string>("greet", { name }).then((text) => {
       this.greetingMessage = text;
     });
+  }
+
+  public rightClick(event: MouseEvent) {
+    this.isOpen = false;
+    this.anchorRef.nativeElement.style.left = event.x + "px";
+    this.anchorRef.nativeElement.style.top = event.y + "px";
+    this.isOpen = true;
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  public hide() {
+    this.isOpen = false;
   }
 }

@@ -49,8 +49,8 @@ export class RootPointerDirective {
         map((event) => ({
           tX: event.clientX - this.previous.x,
           tY: event.clientY - this.previous.y,
-          x: event.x,
-          y: event.y,
+          x: event.clientX,
+          y: event.clientY,
         })),
         observeOn(animationFrameScheduler),
         takeUntil(this.mouseUp$),
