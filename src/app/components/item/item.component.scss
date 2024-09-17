@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    flex-direction: row;
+
+    &>:not(:first-child) {
+        padding-left: 20px;
+    } 
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-divider {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+mat-card-header {
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card {
+    background-color: hsla(240, 3%, 7%, 0.795);
+}

@@ -1,0 +1,26 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ data()?.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-divider />
+  <mat-card-content>
+    <div class="row">
+      <div class="column">
+        @for(input of recipe.inputs; track input.name) {
+        <div>
+          {{ input.name }}
+          <handle position="left" type="target" />
+        </div>
+        }
+      </div>
+      <div class="column">
+        @for(output of recipe.outputs; track output.name) {
+        <div>
+          {{ output.name }}
+          <handle position="right" type="source" />
+        </div>
+        }
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

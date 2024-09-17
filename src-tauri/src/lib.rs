@@ -9,12 +9,12 @@ pub fn run() {
     #[cfg(debug_assertions)]
     {
         use satisfactory_extractor::parse_docs;
-        use std::env::current_dir;
+        use std::path::PathBuf;
 
-        let input_path = current_dir().unwrap().join("assets").join("Docs.json");
-        let output_path = current_dir()
-            .unwrap()
-            .join("..")
+        let root_path = PathBuf::from(std::env::var("CARGO_WORKSPACE_DIR").unwrap());
+
+        let input_path = root_path.join("src-tauri").join("assets").join("Docs.json");
+        let output_path = root_path
             .join("src")
             .join("assets")
             .join("data.json");

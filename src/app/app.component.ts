@@ -5,8 +5,10 @@ import { AfterViewInit, Component, ElementRef, inject, ViewChild } from "@angula
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
 import { ContextMenuComponent } from "./components/context-menu/context-menu.component";
+import { ItemComponent } from "./components/item/item.component";
 import { Background, Connection, ConnectionSettings, Edge, EditorComponent, Node } from "./editor/api";
 import { EditorModule } from "./editor/editor.module";
+import { ItemData } from "./interfaces/Item-data.interface";
 
 @Component({
   selector: "app-root",
@@ -131,8 +133,10 @@ export class AppComponent implements AfterViewInit {
       ...this.nodes,
       {
         id: crypto.randomUUID(),
-        type: "default",
-        text,
+        type: ItemComponent,
+        data: {
+          name: text,
+        } satisfies ItemData,
         point: this.editor.documentPointToEditorPoint(this.lastRightClick),
       },
     ];

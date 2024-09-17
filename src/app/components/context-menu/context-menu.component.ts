@@ -2,27 +2,28 @@ import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit, Outpu
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
 import { DataService } from "../../data.service";
-import { Building } from "../../interfaces/building.interface";
+import { Recipe } from "../../interfaces/recipe.interface";
 
 @Component({
   templateUrl: "./context-menu.component.html",
+  styleUrl: './context-menu.component.css',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatListModule, MatDividerModule],
 })
 export class ContextMenuComponent implements OnInit {
   @Output()
-  public click = new EventEmitter<string>()
-    
+  public click = new EventEmitter<string>();
+
   public dataService = inject(DataService);
 
-  public buildings: Building[] = [];
+  public recipes: Recipe[] = [];
 
   ngOnInit(): void {
-    this.buildings = this.dataService.buildings;
+    this.recipes = this.dataService.recipes;
   }
 
   public onClick(e: string) {
-    this.click.emit(e)
+    this.click.emit(e);
   }
 }

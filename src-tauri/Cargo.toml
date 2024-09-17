@@ -16,11 +16,13 @@ satisfactory-extractor = { workspace = true }
 
 
 [dependencies]
+regex = {workspace = true, features = []}
 tauri = { workspace = true, features = [] }
 tauri-plugin-shell = { workspace = true }
+satisfactory-extractor = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
-satisfactory-extractor = { workspace = true }
+
 #tauri-plugin-devtools = "2.0.0-rc"
 #tauri-plugin-devtools-app = "2.0.0-rc.0"
 
