@@ -13,6 +13,13 @@ export interface ConnectionStatusStart {
   payload: Omit<ConnectionInternal, "target" | "targetHandle">;
 }
 
+export interface ConnectionStatusCancel {
+  state: "connection-cancel";
+  payload: Omit<ConnectionInternal, "target" | "targetHandle"> & {
+    event: MouseEvent;
+  };
+}
+
 export interface ConnectionStatusValidation {
   state: "connection-validation";
   payload: ConnectionInternal & {
@@ -27,6 +34,7 @@ export interface ConnectionStatusEnd {
 
 export type ConnectionStatus =
   | ConnectionStatusIdle
+  | ConnectionStatusCancel
   | ConnectionStatusStart
   | ConnectionStatusValidation
   | ConnectionStatusEnd;
@@ -35,12 +43,29 @@ export type ConnectionStatus =
 export class ConnectionStatusService {
   public readonly status = signal<ConnectionStatus>({ state: "idle", payload: null });
 
-  public setIdleStatus() {
-    this.status.set({ state: "idle", payload: null });
+  public setIdleStatus(cancel: boolean = false, event?: MouseEvent) {
+    if (!cancel) {
+      this.status.set({ state: "idle", payload: null });
+    } else if (cancel && event) {
+      const payload = this.status().payload;
+
+      batchStatusChanges(
+        () =>
+          this.status.set({
+            state: "connection-cancel",
+            payload: { source: payload?.source!, sourceHandle: payload?.sourceHandle!, event },
+          }),
+        () => this.status.set({ state: "idle", payload: null })
+      );
+    }
   }
 
   public setConnectionStatusStart(source: NodeModel, sourceHandle: HandleModel) {
     this.status.set({ state: "connection-start", payload: { source, sourceHandle } });
+  }
+
+  public setConnectionStatusCancel(source: NodeModel, sourceHandle: HandleModel, event: MouseEvent) {
+    this.status.set({ state: "connection-cancel", payload: { source, sourceHandle, event } });
   }
 
   public setConnectionStatusValidation(

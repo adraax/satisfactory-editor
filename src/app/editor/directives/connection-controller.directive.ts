@@ -1,5 +1,5 @@
 import { computed, Directive, effect, EventEmitter, inject, Output } from "@angular/core";
-import { Connection } from "../interfaces/connection.interface";
+import { Connection, ConnectionCancel } from "../interfaces/connection.interface";
 import { HandleModel } from "../models/handle.model";
 import { batchStatusChanges, ConnectionStatusService } from "../services/connection-status.service";
 import { EntitiesService } from "../services/entities.service";
@@ -15,6 +15,9 @@ export class ConnectionControllerDirective {
 
   @Output()
   public onConnect = new EventEmitter<Connection>();
+
+  @Output()
+  public onConnectCancel = new EventEmitter<ConnectionCancel>();
 
   protected connectEffect = effect(
     () => {
@@ -56,6 +59,19 @@ export class ConnectionControllerDirective {
 
         if (connectionModel.validator(connection)) {
           this.onConnect.emit(connection);
+        }
+      } else {
+        if (status.state === "connection-cancel") {
+          const sourceId = status.payload.source.node.id;
+          const sourceHandleId = status.payload.sourceHandle.rawHandle.id;
+          const event = status.payload.event;
+
+          const connection = {
+            source: sourceId,
+            sourceHandle: sourceHandleId,
+            event,
+          };
+          this.onConnectCancel.emit(connection);
         }
       }
     },

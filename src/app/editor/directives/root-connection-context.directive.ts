@@ -5,12 +5,12 @@ import { ConnectionStatusService } from "../services/connection-status.service";
 export class RootConnectionContextDirective {
   private connectionStatusService = inject(ConnectionStatusService);
 
-  @HostListener("document:mouseup")
-  protected resetConnection() {
+  @HostListener("document:mouseup", ["$event"])
+  protected resetConnection(event: MouseEvent) {
     const status = this.connectionStatusService.status();
 
     if (status.state === "connection-start") {
-      this.connectionStatusService.setIdleStatus();
+      this.connectionStatusService.setIdleStatus(true, event);
     }
   }
 }
