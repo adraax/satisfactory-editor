@@ -27,7 +27,7 @@ export class ConnectionModel {
     }
 
     if (settings.validator) {
-      validators.push(this.validator);
+      validators.push(settings.validator);
     }
 
     return validators;

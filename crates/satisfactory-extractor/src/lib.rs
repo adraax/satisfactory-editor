@@ -83,13 +83,13 @@ struct OutRecipe {
     time: f32,
     building: String,
     inputs: Vec<Part>,
-    outputs: Vec<Part>
+    outputs: Vec<Part>,
 }
 
 #[derive(Serialize, Deserialize)]
 struct Part {
     name: String,
-    quantity: f32
+    quantity: f32,
 }
 
 type OutRecipes = HashMap<String, OutRecipe>;
@@ -117,7 +117,11 @@ struct OutBuilding {
         default
     )]
     max_power: Option<f32>,
-    #[serde(alias = "mProductionShardBoostMultiplier", default)]
+    #[serde(
+        alias = "mProductionShardBoostMultiplier",
+        deserialize_with = "deserialize_f32_string",
+        default
+    )]
     somersloop_mult: f32,
 }
 
@@ -185,24 +189,29 @@ fn get_building(
 
 fn parse_items_list(s: &str, items: &InItems) -> Vec<Part> {
     static REGEX: OnceLock<Regex> = OnceLock::new();
-    let re = REGEX.get_or_init(|| Regex::new(r#"\(ItemClass=.*?\.([^.]*)\"',Amount=([0-9.]+)\)"#).unwrap());
-    let match_items: Vec<Part> = re.captures_iter(s).filter_map(|c| {
-        let (_, [i, q]) = c.extract();
-        match i {
-            i if items.contains_key(i) => Some(Part {
-                name: items.get(i).unwrap().name.clone(),
-                quantity: q.parse::<f32>().unwrap() / (match items.get(i).unwrap().state {
-                    ItemState::Solid => 1.0f32,
-                    ItemState::Gas => 1000.0f32,
-                    ItemState::Liquid => 1000.0f32
-                })
-            }),
-            _ => {
-                println!("Unknown item {i}");
-                None
+    let re = REGEX
+        .get_or_init(|| Regex::new(r#"\(ItemClass=.*?\.([^.]*)'\",Amount=([0-9.]+)\)"#).unwrap());
+    let match_items: Vec<Part> = re
+        .captures_iter(s)
+        .filter_map(|c| {
+            let (_, [i, q]) = c.extract();
+            match i {
+                i if items.contains_key(i) => Some(Part {
+                    name: items.get(i).unwrap().name.clone(),
+                    quantity: q.parse::<f32>().unwrap()
+                        / (match items.get(i).unwrap().state {
+                            ItemState::Solid => 1.0f32,
+                            ItemState::Gas => 1000.0f32,
+                            ItemState::Liquid => 1000.0f32,
+                        }),
+                }),
+                _ => {
+                    println!("Unknown item {i}");
+                    None
+                }
             }
-        }
-    }).collect();
+        })
+        .collect();
     match_items
 }
 
@@ -255,9 +264,16 @@ pub fn parse_docs(input_path: PathBuf, output_path: PathBuf) -> Result<(), Box<d
                     .as_str()
                     .unwrap()
                     .replace("Alternate:", "")
+                    .replace("Alternative :", "")
+                    .replace("(alternative)", "")
                     .trim()
                     .to_owned(),
-                alternate: r["mDisplayName"].as_str().unwrap().contains("Alternate"),
+                alternate: r["mDisplayName"].as_str().unwrap().contains("Alternate")
+                    || r["mDisplayName"]
+                        .as_str()
+                        .unwrap()
+                        .to_lowercase()
+                        .contains("alternative"),
                 time: r["mManufactoringDuration"]
                     .as_str()
                     .unwrap()
@@ -265,7 +281,7 @@ pub fn parse_docs(input_path: PathBuf, output_path: PathBuf) -> Result<(), Box<d
                     .unwrap(),
                 building: building.unwrap().name,
                 inputs: parse_items_list(r["mIngredients"].as_str().unwrap(), &items_map),
-                outputs: parse_items_list(r["mProduct"].as_str().unwrap(), &items_map)
+                outputs: parse_items_list(r["mProduct"].as_str().unwrap(), &items_map),
             },
         );
     }

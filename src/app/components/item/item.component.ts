@@ -1,8 +1,10 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { DataService } from "../../data.service";
-import { CustomNodeComponent, EditorModule } from "../../editor/api";
+import { ComponentNode, CustomNodeComponent, EditorModule } from "../../editor/api";
 import { ItemData } from "../../interfaces/Item-data.interface";
 import { Recipe } from "../../interfaces/recipe.interface";
 
@@ -10,7 +12,7 @@ import { Recipe } from "../../interfaces/recipe.interface";
   templateUrl: "./item.component.html",
   styleUrl: "./item.component.scss",
   standalone: true,
-  imports: [EditorModule, MatCardModule, MatDividerModule],
+  imports: [EditorModule, MatCardModule, MatDividerModule, MatInputModule, MatFormFieldModule],
 })
 export class ItemComponent extends CustomNodeComponent<ItemData> implements OnInit {
   private dataService = inject(DataService);
@@ -19,7 +21,6 @@ export class ItemComponent extends CustomNodeComponent<ItemData> implements OnIn
 
   override ngOnInit(): void {
     super.ngOnInit();
-    console.log(this.data()?.name);
     this.recipe = this.dataService.recipes.find((el) => el.name === this.data()?.name)!;
-  }
+    }
 }

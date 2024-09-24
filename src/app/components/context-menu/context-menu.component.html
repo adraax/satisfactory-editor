@@ -1,8 +1,25 @@
-<mat-list class="mat-app-background" >
-    @for(b of recipes; track b) {
-        <mat-list-item (click)="onClick(b.name)">{{b.name}}</mat-list-item>
-        @if(!$last){
-            <mat-divider></mat-divider>
-        }
-    }
+<mat-list class="mat-app-background">
+  <mat-list-item (click)="onClick('Splitter')">Splitter</mat-list-item>
+  <mat-list-item (click)="onClick('Merger')">Merger</mat-list-item>
 </mat-list>
+
+<form>
+  <mat-form-field>
+    <mat-label>Recette</mat-label>
+    <input
+      #input
+      type="text"
+      placeholder="Sélectionner une recette"
+      matInput
+      [formControl]="control"
+      [matAutocomplete]="auto"
+      (input)="filter()"
+      (focus)="filter()"
+    />
+    <mat-autocomplete requireSelection #auto="matAutocomplete" (optionSelected)="onClick($event.option.value)" >
+      @for(recipe of filteredRecipes; track recipe) {
+      <mat-option [value]="recipe.name">{{ recipe.name }}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

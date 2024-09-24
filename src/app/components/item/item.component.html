@@ -8,16 +8,22 @@
       <div class="column">
         @for(input of recipe.inputs; track input.name) {
         <div>
-          {{ input.name }}
-          <handle position="left" type="target" />
+          <div class="row">
+            <input type="number" value="{{ (60 / recipe.time) * input.quantity }}" />
+            <div>{{ input.name }}</div>
+          </div>
+          <handle position="left" type="target" [id]="input.name"/>
         </div>
         }
       </div>
       <div class="column">
         @for(output of recipe.outputs; track output.name) {
         <div>
-          {{ output.name }}
-          <handle position="right" type="source" />
+          <div class="row">
+            <div>{{ output.name }}</div>
+            <input type="number" value="{{ (60 / recipe.time) * output.quantity }}" />
+          </div>
+          <handle position="right" type="source" [id]="output.name"/>
         </div>
         }
       </div>

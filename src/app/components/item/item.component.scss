@@ -2,8 +2,12 @@
     display: flex;
     flex-direction: row;
 
-    &>:not(:first-child) {
+    &>div:not(:first-child) {
         padding-left: 20px;
+
+        input {
+            margin-left: 20px;
+        }
     } 
 }
 
@@ -24,4 +28,8 @@ mat-card-header {
 
 mat-card {
     background-color: hsla(240, 3%, 7%, 0.795);
+}
+
+input {
+    max-width: 60px;
 }

@@ -1,7 +1,7 @@
 import { ConnectedPosition, Overlay, OverlayModule, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal } from "@angular/cdk/portal";
 import { CommonModule } from "@angular/common";
-import { AfterViewInit, Component, ElementRef, inject, ViewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, inject, ViewChild } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { invoke } from "@tauri-apps/api/core";
 import { ContextMenuComponent } from "./components/context-menu/context-menu.component";
@@ -21,6 +21,7 @@ export class AppComponent implements AfterViewInit {
   private overlay = inject(Overlay);
 
   private overlayRef!: OverlayRef;
+  private portal!: ComponentPortal<ContextMenuComponent>;
 
   private lastRightClick = { x: 0, y: 0 };
 
@@ -34,45 +35,27 @@ export class AppComponent implements AfterViewInit {
     marker: {
       type: "arrow",
     },
+    validator(connection) {
+      return connection.sourceHandle === connection.targetHandle;
+    },
   };
   greetingMessage = "";
 
   protected background: Background = { type: "grid", backgroundColor: "#32323a", color: "#707070" };
 
-  public nodes: Node[] = [
-    {
-      id: "1",
-      point: { x: 10, y: 10 },
-      type: "default",
-      text: "default",
-    },
-    {
-      id: "2",
-      point: { x: 200, y: 200 },
-      type: "default",
-      text: "default 2",
-      draggable: false,
-    },
-  ];
+  public nodes: Node[] = [];
 
-  public edges: Edge[] = [
-    {
-      id: "1 -> 2",
-      source: "1",
-      target: "2",
-      markers: {
-        end: { type: "arrow" },
-      },
-    },
-  ];
+  public edges: Edge[] = [];
 
-  public createEdge({ source, target }: Connection) {
+  public createEdge({ source, target, sourceHandle, targetHandle }: Connection) {
     this.edges = [
       ...this.edges,
       {
-        id: `${source} -> ${target}`,
+        id: `${source} -> ${target}${sourceHandle ?? ""}${targetHandle ?? ""}`,
         source,
         target,
+        sourceHandle,
+        targetHandle,
         markers: {
           end: { type: "arrow" },
         },
@@ -89,6 +72,8 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
+  constructor(private cd: ChangeDetectorRef) {}
+
   ngAfterViewInit(): void {
     this.overlayRef = this.overlay.create({
       positionStrategy: this.overlay
@@ -104,6 +89,8 @@ export class AppComponent implements AfterViewInit {
       backdropClass: "cdk-overlay-transparent-backdrop",
     });
 
+    this.portal = new ComponentPortal(ContextMenuComponent);
+
     this.overlayRef._outsidePointerEvents.subscribe((e) => {
       if (e.button === 2) {
         this.rightClick(e);
@@ -116,7 +103,6 @@ export class AppComponent implements AfterViewInit {
   public rightClick(event: MouseEvent) {
     event.preventDefault();
     this.lastRightClick = { x: event.x, y: event.y };
-    const componentPortal = new ComponentPortal(ContextMenuComponent);
 
     this.anchorRef.nativeElement.style.left = event.x + "px";
     this.anchorRef.nativeElement.style.top = event.y + "px";
@@ -124,7 +110,10 @@ export class AppComponent implements AfterViewInit {
     if (this.overlayRef.hasAttached()) {
       this.overlayRef.updatePosition();
     } else {
-      this.overlayRef.attach(componentPortal).instance.click.subscribe((e) => this.addNode(e));
+      this.overlayRef.attach(this.portal).instance.click.subscribe((e: string) => {
+        this.addNode(e);
+        this.cd.detectChanges();
+      });
     }
   }
 
@@ -141,5 +130,9 @@ export class AppComponent implements AfterViewInit {
       },
     ];
     this.overlayRef.detach();
+  }
+
+  public dagreRender() {
+    this.editor.nodes;
   }
 }

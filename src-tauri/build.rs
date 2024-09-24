@@ -6,7 +6,7 @@ fn main() {
         let root_path = PathBuf::from(std::env::var("CARGO_WORKSPACE_DIR").unwrap());
         let extractor_path = root_path.join("crates").join("satisfactory-extractor").join("src").join("lib.rs");
         
-        let input_path = root_path.join("src-tauri").join("assets").join("Docs.json");
+        let input_path = root_path.join("src-tauri").join("assets").join("fr.json");
         let output_path = root_path
             .join("dist")
             .join("satisfactory-editor")
