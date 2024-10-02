@@ -1,0 +1,6350 @@
+{
+  "buildings": [
+    {
+      "name": "Accélérateur de particules",
+      "power": 0.1,
+      "min_power": 250.0,
+      "max_power": 1500.0,
+      "somersloop_mult": 0.25
+    },
+    {
+      "name": "Assembleuse",
+      "power": 15.0,
+      "somersloop_mult": 0.5
+    },
+    {
+      "name": "Conditionneur",
+      "power": 10.0,
+      "somersloop_mult": 1.0
+    },
+    {
+      "name": "Constructeur",
+      "power": 4.0,
+      "somersloop_mult": 1.0
+    },
+    {
+      "name": "Convertisseur",
+      "power": 0.1,
+      "min_power": 100.0,
+      "max_power": 400.0,
+      "somersloop_mult": 0.5
+    },
+    {
+      "name": "Encodeur quantique",
+      "power": 0.1,
+      "min_power": 0.0,
+      "max_power": 2000.0,
+      "somersloop_mult": 0.25
+    },
+    {
+      "name": "Façonneuse",
+      "power": 55.0,
+      "somersloop_mult": 0.25
+    },
+    {
+      "name": "Fonderie",
+      "power": 16.0,
+      "somersloop_mult": 0.5
+    },
+    {
+      "name": "Haut fourneau",
+      "power": 4.0,
+      "somersloop_mult": 1.0
+    },
+    {
+      "name": "Mélangeur",
+      "power": 75.0,
+      "somersloop_mult": 0.25
+    },
+    {
+      "name": "Raffinerie",
+      "power": 30.0,
+      "somersloop_mult": 0.5
+    }
+  ],
+  "recipes": [
+    {
+      "name": "Acide nitrique",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Azote",
+          "quantity": 12.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 3.0
+        },
+        {
+          "name": "Plaque de fer",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acide nitrique",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Acide nitrique conditionné",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Acide nitrique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acide nitrique conditionné",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Acide nitrique non conditionné",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Acide nitrique conditionné",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acide nitrique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Acide sulfurique",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Soufre",
+          "quantity": 5.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acide sulfurique",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Acide sulfurique conditionné",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Acide sulfurique",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acide sulfurique conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Acide sulfurique non conditionné",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Acide sulfurique conditionné",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acide sulfurique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Alternate: Polyester Fabric",
+      "alternate": true,
+      "time": 2.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résine polymère",
+          "quantity": 1.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tissu",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Alternative : filactif automatisé",
+      "alternate": true,
+      "time": 32.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Stator",
+          "quantity": 2.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 40.0
+        },
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Câblage automatisé",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Alumine bâclée (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Bauxite",
+          "quantity": 10.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Solution d'alumine",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Azote (bauxite)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Bauxite",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Azote",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Azote (caterium)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Minerai de caterium",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Azote",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Azote gazeux conditionné",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Azote",
+          "quantity": 4.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Azote gazeux conditionné",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Azote non conditionné",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Azote gazeux conditionné",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Azote",
+          "quantity": 4.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Barre d'aluminium (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre de fer",
+          "quantity": 7.0
+        }
+      ]
+    },
+    {
+      "name": "Barre d'armature en fer",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Barre de fer",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre d'armature en fer",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Barre d'armature à fragmentation",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Barre d'armature en fer",
+          "quantity": 2.0
+        },
+        {
+          "name": "Cristal de quartz",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre d'armature à fragmentation",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Barre d'armature étourdissante",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Barre d'armature en fer",
+          "quantity": 1.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre d'armature étourdissante",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Barre d'uranium",
+      "alternate": false,
+      "time": 150.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cellule d'uranium",
+          "quantity": 50.0
+        },
+        {
+          "name": "Poutre en béton armé",
+          "quantity": 3.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre d'uranium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Barre de fer",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre de fer",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Barre de ficsonium",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Encodeur quantique",
+      "inputs": [
+        {
+          "name": "Ficsonium",
+          "quantity": 2.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 2.0
+        },
+        {
+          "name": "Trigon en ficsite",
+          "quantity": 40.0
+        },
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre de ficsonium",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 20.0
+        }
+      ]
+    },
+    {
+      "name": "Barre de plutonium",
+      "alternate": false,
+      "time": 240.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cellule de plutonium encastré",
+          "quantity": 30.0
+        },
+        {
+          "name": "Poutre en acier",
+          "quantity": 18.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 6.0
+        },
+        {
+          "name": "Dissipateur de chaleur",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre de plutonium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Batterie",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Acide sulfurique",
+          "quantity": 2.5
+        },
+        {
+          "name": "Solution d'alumine",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Batterie",
+          "quantity": 1.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Batterie classique (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Soufre",
+          "quantity": 6.0
+        },
+        {
+          "name": "Tôle d'aluminium en alliage Alclad",
+          "quantity": 7.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 8.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Batterie",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Bauxite (caterium)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Minerai de caterium",
+          "quantity": 15.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bauxite",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Bauxite (cuivre)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 18.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bauxite",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Bidon en acier (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bidon vide",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Bidon en alliage Alclad (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 20.0
+        },
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 15.0
+        }
+      ]
+    },
+    {
+      "name": "Bidon en aluminium",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Bidon en fer recouvert (alternative)",
+      "alternate": true,
+      "time": 4.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 2.0
+        },
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bidon vide",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Bidon vide",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Plastique",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bidon vide",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Biocarburant liquide",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Biocarburant solide",
+          "quantity": 6.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biocarburant liquide",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Biocarburant liquide conditionné",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Biocarburant liquide",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biocarburant liquide conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Biocarburant liquide non conditionné",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Biocarburant liquide conditionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biocarburant liquide",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Biocarburant solide",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Biomasse",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biocarburant solide",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Biomasse (bois)",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Bois",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biomasse",
+          "quantity": 20.0
+        }
+      ]
+    },
+    {
+      "name": "Biomasse (feuilles)",
+      "alternate": false,
+      "time": 5.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Feuilles",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biomasse",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Biomasse (mycélium)",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Mycélium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biomasse",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Biomasse (protéine extraterrestre)",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Protéine extraterrestre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biomasse",
+          "quantity": 100.0
+        }
+      ]
+    },
+    {
+      "name": "Béton",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Calcaire",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Béton",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Béton de caoutchouc (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Calcaire",
+          "quantity": 10.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Béton",
+          "quantity": 9.0
+        }
+      ]
+    },
+    {
+      "name": "Béton fin (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Silice",
+          "quantity": 3.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Béton",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Béton humide (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Calcaire",
+          "quantity": 6.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Béton",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre boulonné (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 3.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 56.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre de protection lourd (alternative)",
+      "alternate": true,
+      "time": 64.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 8.0
+        },
+        {
+          "name": "Poutre en béton armé",
+          "quantity": 10.0
+        },
+        {
+          "name": "Tuyau en acier",
+          "quantity": 36.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 22.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire lourd",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre en acier (alternative)",
+      "alternate": true,
+      "time": 60.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 2.0
+        },
+        {
+          "name": "Tuyau en acier",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre flexible lourd (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 5.0
+        },
+        {
+          "name": "Poutre en béton armé",
+          "quantity": 3.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 20.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 104.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire lourd",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre fusionné à chaud (alternative)",
+      "alternate": true,
+      "time": 20.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Cadre modulaire lourd",
+          "quantity": 1.0
+        },
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 50.0
+        },
+        {
+          "name": "Acide nitrique",
+          "quantity": 8.0
+        },
+        {
+          "name": "Carburant",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire fusionné",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre modulaire",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 3.0
+        },
+        {
+          "name": "Barre de fer",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre modulaire fusionné",
+      "alternate": false,
+      "time": 40.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Cadre modulaire lourd",
+          "quantity": 1.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 50.0
+        },
+        {
+          "name": "Azote",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire fusionné",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Cadre modulaire lourd",
+      "alternate": false,
+      "time": 30.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 5.0
+        },
+        {
+          "name": "Tuyau en acier",
+          "quantity": 20.0
+        },
+        {
+          "name": "Poutre en béton armé",
+          "quantity": 5.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 120.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cadre modulaire lourd",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Calcaire (soufre)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Calcaire",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Caoutchouc",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Caoutchouc",
+          "quantity": 2.0
+        },
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Caoutchouc recyclé (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Plastique",
+          "quantity": 6.0
+        },
+        {
+          "name": "Carburant",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Caoutchouc",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Caoutchouc résiduel",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résine polymère",
+          "quantity": 4.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Caoutchouc",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Capsule ADN extraterrestre",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Protéine extraterrestre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Capsule ADN extraterrestre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant",
+          "quantity": 4.0
+        },
+        {
+          "name": "Résine polymère",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant conditionné",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Carburant",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant d'ions noirs (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "Carburant de fusée conditionné",
+          "quantity": 12.0
+        },
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant ionisé",
+          "quantity": 10.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant de fusée",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Turbocarburant",
+          "quantity": 6.0
+        },
+        {
+          "name": "Acide nitrique",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant de fusée",
+          "quantity": 10.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant de fusée conditionné",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Carburant de fusée",
+          "quantity": 2.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant de fusée conditionné",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant de fusée non conditionné",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Carburant de fusée conditionné",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant de fusée",
+          "quantity": 2.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant dilué (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 5.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant dilué conditionné (alternative)",
+      "alternate": true,
+      "time": 2.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 1.0
+        },
+        {
+          "name": "Eau conditionnée",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant ionisé",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Carburant de fusée",
+          "quantity": 16.0
+        },
+        {
+          "name": "Éclat de charge",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant ionisé",
+          "quantity": 16.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant ionisé conditionné",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Carburant ionisé",
+          "quantity": 4.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant ionisé conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant ionisé non conditionné",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Carburant ionisé conditionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant ionisé",
+          "quantity": 4.0
+        },
+        {
+          "name": "Réservoir vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant nitro de fusée (alternative)",
+      "alternate": true,
+      "time": 2.4,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Carburant",
+          "quantity": 4.0
+        },
+        {
+          "name": "Azote",
+          "quantity": 3.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 4.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant de fusée",
+          "quantity": 6.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant non conditionné",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Carburant conditionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Carburant résiduel",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Carburant",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Cellule d'uranium",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Uranium",
+          "quantity": 10.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 3.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cellule d'uranium",
+          "quantity": 5.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Cellule d'uranium infusée (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Uranium",
+          "quantity": 5.0
+        },
+        {
+          "name": "Silice",
+          "quantity": 3.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 5.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 15.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cellule d'uranium",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Cellule de plutonium encastré",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Granulés de plutonium",
+          "quantity": 2.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cellule de plutonium encastré",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Cellule de plutonium instantanée (alternative)",
+      "alternate": true,
+      "time": 120.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Uranium non fissile",
+          "quantity": 150.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cellule de plutonium encastré",
+          "quantity": 20.0
+        }
+      ]
+    },
+    {
+      "name": "Cellule de singularité",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Pâte nucléaire",
+          "quantity": 1.0
+        },
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 20.0
+        },
+        {
+          "name": "Plaque de fer",
+          "quantity": 100.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 200.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cellule de singularité",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Charbon (calcaire)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 36.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Charbon",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Charbon (fer)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Minerai de fer",
+          "quantity": 18.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Charbon",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Charbon compacté (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Charbon",
+          "quantity": 5.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Charbon compacté",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Charbon de biomasse (Alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Biomasse",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Charbon",
+          "quantity": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Charbon de bois (Alternative)",
+      "alternate": true,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Bois",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Charbon",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Circuit imprimé",
+      "alternate": false,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 2.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Circuit imprimé en caterium (alternative)",
+      "alternate": true,
+      "time": 48.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plastique",
+          "quantity": 10.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 30.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 7.0
+        }
+      ]
+    },
+    {
+      "name": "Circuit imprimé en silicium (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 11.0
+        },
+        {
+          "name": "Silice",
+          "quantity": 11.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Circuit imprimé à électrodes (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Caoutchouc",
+          "quantity": 4.0
+        },
+        {
+          "name": "Coke de pétrole",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Coke de pétrole",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Coke de pétrole",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Connecteur haute vitesse",
+      "alternate": false,
+      "time": 16.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Filactif",
+          "quantity": 56.0
+        },
+        {
+          "name": "Câble",
+          "quantity": 10.0
+        },
+        {
+          "name": "Circuit imprimé",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Connecteur haute vitesse en silicium (alternative)",
+      "alternate": true,
+      "time": 40.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Filactif",
+          "quantity": 60.0
+        },
+        {
+          "name": "Silice",
+          "quantity": 25.0
+        },
+        {
+          "name": "Circuit imprimé",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Contrôleur d'I.A.",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 5.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Contrôleur d'I.A.",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Contrôleur d'I.A. en plastique (alternative)",
+      "alternate": true,
+      "time": 15.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Filactif",
+          "quantity": 30.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 7.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Contrôleur d'I.A.",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Cristal de matière noire",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Diamants",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Cristal de quartz",
+      "alternate": false,
+      "time": 8.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de quartz",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Cristal de quartz fusionné (alternative)",
+      "alternate": true,
+      "time": 20.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 25.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de quartz",
+          "quantity": 18.0
+        }
+      ]
+    },
+    {
+      "name": "Cristal de quartz pur (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 9.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de quartz",
+          "quantity": 7.0
+        }
+      ]
+    },
+    {
+      "name": "Cristal temporel",
+      "alternate": false,
+      "time": 10.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "Diamants",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal temporel",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Cube de conversion de pression",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Cadre modulaire fusionné",
+          "quantity": 1.0
+        },
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cube de conversion de pression",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Câblage automatisé",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Stator",
+          "quantity": 1.0
+        },
+        {
+          "name": "Câble",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Câblage automatisé",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Câble",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Câble",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Câble filactif (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Filactif",
+          "quantity": 3.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Câble",
+          "quantity": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Câble isolé (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 9.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Câble",
+          "quantity": 20.0
+        }
+      ]
+    },
+    {
+      "name": "Câble recouvert (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 5.0
+        },
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Câble",
+          "quantity": 9.0
+        }
+      ]
+    },
+    {
+      "name": "Diamants",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Charbon",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diamants",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Diamants de pétrole (alternative)",
+      "alternate": true,
+      "time": 2.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Coke de pétrole",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diamants",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Diamants laiteux (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Charbon",
+          "quantity": 12.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diamants",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Diamants roses (alternative)",
+      "alternate": true,
+      "time": 4.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "Charbon",
+          "quantity": 8.0
+        },
+        {
+          "name": "Cristal de quartz",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diamants",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Diamants turbo (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Charbon",
+          "quantity": 30.0
+        },
+        {
+          "name": "Turbocarburant conditionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diamants",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Diamants à base de pétrole (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diamants",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Dissipateur de chaleur",
+      "alternate": false,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tôle d'aluminium en alliage Alclad",
+          "quantity": 5.0
+        },
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Dissipateur de chaleur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Eau conditionnée",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Eau",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Eau conditionnée",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Eau non conditionnée",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Eau conditionnée",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Eau",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Fer explosif",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Barre d'armature en fer",
+          "quantity": 2.0
+        },
+        {
+          "name": "Poudre sans fumée",
+          "quantity": 2.0
+        },
+        {
+          "name": "Tuyau en acier",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fer explosif",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Ficsonium",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Déchets de plutonium",
+          "quantity": 1.0
+        },
+        {
+          "name": "Cellule de singularité",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Ficsonium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Fil de caterium (alternative)",
+      "alternate": true,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 8.0
+        }
+      ]
+    },
+    {
+      "name": "Fil de fer (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 9.0
+        }
+      ]
+    },
+    {
+      "name": "Fil fusionné (alternative)",
+      "alternate": true,
+      "time": 20.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 4.0
+        },
+        {
+          "name": "Lingot de caterium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 30.0
+        }
+      ]
+    },
+    {
+      "name": "Fil électrique",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fil électrique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Filactif",
+      "alternate": false,
+      "time": 5.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filactif",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Filactif fusionné (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 1.0
+        },
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filactif",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Filtre à gaz",
+      "alternate": false,
+      "time": 8.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Tissu",
+          "quantity": 2.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 4.0
+        },
+        {
+          "name": "Plaque de fer",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filtre à gaz",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Filtre à infusion d'iode",
+      "alternate": false,
+      "time": 16.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Filtre à gaz",
+          "quantity": 1.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 8.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filtre à infusion d'iode",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Fluctuateur d'É.M.E.",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 6.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 5.0
+        },
+        {
+          "name": "Tuyau en acier",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fluctuateur d'É.M.E.",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Foreuse automatisée (alternative)",
+      "alternate": true,
+      "time": 60.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 4.0
+        },
+        {
+          "name": "Plaque de fer",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Foreuse portable",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Fusée à propulsion thermique",
+      "alternate": false,
+      "time": 120.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Moteur modulaire",
+          "quantity": 5.0
+        },
+        {
+          "name": "Turbomoteur",
+          "quantity": 2.0
+        },
+        {
+          "name": "Système de refroidissement",
+          "quantity": 6.0
+        },
+        {
+          "name": "Cadre modulaire fusionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fusée à propulsion thermique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Granulés de plutonium",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Uranium non fissile",
+          "quantity": 100.0
+        },
+        {
+          "name": "Déchets d'uranium",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Granulés de plutonium",
+          "quantity": 30.0
+        }
+      ]
+    },
+    {
+      "name": "Générateur de champ magnétique",
+      "alternate": false,
+      "time": 120.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Structure polyvalente",
+          "quantity": 5.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Générateur de champ magnétique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'acier",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 3.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'acier compacté (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 2.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'acier solide (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 2.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'alliage de cuivre (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 5.0
+        },
+        {
+          "name": "Minerai de fer",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'alliage de fer (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 8.0
+        },
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 15.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'aluminium",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Rebuts d'aluminium",
+          "quantity": 6.0
+        },
+        {
+          "name": "Silice",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot d'aluminium pur (alternative)",
+      "alternate": true,
+      "time": 2.0,
+      "building": "Haut fourneau",
+      "inputs": [
+        {
+          "name": "Rebuts d'aluminium",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de caterium",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Haut fourneau",
+      "inputs": [
+        {
+          "name": "Minerai de caterium",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de caterium lessivé (alternative)",
+      "alternate": true,
+      "time": 10.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Minerai de caterium",
+          "quantity": 9.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de caterium pur (alternative)",
+      "alternate": true,
+      "time": 5.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Minerai de caterium",
+          "quantity": 2.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de caterium trempé (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de caterium",
+          "quantity": 6.0
+        },
+        {
+          "name": "Coke de pétrole",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de caterium",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de coke d'acier (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 15.0
+        },
+        {
+          "name": "Coke de pétrole",
+          "quantity": 15.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 20.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de cuivre",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Haut fourneau",
+      "inputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de cuivre lessivé (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 9.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 22.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de cuivre pur (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 6.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 15.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de cuivre trempé (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 5.0
+        },
+        {
+          "name": "Coke de pétrole",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de fer",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Haut fourneau",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de fer basique (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 5.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de fer lessivé (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 5.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de fer pur (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 7.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 13.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de ficsite (aluminium)",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 2.0
+        },
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de ficsite",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de ficsite (caterium)",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 3.0
+        },
+        {
+          "name": "Lingot de caterium",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de ficsite",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lingot de ficsite (fer)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 4.0
+        },
+        {
+          "name": "Lingot de fer",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Lingot de ficsite",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Matière noire cristallisée (alternative)",
+      "alternate": true,
+      "time": 3.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Matière photonique agitée",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Convertisseur",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Matrice de charge extraterrestre",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Encodeur quantique",
+      "inputs": [
+        {
+          "name": "Fluctuateur d'É.M.E.",
+          "quantity": 5.0
+        },
+        {
+          "name": "Éclat de charge",
+          "quantity": 3.0
+        },
+        {
+          "name": "Oscillateur de superposition",
+          "quantity": 3.0
+        },
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Matrice de charge extraterrestre",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 24.0
+        }
+      ]
+    },
+    {
+      "name": "Minerai d'uranium (bauxite)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Bauxite",
+          "quantity": 48.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Uranium",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Minerai de caterium (cuivre)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 15.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Minerai de caterium",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Minerai de caterium (quartz)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Quartz brut",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Minerai de caterium",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Minerai de cuivre (quartz)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Quartz brut",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Minerai de cuivre (soufre)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Minerai de cuivre",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Minerai de fer (calcaire)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Minerai de fer",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Moteur",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Rotor",
+          "quantity": 2.0
+        },
+        {
+          "name": "Stator",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Moteur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Moteur modulaire",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Moteur",
+          "quantity": 2.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 15.0
+        },
+        {
+          "name": "Placage intelligent",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Moteur modulaire",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Moteur rigide (alternative)",
+      "alternate": true,
+      "time": 48.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Rotor",
+          "quantity": 3.0
+        },
+        {
+          "name": "Stator",
+          "quantity": 3.0
+        },
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Moteur",
+          "quantity": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Moteur à distorsion balistique",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Fusée à propulsion thermique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Cellule de singularité",
+          "quantity": 5.0
+        },
+        {
+          "name": "Oscillateur de superposition",
+          "quantity": 2.0
+        },
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 40.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Moteur à distorsion balistique",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Moteur électrique (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Rotor",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Moteur",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Munitions de fusil",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 3.0
+        },
+        {
+          "name": "Poudre sans fumée",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Munitions de fusil",
+          "quantity": 15.0
+        }
+      ]
+    },
+    {
+      "name": "Munitions de fusil turbo",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Munitions de fusil",
+          "quantity": 25.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 3.0
+        },
+        {
+          "name": "Turbocarburant conditionné",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Munitions de fusil turbo",
+          "quantity": 50.0
+        }
+      ]
+    },
+    {
+      "name": "Munitions de fusil turbo",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Munitions de fusil",
+          "quantity": 25.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 3.0
+        },
+        {
+          "name": "Turbocarburant",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Munitions de fusil turbo",
+          "quantity": 50.0
+        }
+      ]
+    },
+    {
+      "name": "Munitions de fusil à têtes chercheuses",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Munitions de fusil",
+          "quantity": 20.0
+        },
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Munitions de fusil à têtes chercheuses",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Nobélisque",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Poudre noire",
+          "quantity": 2.0
+        },
+        {
+          "name": "Tuyau en acier",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Nobélisque",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Nobélisque nucléaire",
+      "alternate": false,
+      "time": 120.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Nobélisque",
+          "quantity": 5.0
+        },
+        {
+          "name": "Cellule d'uranium",
+          "quantity": 20.0
+        },
+        {
+          "name": "Poudre sans fumée",
+          "quantity": 10.0
+        },
+        {
+          "name": "Contrôleur d'I.A.",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Nobélisque nucléaire",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Nobélisque à fragmentation",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Nobélisque",
+          "quantity": 3.0
+        },
+        {
+          "name": "Poudre sans fumée",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Nobélisque à fragmentation",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Nobélisque à gaz",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Nobélisque",
+          "quantity": 1.0
+        },
+        {
+          "name": "Biomasse",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Nobélisque à gaz",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Nobélisque à impulsion",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Nobélisque",
+          "quantity": 5.0
+        },
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Nobélisque à impulsion",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Ordinateur",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 4.0
+        },
+        {
+          "name": "Câble",
+          "quantity": 8.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 16.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Ordinateur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Ordinateur en caterium (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 4.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 14.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Ordinateur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Ordinateur à cristaux (alternative)",
+      "alternate": true,
+      "time": 36.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Circuit imprimé",
+          "quantity": 3.0
+        },
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Ordinateur",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Ordinateur à superétat (alternative)",
+      "alternate": true,
+      "time": 25.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Ordinateur",
+          "quantity": 3.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Batterie",
+          "quantity": 10.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Superordinateur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Oscillateur de superposition",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Encodeur quantique",
+      "inputs": [
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 6.0
+        },
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        },
+        {
+          "name": "Tôle d'aluminium en alliage Alclad",
+          "quantity": 9.0
+        },
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Oscillateur de superposition",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 25.0
+        }
+      ]
+    },
+    {
+      "name": "Oscillateur à cristal",
+      "alternate": false,
+      "time": 120.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cristal de quartz",
+          "quantity": 36.0
+        },
+        {
+          "name": "Câble",
+          "quantity": 28.0
+        },
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Oscillateur à cristal isolé (alternative)",
+      "alternate": true,
+      "time": 32.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cristal de quartz",
+          "quantity": 10.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 7.0
+        },
+        {
+          "name": "Contrôleur d'I.A.",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Piège à matière noire (alternative)",
+      "alternate": true,
+      "time": 2.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Cristal temporel",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Placage en plastique intelligent (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Rotor",
+          "quantity": 1.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Placage intelligent",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Placage intelligent",
+      "alternate": false,
+      "time": 30.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Rotor",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Placage intelligent",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque d'acier coulé (alternative)",
+      "alternate": true,
+      "time": 4.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 1.0
+        },
+        {
+          "name": "Lingot d'acier",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque de fer",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque de fer adhérente (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 3.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque de fer boulonnée (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 18.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 50.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque de fer recouverte (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 5.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque de fer renforcée",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 6.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Plaque de fer renforcée (alternative)",
+      "alternate": true,
+      "time": 32.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Plaque de fer",
+          "quantity": 10.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plaque de fer renforcée",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Plastique",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plastique",
+          "quantity": 2.0
+        },
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Plastique recyclé (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Caoutchouc",
+          "quantity": 6.0
+        },
+        {
+          "name": "Carburant",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plastique",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Plastique résiduel",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résine polymère",
+          "quantity": 6.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plastique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Poudre de cuivre",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 30.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poudre de cuivre",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Poudre noire",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Charbon",
+          "quantity": 1.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poudre noire",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Poudre noire fine (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Soufre",
+          "quantity": 1.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poudre noire",
+          "quantity": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Poudre sans fumée",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Poudre noire",
+          "quantity": 2.0
+        },
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poudre sans fumée",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Poutre en acier",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poutre en acier",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Poutre en aluminium (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poutre en acier",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Poutre en béton armé",
+      "alternate": false,
+      "time": 10.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Poutre en acier",
+          "quantity": 3.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poutre en béton armé",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Poutre moulée (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 24.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 16.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poutre en acier",
+          "quantity": 9.0
+        }
+      ]
+    },
+    {
+      "name": "Processeur neuro-quantique",
+      "alternate": false,
+      "time": 20.0,
+      "building": "Encodeur quantique",
+      "inputs": [
+        {
+          "name": "Cristal temporel",
+          "quantity": 5.0
+        },
+        {
+          "name": "Superordinateur",
+          "quantity": 1.0
+        },
+        {
+          "name": "Trigon en ficsite",
+          "quantity": 15.0
+        },
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Processeur neuro-quantique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 25.0
+        }
+      ]
+    },
+    {
+      "name": "Protéine d'écloseur",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Restes d'écloseur",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Protéine extraterrestre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Protéine de cracheur",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Restes de cracheur",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Protéine extraterrestre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Protéine de dardeuse",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Restes de dardeuse",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Protéine extraterrestre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Protéine de sanglier extraterrestre",
+      "alternate": false,
+      "time": 3.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Restes de sanglier extraterrestre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Protéine extraterrestre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Pâte nucléaire",
+      "alternate": false,
+      "time": 120.0,
+      "building": "Accélérateur de particules",
+      "inputs": [
+        {
+          "name": "Poudre de cuivre",
+          "quantity": 200.0
+        },
+        {
+          "name": "Cube de conversion de pression",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Pâte nucléaire",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Pétrole conditionné",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Pétrole conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Pétrole non conditionné",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Pétrole conditionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Quartz brut (bauxite)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Bauxite",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Quartz brut (charbon)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Quartz purifié (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 24.0
+        },
+        {
+          "name": "Acide nitrique",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cristal de quartz",
+          "quantity": 15.0
+        },
+        {
+          "name": "Silice dissoute",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Rebut instantané (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Bauxite",
+          "quantity": 15.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 10.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 5.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rebuts d'aluminium",
+          "quantity": 30.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Rebuts d'aluminium",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Solution d'alumine",
+          "quantity": 4.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rebuts d'aluminium",
+          "quantity": 6.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Refroidisseur (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Dissipateur de chaleur",
+          "quantity": 4.0
+        },
+        {
+          "name": "Moteur",
+          "quantity": 1.0
+        },
+        {
+          "name": "Azote",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Système de refroidissement",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Rotor",
+      "alternate": false,
+      "time": 15.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Barre de fer",
+          "quantity": 5.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rotor",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Rotor en acier (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 2.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rotor",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Rotor en cuivre (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 6.0
+        },
+        {
+          "name": "Vis",
+          "quantity": 52.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rotor",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Réservoir vide",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Réservoir vide",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Résidus de matière noire",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Résidus de pétrole lourd (Alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 4.0
+        },
+        {
+          "name": "Résine polymère",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Résidus de pétrole lourd conditionnés",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Résidus de pétrole lourd conditionnés",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Résidus de pétrole lourd non conditionnés",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd conditionnés",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Résine polymère (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Pétrole brut",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Résine polymère",
+          "quantity": 13.0
+        },
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Sculptrice biochimique",
+      "alternate": false,
+      "time": 120.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Système de directeur d'assemblage",
+          "quantity": 1.0
+        },
+        {
+          "name": "Trigon en ficsite",
+          "quantity": 80.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Sculptrice biochimique",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Serveur d'expansion d'I.A.",
+      "alternate": false,
+      "time": 15.0,
+      "building": "Encodeur quantique",
+      "inputs": [
+        {
+          "name": "Générateur de champ magnétique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Processeur neuro-quantique",
+          "quantity": 1.0
+        },
+        {
+          "name": "Oscillateur de superposition",
+          "quantity": 1.0
+        },
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Serveur d'expansion d'I.A.",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 25.0
+        }
+      ]
+    },
+    {
+      "name": "Silice",
+      "alternate": false,
+      "time": 8.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Silice",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Silice bon marché (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Quartz brut",
+          "quantity": 3.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Silice",
+          "quantity": 7.0
+        }
+      ]
+    },
+    {
+      "name": "Silice distillée (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Silice dissoute",
+          "quantity": 12.0
+        },
+        {
+          "name": "Calcaire",
+          "quantity": 5.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Silice",
+          "quantity": 27.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 8.0
+        }
+      ]
+    },
+    {
+      "name": "Solution d'alumine",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Bauxite",
+          "quantity": 12.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 18.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Solution d'alumine",
+          "quantity": 12.0
+        },
+        {
+          "name": "Silice",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Solution d'alumine non conditionnée",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Solution d'aluminium conditionnée",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Solution d'alumine",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Solution d'aluminium conditionnée",
+      "alternate": false,
+      "time": 1.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Solution d'alumine",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Solution d'aluminium conditionnée",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Soufre (charbon)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Charbon",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Soufre",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Soufre (fer)",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Convertisseur",
+      "inputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        },
+        {
+          "name": "Minerai de fer",
+          "quantity": 30.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Soufre",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Stator",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 3.0
+        },
+        {
+          "name": "Fil électrique",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Stator",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Stator en filactif (alternative)",
+      "alternate": true,
+      "time": 15.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 4.0
+        },
+        {
+          "name": "Filactif",
+          "quantity": 15.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Stator",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Structure flexible (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 1.0
+        },
+        {
+          "name": "Poutre en acier",
+          "quantity": 6.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Structure polyvalente",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Structure polyvalente",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Cadre modulaire",
+          "quantity": 1.0
+        },
+        {
+          "name": "Poutre en acier",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Structure polyvalente",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Superordinateur",
+      "alternate": false,
+      "time": 32.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Ordinateur",
+          "quantity": 4.0
+        },
+        {
+          "name": "Contrôleur d'I.A.",
+          "quantity": 2.0
+        },
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 3.0
+        },
+        {
+          "name": "Plastique",
+          "quantity": 28.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Superordinateur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Superordinateur surcadencé (alternative)",
+      "alternate": true,
+      "time": 20.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 2.0
+        },
+        {
+          "name": "Système de refroidissement",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Superordinateur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Système de contrôle radio (alternative)",
+      "alternate": true,
+      "time": 40.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        },
+        {
+          "name": "Circuit imprimé",
+          "quantity": 10.0
+        },
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 60.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 30.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Système de directeur d'assemblage",
+      "alternate": false,
+      "time": 80.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Unité de contrôle adaptative",
+          "quantity": 2.0
+        },
+        {
+          "name": "Superordinateur",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Système de directeur d'assemblage",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Système de refroidissement",
+      "alternate": false,
+      "time": 10.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Dissipateur de chaleur",
+          "quantity": 2.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 2.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 5.0
+        },
+        {
+          "name": "Azote",
+          "quantity": 25.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Système de refroidissement",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Tige d'acier (alternative)",
+      "alternate": true,
+      "time": 5.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre de fer",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Tige de connexion électromagnétique (alternative)",
+      "alternate": true,
+      "time": 15.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Stator",
+          "quantity": 2.0
+        },
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Tige de contrôle électromagnétique",
+      "alternate": false,
+      "time": 30.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Stator",
+          "quantity": 3.0
+        },
+        {
+          "name": "Contrôleur d'I.A.",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Tissu",
+      "alternate": false,
+      "time": 4.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Mycélium",
+          "quantity": 1.0
+        },
+        {
+          "name": "Biomasse",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tissu",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Trigon en ficsite",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de ficsite",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Trigon en ficsite",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Turbocarburant",
+      "alternate": false,
+      "time": 16.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Carburant",
+          "quantity": 6.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbocarburant",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Turbocarburant conditionné",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Turbocarburant",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbocarburant conditionné",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Turbocarburant lourd (Alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 5.0
+        },
+        {
+          "name": "Charbon compacté",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbocarburant",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Turbocarburant mélangé (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Carburant",
+          "quantity": 2.0
+        },
+        {
+          "name": "Résidus de pétrole lourd",
+          "quantity": 4.0
+        },
+        {
+          "name": "Soufre",
+          "quantity": 3.0
+        },
+        {
+          "name": "Coke de pétrole",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbocarburant",
+          "quantity": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Turbocarburant non conditionné",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Conditionneur",
+      "inputs": [
+        {
+          "name": "Turbocarburant conditionné",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbocarburant",
+          "quantity": 2.0
+        },
+        {
+          "name": "Bidon vide",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Turbomoteur",
+      "alternate": false,
+      "time": 32.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Système de refroidissement",
+          "quantity": 4.0
+        },
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 2.0
+        },
+        {
+          "name": "Moteur",
+          "quantity": 4.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 24.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbomoteur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Turbomoteur pressurisé (alternative)",
+      "alternate": true,
+      "time": 32.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Moteur",
+          "quantity": 4.0
+        },
+        {
+          "name": "Cube de conversion de pression",
+          "quantity": 1.0
+        },
+        {
+          "name": "Azote gazeux conditionné",
+          "quantity": 24.0
+        },
+        {
+          "name": "Stator",
+          "quantity": 8.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbomoteur",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Turbomoteur électrique (alternative)",
+      "alternate": true,
+      "time": 64.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Moteur",
+          "quantity": 7.0
+        },
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 9.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 5.0
+        },
+        {
+          "name": "Rotor",
+          "quantity": 7.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Turbomoteur",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Tuyau en acier",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Tuyau en acier moulé (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Fonderie",
+      "inputs": [
+        {
+          "name": "Lingot d'acier",
+          "quantity": 5.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Tuyau en fer (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 20.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Tuyau industriel renforcé (alternative)",
+      "alternate": true,
+      "time": 15.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Tuyau en acier",
+          "quantity": 6.0
+        },
+        {
+          "name": "Béton",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Poutre en béton armé",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Tôle d'aluminium en alliage Alclad",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Lingot d'aluminium",
+          "quantity": 3.0
+        },
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tôle d'aluminium en alliage Alclad",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Tôle de cuivre",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Tôle de cuivre recuite (alternative)",
+      "alternate": true,
+      "time": 8.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Lingot de cuivre",
+          "quantity": 3.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tôle de cuivre",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Unité d'uranium (alternative)",
+      "alternate": true,
+      "time": 300.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Cellule d'uranium",
+          "quantity": 100.0
+        },
+        {
+          "name": "Tige de contrôle électromagnétique",
+          "quantity": 10.0
+        },
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 3.0
+        },
+        {
+          "name": "Rotor",
+          "quantity": 10.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre d'uranium",
+          "quantity": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Unité de connexion radio (alternative)",
+      "alternate": true,
+      "time": 16.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Dissipateur de chaleur",
+          "quantity": 4.0
+        },
+        {
+          "name": "Connecteur haute vitesse",
+          "quantity": 2.0
+        },
+        {
+          "name": "Cristal de quartz",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Unité de contrôle adaptative",
+      "alternate": false,
+      "time": 60.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Câblage automatisé",
+          "quantity": 5.0
+        },
+        {
+          "name": "Circuit imprimé",
+          "quantity": 5.0
+        },
+        {
+          "name": "Cadre modulaire lourd",
+          "quantity": 1.0
+        },
+        {
+          "name": "Ordinateur",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Unité de contrôle adaptative",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Unité de contrôle radio",
+      "alternate": false,
+      "time": 48.0,
+      "building": "Façonneuse",
+      "inputs": [
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 32.0
+        },
+        {
+          "name": "Oscillateur à cristal",
+          "quantity": 1.0
+        },
+        {
+          "name": "Ordinateur",
+          "quantity": 2.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Unité de contrôle radio",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Unité de plutonium (alternative)",
+      "alternate": true,
+      "time": 120.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Cellule de plutonium encastré",
+          "quantity": 20.0
+        },
+        {
+          "name": "Cube de conversion de pression",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barre de plutonium",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Uranium fertile (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Uranium",
+          "quantity": 5.0
+        },
+        {
+          "name": "Déchets d'uranium",
+          "quantity": 5.0
+        },
+        {
+          "name": "Acide nitrique",
+          "quantity": 3.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Uranium non fissile",
+          "quantity": 20.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 8.0
+        }
+      ]
+    },
+    {
+      "name": "Uranium non fissile",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Mélangeur",
+      "inputs": [
+        {
+          "name": "Déchets d'uranium",
+          "quantity": 15.0
+        },
+        {
+          "name": "Silice",
+          "quantity": 10.0
+        },
+        {
+          "name": "Acide nitrique",
+          "quantity": 6.0
+        },
+        {
+          "name": "Acide sulfurique",
+          "quantity": 6.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Uranium non fissile",
+          "quantity": 20.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Vis",
+      "alternate": false,
+      "time": 6.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Barre de fer",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vis",
+          "quantity": 4.0
+        }
+      ]
+    },
+    {
+      "name": "Vis en acier (alternative)",
+      "alternate": true,
+      "time": 12.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Poutre en acier",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vis",
+          "quantity": 52.0
+        }
+      ]
+    },
+    {
+      "name": "Vis en fonte (alternative)",
+      "alternate": true,
+      "time": 24.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Lingot de fer",
+          "quantity": 5.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vis",
+          "quantity": 20.0
+        }
+      ]
+    },
+    {
+      "name": "É.M.E. réanimée",
+      "alternate": false,
+      "time": 2.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "É.M.E.",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "É.M.E. réanimée",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Échangeur thermique (alternative)",
+      "alternate": true,
+      "time": 6.0,
+      "building": "Assembleuse",
+      "inputs": [
+        {
+          "name": "Bidon en aluminium",
+          "quantity": 3.0
+        },
+        {
+          "name": "Caoutchouc",
+          "quantity": 3.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Dissipateur de chaleur",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Éclat de charge (x1)",
+      "alternate": false,
+      "time": 8.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Électrolimace bleue",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Éclat de charge",
+          "quantity": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Éclat de charge (x2)",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Électrolimace jaune",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Éclat de charge",
+          "quantity": 2.0
+        }
+      ]
+    },
+    {
+      "name": "Éclat de charge (x5)",
+      "alternate": false,
+      "time": 24.0,
+      "building": "Constructeur",
+      "inputs": [
+        {
+          "name": "Électrolimace violette",
+          "quantity": 1.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Éclat de charge",
+          "quantity": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Éclat de charge synthétique",
+      "alternate": false,
+      "time": 12.0,
+      "building": "Encodeur quantique",
+      "inputs": [
+        {
+          "name": "Cristal temporel",
+          "quantity": 2.0
+        },
+        {
+          "name": "Cristal de matière noire",
+          "quantity": 2.0
+        },
+        {
+          "name": "Cristal de quartz",
+          "quantity": 12.0
+        },
+        {
+          "name": "Matière photonique agitée",
+          "quantity": 12.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Éclat de charge",
+          "quantity": 1.0
+        },
+        {
+          "name": "Résidus de matière noire",
+          "quantity": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Électrode en rebuts d'aluminium (alternative)",
+      "alternate": true,
+      "time": 4.0,
+      "building": "Raffinerie",
+      "inputs": [
+        {
+          "name": "Solution d'alumine",
+          "quantity": 12.0
+        },
+        {
+          "name": "Coke de pétrole",
+          "quantity": 4.0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rebuts d'aluminium",
+          "quantity": 20.0
+        },
+        {
+          "name": "Eau",
+          "quantity": 7.0
+        }
+      ]
+    }
+  ]
+}

@@ -42,7 +42,5 @@ testem.log
 Thumbs.db
 
 **/target/
-**/assets/*.json
-src/assets/data.json
 .tauri/*
 !.tauri/app.key.pub

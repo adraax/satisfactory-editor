@@ -33,10 +33,13 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM5MkVBQ0RCQzFGNUVDNzcKUldSMzdQWEIyNnd1eVVVVGI1dHJFVWRZOFZ4TEgvb0hoK2VwVFV0WEs0MnF5UWM5dDFyVkxUZVgK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI2QzhEMzI1QkQyQUQzNTcKUldSWDB5cTlKZFBJSm9HUHQ4WDJOcUV6Wm1FaTNKUnozd3BNYTFJWTdVbWZlZ3RrdldpdXk2bVcK",
       "windows": {
         "installMode": "passive"
-      }
+      },
+      "endpoints": [
+        "https://github.com/adraax/satisfactory-editor/releases/latest/download/latest.json"
+      ]
     }
   }
 }
