@@ -18,7 +18,7 @@
     />
     <mat-autocomplete requireSelection #auto="matAutocomplete" (optionSelected)="onClick($event.option.value)" >
       @for(recipe of filteredRecipes; track recipe) {
-      <mat-option [value]="recipe.name">{{ recipe.name }}</mat-option>
+      <mat-option [value]="recipe.name"> @if(recipe.alternate) {*} {{ recipe.name }}</mat-option>
       }
     </mat-autocomplete>
   </mat-form-field>

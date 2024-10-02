@@ -263,9 +263,9 @@ pub fn parse_docs(input_path: PathBuf, output_path: PathBuf) -> Result<(), Box<d
                 name: r["mDisplayName"]
                     .as_str()
                     .unwrap()
-                    .replace("Alternate:", "")
+                    /* .replace("Alternate:", "")
                     .replace("Alternative :", "")
-                    .replace("(alternative)", "")
+                    .replace("(alternative)", "") */
                     .trim()
                     .to_owned(),
                 alternate: r["mDisplayName"].as_str().unwrap().contains("Alternate")
