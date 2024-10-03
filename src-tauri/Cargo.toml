@@ -22,6 +22,7 @@ tauri-plugin-shell = { workspace = true }
 satisfactory-extractor = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
+tauri-plugin-window-state = "2.0.0"
 
 #tauri-plugin-devtools = "2.0.0-rc"
 #tauri-plugin-devtools-app = "2.0.0-rc.0"

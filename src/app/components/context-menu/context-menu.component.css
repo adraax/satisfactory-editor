@@ -1,4 +1,9 @@
-mat-list {
+mat-list, mat-mat-form-field {
+    width:300px;
     max-height: 40vh;
     overflow-y: scroll;
+}
+
+mat-form-field {
+    width: 300px;
 }

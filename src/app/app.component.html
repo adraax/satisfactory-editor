@@ -1,16 +1,1 @@
-<div class="container">
-  <h1>Welcome to Tauri + Angular!</h1>
-
-  <editor
-    view="auto"
-    [background]="background"
-    [nodes]="nodes"
-    [edges]="edges"
-    [connection]="connectionSettings"
-    (onConnect)="createEdge($event)"
-    (contextmenu)="rightClick($event)"
-  ></editor>
-</div>
-
-<!-- hidden anchor for overlay -->
-<div id="overlay-anchor" #anchor></div>
+<router-outlet></router-outlet>

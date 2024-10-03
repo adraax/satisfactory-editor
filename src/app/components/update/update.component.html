@@ -1,0 +1,9 @@
+<div>
+    @if (state() === "loading") {
+        <h3>Searching for updates...</h3>
+        <mat-spinner></mat-spinner>
+    } @else {
+        <h3>Downloading update...</h3>
+        <mat-progress-bar mode="determinate" value="{{dowload()}}"></mat-progress-bar>
+    }
+</div>
