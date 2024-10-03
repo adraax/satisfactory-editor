@@ -1,6 +1,6 @@
 {
   "productName": "satisfactory-editor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "identifier": "com.satisfactory-editor.app",
   "build": {
     "beforeDevCommand": "pnpm start",
