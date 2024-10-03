@@ -19,6 +19,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cargo Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -28,7 +39,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: install Rust Stable
         uses: dtolnay/rust-toolchain@stable
@@ -44,8 +55,8 @@ jobs:
         with:
           updaterJsonPreferNsis: true
           tagName: app-v__VERSION__
-          releaseName: 'App v__VERSION__'
-          releaseBody: 'See the assets to download this version and install.'
+          releaseName: "App v__VERSION__"
+          releaseBody: "See the assets to download this version and install."
           releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}

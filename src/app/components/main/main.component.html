@@ -8,6 +8,7 @@
     [edges]="edges"
     [connection]="connectionSettings"
     (onConnect)="createEdge($event)"
+    (onConnectCancel)="triggerOverlay($event)"
     (contextmenu)="rightClick($event)"
   ></editor>
 

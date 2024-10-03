@@ -29,8 +29,6 @@ import { DynamicNode, Node } from "../../interfaces/node.interface";
 import { Point } from "../../interfaces/point.interface";
 import { ViewportState } from "../../interfaces/viewport.interface";
 import { ConnectionModel } from "../../models/connection.model";
-import { EdgeModel } from "../../models/edge.model";
-import { NodeModel } from "../../models/node.model";
 import { ConnectionStatusService } from "../../services/connection-status.service";
 import { DraggableService } from "../../services/draggable.service";
 import { EditorSettingsService } from "../../services/editor-settings.service";
@@ -43,7 +41,7 @@ import { ReferenceKeeper } from "../../utils/reference-keeper";
 
 const connectionControllerHostDirective = {
   directive: ConnectionControllerDirective,
-  outputs: ["onConnect"],
+  outputs: ["onConnect", "onConnectCancel"],
 };
 
 @Component({
@@ -171,8 +169,7 @@ export class EditorComponent implements OnInit {
   // TODO edges change signal
   // #endregion
 
-
-  protected markers = this.entitiesService.markers
+  protected markers = this.entitiesService.markers;
 
   public ngOnInit(): void {
     this.setInitialNodesOrder();

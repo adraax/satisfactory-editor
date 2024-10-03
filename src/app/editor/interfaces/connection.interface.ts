@@ -9,4 +9,5 @@ export interface ConnectionCancel {
   source: string;
   event: MouseEvent;
   sourceHandle?: string;
+  type: "source" | "target";
 }

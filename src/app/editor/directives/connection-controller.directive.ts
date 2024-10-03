@@ -70,6 +70,7 @@ export class ConnectionControllerDirective {
             source: sourceId,
             sourceHandle: sourceHandleId,
             event,
+            type: status.payload.sourceHandle.rawHandle.type
           };
           this.onConnectCancel.emit(connection);
         }

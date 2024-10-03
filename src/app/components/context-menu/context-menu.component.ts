@@ -1,19 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  inject,
-  OnInit,
-  Output,
-  ViewChild,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, Output, ViewChild } from "@angular/core";
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatListModule } from "@angular/material/list";
 import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
 import { DataService } from "../../data.service";
 import { Recipe } from "../../interfaces/recipe.interface";
 
@@ -29,10 +20,10 @@ import { Recipe } from "../../interfaces/recipe.interface";
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
   ],
 })
-export class ContextMenuComponent implements OnInit {
+export class ContextMenuComponent {
   @ViewChild("input") input!: ElementRef<HTMLInputElement>;
   public control = new FormControl("");
 
@@ -42,19 +33,30 @@ export class ContextMenuComponent implements OnInit {
   public dataService = inject(DataService);
 
   public recipes: Recipe[] = [];
-  public filteredRecipes: Recipe[];
+  public filteredRecipes: Recipe[] = [];
+  public displayRecipes: Recipe[];
 
   constructor() {
+    this.recipes = this.dataService.recipes;
     this.filteredRecipes = this.recipes.slice();
+    this.displayRecipes = this.filteredRecipes;
   }
 
   public filter() {
     const filterValue = this.input.nativeElement.value.toLowerCase();
-    this.filteredRecipes = this.recipes.filter((r) => r.name.toLowerCase().includes(filterValue));
+    this.displayRecipes = this.filteredRecipes.filter((r) => r.name.toLowerCase().includes(filterValue));
   }
 
-  ngOnInit(): void {
-    this.recipes = this.dataService.recipes;
+  public setFilter(options?: { name: string; direction: "inputs" | "outputs" }) {
+    if (options === undefined) {
+      this.filteredRecipes = this.recipes.slice();
+    } else {
+      if (options.direction === "inputs") {
+        this.filteredRecipes = this.recipes.filter((r) => r.inputs.filter((e) => e.name === options.name).length > 0);
+      } else {
+        this.filteredRecipes = this.recipes.filter((r) => r.outputs.filter((e) => e.name === options.name).length > 0);
+      }
+    }
   }
 
   public onClick(e: string) {
