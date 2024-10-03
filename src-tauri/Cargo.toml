@@ -18,7 +18,6 @@ satisfactory-extractor = { workspace = true }
 [dependencies]
 regex = {workspace = true, features = []}
 tauri = { workspace = true, features = [] }
-tauri-plugin-shell = { workspace = true }
 satisfactory-extractor = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
