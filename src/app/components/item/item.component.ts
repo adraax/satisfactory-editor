@@ -6,7 +6,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { DataService } from "../../data.service";
 import { CustomDynamicNodeComponent, EditorModule } from "../../editor/api";
-import { ItemData } from "../../interfaces/Item-data.interface";
+import { ItemData } from "../../interfaces/item-data.interface";
 import { Recipe } from "../../interfaces/recipe.interface";
 import { EntitiesService } from "../../services/entities.service";
 

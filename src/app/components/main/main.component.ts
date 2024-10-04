@@ -22,7 +22,7 @@ import {
   EditorComponent,
 } from "../../editor/api";
 import { EditorModule } from "../../editor/editor.module";
-import { ItemData } from "../../interfaces/Item-data.interface";
+import { ItemData } from "../../interfaces/item-data.interface";
 import { EntitiesService } from "../../services/entities.service";
 import { ContextMenuComponent } from "../context-menu/context-menu.component";
 import { ItemComponent } from "../item/item.component";
