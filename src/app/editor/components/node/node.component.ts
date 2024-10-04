@@ -26,6 +26,7 @@ import { DraggableService } from "../../services/draggable.service";
 import { EditorSettingsService } from "../../services/editor-settings.service";
 import { HandleService } from "../../services/handle.service";
 import { NodeRenderingService } from "../../services/node-rendering.service";
+import { SelectionService } from "../../services/selection.service";
 import { resizable } from "../../utils/resizable";
 
 @Component({
@@ -42,7 +43,7 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
   private connectionStatusService = inject(ConnectionStatusService);
   private nodeRenderingService = inject(NodeRenderingService);
   private editorSettingsService = inject(EditorSettingsService);
-  // TODO selection service
+  private selectionService = inject(SelectionService);
   private connectionController = inject(ConnectionControllerDirective);
   private host = inject<ElementRef<SVGElement>>(ElementRef);
   protected rootSvg = inject(RootSvgReferenceDirective).element;
@@ -139,9 +140,9 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
     this.nodeRenderingService.pullNode(this.nodeModel);
   }
 
-  protected selectNode() {
+  protected selectNode(event: MouseEvent) {
     if (this.editorSettingsService.entitiesSelectable()) {
-      // TODO selection service
+      this.selectionService.select(this.nodeModel, event.ctrlKey);
     }
   }
 }

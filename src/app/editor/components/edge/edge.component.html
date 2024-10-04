@@ -1,6 +1,6 @@
 @if (model.type === 'default') {
 <svg:path
-  (mousedown)="onEdgeMouseDown()"
+  (mousedown)="onEdgeMouseDown($event)"
   [attr.d]="model.path().path"
   [attr.marker-start]="markerStartUrl()"
   [attr.marker-end]="markerEndUrl()"

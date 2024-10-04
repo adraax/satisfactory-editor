@@ -1,4 +1,4 @@
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" selectable [class.selected]="this.selected()" tabindex="0" class="without-tab-index">
   <mat-card-header>
     <mat-card-title>{{ data()?.name }}</mat-card-title>
   </mat-card-header>
@@ -12,7 +12,7 @@
             <input type="number" value="{{ (60 / recipe.time) * input.quantity }}" />
             <div>{{ input.name }}</div>
           </div>
-          <handle position="left" type="target" [id]="input.name"/>
+          <handle position="left" type="target" [id]="input.name" />
         </div>
         }
       </div>
@@ -23,7 +23,7 @@
             <div>{{ output.name }}</div>
             <input type="number" value="{{ (60 / recipe.time) * output.quantity }}" />
           </div>
-          <handle position="right" type="source" [id]="output.name"/>
+          <handle position="right" type="source" [id]="output.name" />
         </div>
         }
       </div>

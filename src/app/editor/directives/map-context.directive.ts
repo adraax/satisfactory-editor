@@ -4,6 +4,7 @@ import { select } from "d3-selection";
 import { D3ZoomEvent, zoom, ZoomBehavior, zoomIdentity, zoomTransform, ZoomTransform } from "d3-zoom";
 import { ViewportState } from "../interfaces/viewport.interface";
 import { EditorSettingsService } from "../services/editor-settings.service";
+import { SelectionService, ViewportForSelection } from "../services/selection.service";
 import { ViewportService } from "../services/viewport.service";
 import { RootSvgReferenceDirective } from "./reference.directive";
 import { RootPointerDirective } from "./root-pointer.directive";
@@ -15,11 +16,12 @@ export class MapContextDirective implements OnInit {
   protected host = inject<ElementRef<SVGGElement>>(ElementRef).nativeElement;
   protected editorSettingsService = inject(EditorSettingsService);
   protected viewportService = inject(ViewportService);
+  protected selectionService = inject(SelectionService);
 
   protected rootSvgSelection = select(this.rootSvg);
   protected zoomableSelection = select(this.host);
 
-  //protected viewportForSelection: Partial<View>
+  protected viewportForSelection: Partial<ViewportForSelection> = {};
 
   protected zoomBehavior!: ZoomBehavior<SVGSVGElement, unknown>;
 
@@ -33,9 +35,7 @@ export class MapContextDirective implements OnInit {
 
         this.rootSvgSelection.call(
           this.zoomBehavior.transform,
-          zoomIdentity
-            .translate(this.pointer()!.tX + transform.x, this.pointer()!.tY + transform.y)
-            .scale(zoom)
+          zoomIdentity.translate(this.pointer()!.tX + transform.x, this.pointer()!.tY + transform.y).scale(zoom)
         );
       }
     },
@@ -100,16 +100,30 @@ export class MapContextDirective implements OnInit {
     this.viewportService.readableViewport.set(mapTransformToViewportState(transform));
 
     this.zoomableSelection.attr("transform", transform.toString());
-
-    // TODO update selection
   }
   private onD3ZoomStart({ transform }: ZoomEvent) {
-    // TODO update selection
+    this.viewportForSelection = {
+      start: mapTransformToViewportState(transform),
+    };
   }
-  private onD3ZoomEnd({ transform }: ZoomEvent) {
-    // TODO update selection
+  private onD3ZoomEnd({ transform, sourceEvent }: ZoomEvent) {
+    this.viewportForSelection = {
+      ...this.viewportForSelection,
+      end: mapTransformToViewportState(transform),
+      target: evTarget(sourceEvent),
+    };
+
+    this.selectionService.setViewport(this.viewportForSelection as ViewportForSelection);
   }
 }
+
+const evTarget = (anyEvent: any): Element | undefined => {
+  if (anyEvent instanceof Event && anyEvent.target instanceof Element) {
+    return anyEvent.target;
+  }
+
+  return undefined;
+};
 
 const mapTransformToViewportState = (transform: ZoomTransform): ViewportState => ({
   zoom: transform.k,

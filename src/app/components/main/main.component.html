@@ -1,16 +1,31 @@
 <div class="container"></div>
-  <h1>Satisfactory Editor</h1>
+<h1>Satisfactory Editor</h1>
 
-  <editor
-    view="auto"
-    [background]="background"
-    [nodes]="nodes"
-    [edges]="edges"
-    [connection]="connectionSettings"
-    (onConnect)="createEdge($event)"
-    (onConnectCancel)="triggerOverlay($event)"
-    (contextmenu)="rightClick($event)"
-  ></editor>
+<editor
+  view="auto"
+  [background]="background"
+  [nodes]="nodes()"
+  [edges]="edges()"
+  [connection]="connectionSettings"
+  (onConnect)="createEdge($event)"
+  (onConnectCancel)="triggerOverlay($event)"
+  (contextmenu)="rightClick($event)"
+>
+  <ng-template edge let-ctx>
+    <svg:path
+      class="without-tab-index"
+      selectable
+      [attr.d]="ctx.path()"
+      [attr.stroke]="ctx.selected() ? 'red' : ctx.data?.color ? ctx.data.color : '#b1b1b7'"
+      fill="none"
+      stroke-width="2"
+      [attr.marker-end]="ctx.markerEnd()"
+      tabindex="0"
+      (keydown.backspace)="ctx.selected() && deleteEdge(ctx.edge)"
+      (keydown.delete)="ctx.selected() && deleteEdge(ctx.edge)"
+    />
+  </ng-template>
+</editor>
 
 <!-- hidden anchor for overlay -->
 <div id="overlay-anchor" #anchor></div>

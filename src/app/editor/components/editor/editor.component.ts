@@ -34,6 +34,7 @@ import { DraggableService } from "../../services/draggable.service";
 import { EditorSettingsService } from "../../services/editor-settings.service";
 import { EntitiesService } from "../../services/entities.service";
 import { NodeRenderingService } from "../../services/node-rendering.service";
+import { SelectionService } from "../../services/selection.service";
 import { ViewportService } from "../../services/viewport.service";
 import { Background } from "../../types/background.type";
 import { addNodesToEdges } from "../../utils/add-nodes-to-edges";
@@ -56,6 +57,7 @@ const connectionControllerHostDirective = {
     EntitiesService,
     NodeRenderingService,
     ViewportService,
+    SelectionService,
   ],
   hostDirectives: [connectionControllerHostDirective],
 })

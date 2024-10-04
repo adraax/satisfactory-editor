@@ -5,8 +5,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  computed,
   ElementRef,
   inject,
+  Signal,
   ViewChild,
 } from "@angular/core";
 import {
@@ -20,6 +22,7 @@ import {
 } from "../../editor/api";
 import { EditorModule } from "../../editor/editor.module";
 import { ItemData } from "../../interfaces/Item-data.interface";
+import { EntitiesService } from "../../services/entities.service";
 import { ContextMenuComponent } from "../context-menu/context-menu.component";
 import { ItemComponent } from "../item/item.component";
 
@@ -30,9 +33,11 @@ import { ItemComponent } from "../item/item.component";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [EditorModule, OverlayModule],
+  providers: [EntitiesService],
 })
 export class MainComponent implements AfterViewInit {
   private overlay = inject(Overlay);
+  private entitiesService = inject(EntitiesService);
 
   private overlayRef!: OverlayRef;
   private portal!: ComponentPortal<ContextMenuComponent>;
@@ -58,13 +63,13 @@ export class MainComponent implements AfterViewInit {
 
   protected background: Background = { type: "grid", backgroundColor: "#32323a", color: "#707070" };
 
-  public nodes: Node[] = [];
+  public nodes: Signal<Node[]> = computed(() => this.entitiesService.nodes());
 
-  public edges: Edge[] = [];
+  public edges: Signal<Edge[]> = computed(() => this.entitiesService.edges());
 
   public createEdge({ source, target, sourceHandle, targetHandle }: Connection) {
-    this.edges = [
-      ...this.edges,
+    this.entitiesService.edges.set([
+      ...this.edges(),
       {
         id: `${source} -> ${target}${sourceHandle ?? ""}${targetHandle ?? ""}`,
         source,
@@ -74,8 +79,9 @@ export class MainComponent implements AfterViewInit {
         markers: {
           end: { type: "arrow" },
         },
+        type: "template",
       },
-    ];
+    ]);
   }
 
   constructor(private cd: ChangeDetectorRef) {}
@@ -128,17 +134,20 @@ export class MainComponent implements AfterViewInit {
 
   public addNode(text: string): string {
     let id = crypto.randomUUID();
-    this.nodes = [
-      ...this.nodes,
+
+    this.entitiesService.nodes.set([
+      ...this.nodes(),
       {
         id,
         type: ItemComponent,
         data: {
           name: text,
+          constructed: false,
         } satisfies ItemData,
         point: this.editor.documentPointToEditorPoint(this.lastRightClick),
       },
-    ];
+    ]);
+
     this.resetOverlay();
 
     return id;
@@ -169,11 +178,23 @@ export class MainComponent implements AfterViewInit {
       });
       this.cd.detectChanges();
       this.contextMenuInstance.click.subscribe((e: string) => {
-        let target = this.addNode(e);
+        let node = this.addNode(e);
+
+        let source;
+        let target;
+
+        if (event.type === "source") {
+          source = event.source;
+          target = node;
+        } else {
+          source = node;
+          target = event.source;
+        }
+
         this.createEdge({
-          target: event.source,
+          source: source,
           sourceHandle: event.sourceHandle,
-          source: target,
+          target: target,
           targetHandle: event.sourceHandle,
         });
         this.cd.detectChanges();
@@ -181,6 +202,9 @@ export class MainComponent implements AfterViewInit {
     }
   }
 
+  public deleteEdge(edge: Edge) {
+    this.entitiesService.deleteEdge(edge.id);
+  }
   public dagreRender() {
     this.editor.nodes;
   }

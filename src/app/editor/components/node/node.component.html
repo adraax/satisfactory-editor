@@ -5,7 +5,7 @@
   #nodeContent
   [attr.width]="nodeModel.size().width"
   [attr.height]="nodeModel.size().height"
-  (mousedown)="pullNode(); selectNode()"
+  (mousedown)="pullNode(); selectNode($event)"
 >
   <div
     #htmlWrapper
@@ -64,7 +64,7 @@
   [attr.height]="nodeModel.size().height"
   [style.stroke]="nodeModel.color()"
   [style.fill]="nodeModel.color()"
-  (mousedown)="pullNode(); selectNode()"
+  (mousedown)="pullNode(); selectNode($event)"
 />
 } @else if (nodeModel.node.type === 'template-group' && groupNodeTemplate) {
 <svg:g class="selectable" (mousedown)="pullNode()">

@@ -32,4 +32,4 @@ export * from "./public-components/custom-node.component";
 export * from "./directives/connection-controller.directive";
 export * from "./directives/template.directive";
 // TODO changes-controller directive
-// TODO selectable directive
+export * from "./directives/selectable.directive";

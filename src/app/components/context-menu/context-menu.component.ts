@@ -1,6 +1,15 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, Output, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Output,
+  ViewChild,
+} from "@angular/core";
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import { MatAutocompleteModule, MatAutocompleteTrigger } from "@angular/material/autocomplete";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
@@ -23,9 +32,11 @@ import { Recipe } from "../../interfaces/recipe.interface";
     MatInputModule,
   ],
 })
-export class ContextMenuComponent {
+export class ContextMenuComponent implements AfterViewInit {
   @ViewChild("input") input!: ElementRef<HTMLInputElement>;
   public control = new FormControl("");
+
+  @ViewChild(MatAutocompleteTrigger) trigger!: MatAutocompleteTrigger;
 
   @Output()
   public click = new EventEmitter<string>();
@@ -42,6 +53,9 @@ export class ContextMenuComponent {
     this.displayRecipes = this.filteredRecipes;
   }
 
+  ngAfterViewInit(): void {
+    this.input.nativeElement.focus();
+  }
   public filter() {
     const filterValue = this.input.nativeElement.value.toLowerCase();
     this.displayRecipes = this.filteredRecipes.filter((r) => r.name.toLowerCase().includes(filterValue));

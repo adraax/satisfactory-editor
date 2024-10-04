@@ -12,6 +12,7 @@ import { EdgeContext } from "../../interfaces/edge-context.interface";
 import { EdgeModel } from "../../models/edge.model";
 import { EditorSettingsService } from "../../services/editor-settings.service";
 import { hashCode } from "../../utils/hash";
+import { SelectionService } from '../../services/selection.service';
 
 @Component({
   selector: "g[edge]",
@@ -24,7 +25,7 @@ import { hashCode } from "../../utils/hash";
 })
 export class EdgeComponent implements OnInit {
   protected injector = inject(Injector);
-  // TODO selection service
+  private selectionService = inject(SelectionService)
   private editorSettingsService = inject(EditorSettingsService);
 
   @Input()
@@ -62,9 +63,9 @@ export class EdgeComponent implements OnInit {
     };
   }
 
-  public onEdgeMouseDown() {
+  public onEdgeMouseDown(event: MouseEvent) {
     if (this.editorSettingsService.entitiesSelectable()) {
-      // TODO selection service
+      this.selectionService.select(this.model, event.ctrlKey)
     }
   }
 }

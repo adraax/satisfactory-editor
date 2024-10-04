@@ -15,6 +15,7 @@ import { PointerDirective } from "./directives/pointer.directive";
 import { RootSvgReferenceDirective } from "./directives/reference.directive";
 import { RootConnectionContextDirective } from "./directives/root-connection-context.directive";
 import { RootPointerDirective } from "./directives/root-pointer.directive";
+import { SelectableDirective } from "./directives/selectable.directive";
 import { SpacePointContextDirective } from "./directives/space-point-context.directive";
 import {
   EdgeLabelHtmlTemplateDirective,
@@ -44,6 +45,7 @@ const directives = [
   RootSvgReferenceDirective,
   SpacePointContextDirective,
   HandleSizeControllerDirective,
+  SelectableDirective,
 ];
 
 const templateDirectives = [
@@ -57,6 +59,6 @@ const templateDirectives = [
 @NgModule({
   declarations: [...components, ...directives, ...templateDirectives],
   imports: [CommonModule],
-  exports: [EditorComponent, HandleComponent, ...templateDirectives],
+  exports: [EditorComponent, HandleComponent, SelectableDirective, ...templateDirectives],
 })
 export class EditorModule {}

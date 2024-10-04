@@ -28,6 +28,10 @@ mat-card-header {
 
 mat-card {
     background-color: hsla(240, 3%, 7%, 0.795);
+
+    &.selected {
+        border: 1px solid gold;
+    }
 }
 
 input {
