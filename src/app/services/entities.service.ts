@@ -1,9 +1,9 @@
 import { Injectable, signal, WritableSignal } from "@angular/core";
-import { Edge, Node } from "../editor/api";
+import { DynamicNode, Edge } from "../editor/api";
 
 @Injectable()
 export class EntitiesService {
-  public nodes: WritableSignal<Node[]> = signal([]);
+  public nodes: WritableSignal<DynamicNode[]> = signal([]);
   public edges: WritableSignal<Edge[]> = signal([]);
 
   public deleteEdge(id: string) {

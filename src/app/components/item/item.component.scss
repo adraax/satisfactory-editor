@@ -24,16 +24,30 @@ mat-divider {
 mat-card-header {
     align-items: center;
     justify-content: center;
+    display: flex;
+
+    mat-card-title, mat-checkbox {
+        flex-grow: 0;
+    }
+
 }
 
 mat-card {
-    background-color: hsla(240, 3%, 7%, 0.795);
+    background-color: hsla(240, 3%, 7%, 0.8);
 
     &.selected {
         border: 1px solid gold;
+    }
+
+    &.constructed {
+        background-color: hsla(140, 87%, 9%, 0.8);
     }
 }
 
 input {
     max-width: 60px;
+}
+
+.spacer {
+    flex: 1;
 }

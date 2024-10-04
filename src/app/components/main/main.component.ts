@@ -8,6 +8,7 @@ import {
   computed,
   ElementRef,
   inject,
+  signal,
   Signal,
   ViewChild,
 } from "@angular/core";
@@ -16,9 +17,9 @@ import {
   Connection,
   ConnectionCancel,
   ConnectionSettings,
+  DynamicNode,
   Edge,
   EditorComponent,
-  Node,
 } from "../../editor/api";
 import { EditorModule } from "../../editor/editor.module";
 import { ItemData } from "../../interfaces/Item-data.interface";
@@ -63,7 +64,7 @@ export class MainComponent implements AfterViewInit {
 
   protected background: Background = { type: "grid", backgroundColor: "#32323a", color: "#707070" };
 
-  public nodes: Signal<Node[]> = computed(() => this.entitiesService.nodes());
+  public nodes: Signal<DynamicNode[]> = computed(() => this.entitiesService.nodes());
 
   public edges: Signal<Edge[]> = computed(() => this.entitiesService.edges());
 
@@ -140,11 +141,11 @@ export class MainComponent implements AfterViewInit {
       {
         id,
         type: ItemComponent,
-        data: {
+        data: signal({
           name: text,
           constructed: false,
-        } satisfies ItemData,
-        point: this.editor.documentPointToEditorPoint(this.lastRightClick),
+        } satisfies ItemData),
+        point: signal(this.editor.documentPointToEditorPoint(this.lastRightClick)),
       },
     ]);
 

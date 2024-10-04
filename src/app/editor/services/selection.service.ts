@@ -23,7 +23,6 @@ export class SelectionService {
     .pipe(
       tap(({ start, end, target }) => {
         if (start && end && target) {
-          console.log("cancel select");
           const delta = SelectionService.delta;
 
           const diffX = Math.abs(end.x - start.x);
@@ -48,7 +47,6 @@ export class SelectionService {
   }
 
   public select(entity: Entity | null, multiple: boolean = false) {
-    console.log("select");
     if (!multiple) {
       this.entitiesService
         .entities()

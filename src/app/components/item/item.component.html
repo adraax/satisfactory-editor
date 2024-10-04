@@ -1,6 +1,15 @@
-<mat-card appearance="outlined" selectable [class.selected]="this.selected()" tabindex="0" class="without-tab-index">
+<mat-card
+  appearance="outlined"
+  selectable
+  [class.selected]="this.selected()"
+  [class.constructed]="this.data()?.constructed"
+  tabindex="0"
+  class="without-tab-index"
+>
   <mat-card-header>
     <mat-card-title>{{ data()?.name }}</mat-card-title>
+    <div class="spacer"></div>
+    <mat-checkbox [labelPosition]="'before'" [checked]="data()?.constructed" (change)="constructedCheckChange($event)">Construit</mat-checkbox>
   </mat-card-header>
   <mat-divider />
   <mat-card-content>
