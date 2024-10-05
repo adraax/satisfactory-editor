@@ -137,7 +137,8 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
   }
 
   protected pullNode() {
-    this.nodeRenderingService.pullNode(this.nodeModel);
+    // delay node pulling to avoid issue with re-render
+    setTimeout(() => this.nodeRenderingService.pullNode(this.nodeModel), 5);
   }
 
   protected selectNode(event: MouseEvent) {

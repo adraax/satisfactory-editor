@@ -63,12 +63,7 @@ export class DraggableService {
       let deltaX = model.point().x;
       let deltaY = model.point().y;
       let point = { x: round(event.tx / transform.k + deltaX), y: round(event.ty / transform.k + deltaY) };
-
-      const parent = model.parent();
-
-      if (parent) {
-      }
-
+      
       model.setPoint(point);
     });
 
