@@ -6369,11 +6369,6 @@
       "state": "Solid"
     },
     {
-      "name": "Agaric lardon",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Environment/DesertShroom/UI/Mushroom_256.Mushroom_256",
-      "state": "Solid"
-    },
-    {
       "name": "Azote",
       "icon": "assets/icons/IconDesc_NitrogenGas_64.png",
       "state": "Gas"
@@ -6464,23 +6459,8 @@
       "state": "Solid"
     },
     {
-      "name": "Boule de neige",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_SnowballProjectile_256.IconDesc_SnowballProjectile_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Branche d’arbre FICSMAS",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Branch_256.IconDesc_Branch_256",
-      "state": "Solid"
-    },
-    {
       "name": "Béton",
       "icon": "assets/icons/IconDesc_Concrete_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Cadeau FICSMAS",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Gift_256.IconDesc_Gift_256",
       "state": "Solid"
     },
     {
@@ -6569,33 +6549,13 @@
       "state": "Solid"
     },
     {
-      "name": "Chariot d'usine™",
-      "icon": "Texture2D /Game/FactoryGame/Equipment/GolfCart/UI/IconDesc_GolfCart_256.IconDesc_GolfCart_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Chariot d'usine™ doré",
-      "icon": "Texture2D /Game/FactoryGame/Equipment/GolfCart/UI/IconDesc_GolfCartGold_256.IconDesc_GolfCartGold_256",
-      "state": "Solid"
-    },
-    {
       "name": "Circuit imprimé",
       "icon": "assets/icons/IconDesc_CircuitBoard_64.png",
       "state": "Solid"
     },
     {
-      "name": "Cogne-xénos",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/StunSpear/UI/IconDesc_XenoBasher_256.IconDesc_XenoBasher_256",
-      "state": "Solid"
-    },
-    {
       "name": "Coke de pétrole",
       "icon": "assets/icons/IconDesc_PetroleumCoke_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Combinaison de protection",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Parts/HazmatSuit/UI/IconDesc_HazmatSuit_256.IconDesc_HazmatSuit_256",
       "state": "Solid"
     },
     {
@@ -6639,11 +6599,6 @@
       "state": "Solid"
     },
     {
-      "name": "Dekatlons",
-      "icon": "Texture2D /Game/FactoryGame/Equipment/JumpingStilts/UI/IconDesc_SprintingStilts_256.IconDesc_SprintingStilts_256",
-      "state": "Solid"
-    },
-    {
       "name": "Diamants",
       "icon": "assets/icons/IconDesc_Diamonds_64.png",
       "state": "Solid"
@@ -6664,36 +6619,6 @@
       "state": "Solid"
     },
     {
-      "name": "Décoration FICSMAS bleue",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Blue_256.IconDesc_XmasBall_Blue_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Décoration FICSMAS en cuivre",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Yellow_256.IconDesc_XmasBall_Yellow_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Décoration FICSMAS en fer",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Silver_256.IconDesc_XmasBall_Silver_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Décoration FICSMAS rouge",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Red_256.IconDesc_XmasBall_Red_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Décoration de FICSMAS",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Wreath_256.IconDesc_Wreath_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Détonateur de nobélisques",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/NobeliskDetonator/UI/Detonator_256.Detonator_256",
-      "state": "Solid"
-    },
-    {
       "name": "Eau",
       "icon": "assets/icons/LiquidWater_Pipe_64.png",
       "state": "Liquid"
@@ -6711,16 +6636,6 @@
     {
       "name": "Feuilles",
       "icon": "assets/icons/IconDesc_Leaves_256.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Feux d'artifice fantaisie",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Fireworks/UI/IconDesc_Rocket02_256.IconDesc_Rocket02_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Feux d'artifice étincelants",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Fireworks/UI/IconDesc_Rocket03_256.IconDesc_Rocket03_256",
       "state": "Solid"
     },
     {
@@ -6759,11 +6674,6 @@
       "state": "Solid"
     },
     {
-      "name": "Fusil",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/Rifle/UI/RifleMk1_256.RifleMk1_256",
-      "state": "Solid"
-    },
-    {
       "name": "Fusée à propulsion thermique",
       "icon": "assets/icons/IconDesc_ThermalPropulsionRocket_64.png",
       "state": "Solid"
@@ -6776,21 +6686,6 @@
     {
       "name": "Générateur de champ magnétique",
       "icon": "assets/icons/IconDesc_MagneticFieldGenerator_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Hoverpack",
-      "icon": "Texture2D /Game/FactoryGame/Equipment/HoverPack/UI/IconDesc_Hoverpack_256.IconDesc_Hoverpack_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Inhalateur médicinal",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/Medkit/UI/Inhaler_256.Inhaler_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Jolis feux d'artifice",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Fireworks/UI/IconDesc_Rocket01_256.IconDesc_Rocket01_256",
       "state": "Solid"
     },
     {
@@ -6821,16 +6716,6 @@
     {
       "name": "Lingot de ficsite",
       "icon": "assets/icons/IconDesc_FicsiteIngot_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Lot d'ornements FICSMAS",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Balls_256.IconDesc_Balls_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Masque à gaz",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/GasMask/UI/GasMask_256.GasMask_256",
       "state": "Solid"
     },
     {
@@ -6919,16 +6804,6 @@
       "state": "Solid"
     },
     {
-      "name": "Noix de béryl",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Environment/Nut/UI/Nut_256_New.Nut_256_New",
-      "state": "Solid"
-    },
-    {
-      "name": "Nœud de FICSMAS",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Bow_256.IconDesc_Bow_256",
-      "state": "Solid"
-    },
-    {
       "name": "Ordinateur",
       "icon": "assets/icons/IconDesc_Computer_64.png",
       "state": "Solid"
@@ -6941,16 +6816,6 @@
     {
       "name": "Oscillateur à cristal",
       "icon": "assets/icons/IconDesc_CrystalOscillator_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Parachute",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/Beacon/UI/Parachute_256.Parachute_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Pistolet à barres d'armature",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/NailGun/UI/IconDesc_RebarGun_256.IconDesc_RebarGun_256",
       "state": "Solid"
     },
     {
@@ -7009,11 +6874,6 @@
       "state": "Solid"
     },
     {
-      "name": "Pâlebaie",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Environment/Berry/UI/IconDesc_Berry_256.IconDesc_Berry_256",
-      "state": "Solid"
-    },
-    {
       "name": "Pâte nucléaire",
       "icon": "assets/icons/IconDesc_NuclearPasta_64.png",
       "state": "Solid"
@@ -7036,11 +6896,6 @@
     {
       "name": "Rebuts d'aluminium",
       "icon": "assets/icons/IconDesc_AluminiumScrap_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Repousse-xénos",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/ShockShank/UI/IconDesc_XenoZapper_256.IconDesc_XenoZapper_256",
       "state": "Solid"
     },
     {
@@ -7069,11 +6924,6 @@
       "state": "Solid"
     },
     {
-      "name": "Réacteur dorsal",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/JetPack/UI/Jetpack_256.Jetpack_256",
-      "state": "Solid"
-    },
-    {
       "name": "Réservoir vide",
       "icon": "assets/icons/IconDesc_PressureTank_64.png",
       "state": "Solid"
@@ -7096,11 +6946,6 @@
     {
       "name": "Résine polymère",
       "icon": "assets/icons/IconDesc_PolymerResin_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Scanner d'objets",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/GemstoneScanner/UI/ObjectScanner_256.ObjectScanner_256",
       "state": "Solid"
     },
     {
@@ -7134,18 +6979,8 @@
       "state": "Solid"
     },
     {
-      "name": "Somersloop",
-      "icon": "Texture2D /Game/FactoryGame/Prototype/WAT/UI/Wat_1_256.Wat_1_256",
-      "state": "Solid"
-    },
-    {
       "name": "Soufre",
       "icon": "assets/icons/Sulfur_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Sphère de Mercer",
-      "icon": "Texture2D /Game/FactoryGame/Prototype/WAT/UI/Wat_2_256.Wat_2_256",
       "state": "Solid"
     },
     {
@@ -7156,16 +6991,6 @@
     {
       "name": "Structure polyvalente",
       "icon": "assets/icons/IconDesc_SpelevatorPart_2_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Sucre d'orge",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_CanePart_256.IconDesc_CanePart_256",
-      "state": "Solid"
-    },
-    {
-      "name": "Sucre d'orge cogneur",
-      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/StunSpear/UI/IconDesc_CaneEquipment_256.IconDesc_CaneEquipment_256",
       "state": "Solid"
     },
     {
@@ -7199,11 +7024,6 @@
       "state": "Solid"
     },
     {
-      "name": "Tronçonneuse",
-      "icon": "Texture2D /Game/FactoryGame/Equipment/Chainsaw/UI/IconDesc_Chainsaw_256.IconDesc_Chainsaw_256",
-      "state": "Solid"
-    },
-    {
       "name": "Turbocarburant",
       "icon": "assets/icons/IconDesc_LiquidTurboFuel_Pipe_64.png",
       "state": "Liquid"
@@ -7221,11 +7041,6 @@
     {
       "name": "Tuyau en acier",
       "icon": "assets/icons/IconDesc_SteelPipe_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Tyrolienne",
-      "icon": "Texture2D /Game/FactoryGame/Equipment/Zipline/UI/IconDesc_Zipline_256.IconDesc_Zipline_256",
       "state": "Solid"
     },
     {
@@ -7264,11 +7079,6 @@
       "state": "Solid"
     },
     {
-      "name": "Vraie neige",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Snow_256.IconDesc_Snow_256",
-      "state": "Solid"
-    },
-    {
       "name": "É.M.E.",
       "icon": "assets/icons/IconDesc_SameOre_256.png",
       "state": "Solid"
@@ -7296,11 +7106,6 @@
     {
       "name": "Électrolimace violette",
       "icon": "assets/icons/PowerSlugPurple_64.png",
-      "state": "Solid"
-    },
-    {
-      "name": "Étoile merveilleuse FICSMAS",
-      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Star_256.IconDesc_Star_256",
       "state": "Solid"
     }
   ]

@@ -462,6 +462,7 @@ pub fn parse_docs(
 
     let mut outi: Vec<InItem> = items_map.into_values().collect();
     outi.sort_unstable_by(|a, b| a.name.cmp(&b.name));
+    outi.retain(|e| !removed.contains(&e.name));
 
     let out: OutRootType = OutRootType {
         buildings: outb,
