@@ -1,4 +1,4 @@
 [env]
-CARGO_WORKSPACE_DIR = { value = "", relative = true }
+CARGO_WORKSPACE_DIR = { value = "", relative = true } # do not update, allow code to get workspace root path
 SATISFACTORY_JSON = "fr.json"
 SATISFACTORY_EXPORT_DIR = ""
