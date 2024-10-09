@@ -1,5 +1,5 @@
 fn main() {
-    #[cfg(not(debug_assertions))]
+    /* #[cfg(not(debug_assertions))]
     {
         use std::path::PathBuf;
 
@@ -15,6 +15,6 @@ fn main() {
             .join("data.json");
         satisfactory_extractor::parse_docs(input_path, output_path).unwrap();
         println!("cargo::rerun-if-changed={}", extractor_path.to_str().unwrap());
-    }
+    } */
     tauri_build::build()
 }

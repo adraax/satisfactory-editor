@@ -221,16 +221,23 @@ fn extract_icons(
     items: &mut InItems,
     recipes: &OutRecipes,
     removed: &mut Vec<String>,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<(), String> {
     let p = path.parent().unwrap().join("icons");
 
-    if p.exists() {
-        fs::remove_dir_all(&p)?;
+    let extract_folder = std::env::var("SATISFACTORY_EXPORT_DIR");
+    let folder_path: PathBuf;
+
+    match extract_folder {
+        Err(_) => return Ok(()),
+        Ok(s) if s == "" => return Err("err".to_owned()),
+        Ok(s) => folder_path = PathBuf::from(s),
     }
 
-    let folder_path = PathBuf::from(std::env::var("SATISFACTORY_EXPORT_DIR")?);
+    if p.exists() {
+        fs::remove_dir_all(&p).unwrap();
+    }
 
-    fs::create_dir(&p)?;
+    fs::create_dir(&p).unwrap();
 
     let icons_path = &p.parent().unwrap().join("icons");
 
@@ -294,7 +301,7 @@ fn extract_icons(
         min_res_file.push_str(".png");
 
         for f in icon_path.read_dir().unwrap() {
-            let entry = f?;
+            let entry = f.unwrap();
             let entry_name_os = entry.file_name();
             let entry_name = entry_name_os.to_str().unwrap();
 
@@ -326,10 +333,15 @@ fn extract_icons(
         fs::copy(
             folder_path.join(icon_path).join(&min_res_file),
             &icons_path.join(&min_res_file),
-        )?;
+        )
+        .unwrap();
 
         *v = InItem {
-            icon: PathBuf::from("assets/icons/").join(&min_res_file).to_str().unwrap().to_owned(),
+            icon: PathBuf::from("assets/icons/")
+                .join(&min_res_file)
+                .to_str()
+                .unwrap()
+                .to_owned(),
             name: v.name.clone(),
             state: v.state.clone(),
         };
@@ -411,7 +423,12 @@ pub fn parse_docs(input_path: PathBuf, output_path: PathBuf) -> Result<(), Box<d
 
     let mut removed: Vec<String> = vec![];
 
-    extract_icons(&output_path, &mut items_map, &recipes_map, &mut removed)?;
+    let res = extract_icons(&output_path, &mut items_map, &recipes_map, &mut removed);
+
+    if res.is_err() {
+        // stop extracting, missing game folder
+        return Ok(());
+    }
 
     let mut outb: Vec<OutBuilding> = buildings_map.into_values().collect();
     outb.sort_unstable_by(|a, b| a.name.cmp(&b.name));
