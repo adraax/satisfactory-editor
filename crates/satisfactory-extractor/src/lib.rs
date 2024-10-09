@@ -2,13 +2,7 @@ use regex::Regex;
 use serde::{Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 use std::{
-    collections::HashMap,
-    error::Error,
-    fmt,
-    fs::{self, read_to_string, File},
-    io::BufWriter,
-    path::{Path, PathBuf},
-    sync::OnceLock,
+    cmp::Ordering, collections::HashMap, error::Error, fmt, fs::{self, read_to_string, File}, io::BufWriter, path::{Path, PathBuf}, sync::OnceLock
 };
 
 struct RecipeBuildingParseError;
@@ -206,10 +200,7 @@ fn parse_items_list(s: &str, items: &InItems) -> Vec<Part> {
                             ItemState::Liquid => 1000.0f32,
                         }),
                 }),
-                _ => {
-                    println!("Unknown item {i}");
-                    None
-                }
+                _ => None,
             }
         })
         .collect();
@@ -218,26 +209,28 @@ fn parse_items_list(s: &str, items: &InItems) -> Vec<Part> {
 
 fn extract_icons(
     path: &Path,
+    extract_folder: Option<PathBuf>,
     items: &mut InItems,
     recipes: &OutRecipes,
     removed: &mut Vec<String>,
-) -> Result<(), String> {
+) -> Result<(), Box<dyn Error>> {
     let p = path.parent().unwrap().join("icons");
 
-    let extract_folder = std::env::var("SATISFACTORY_EXPORT_DIR");
-    let folder_path: PathBuf;
+    let mut folder_path: &PathBuf;
 
-    match extract_folder {
-        Err(_) => return Ok(()),
-        Ok(s) if s == "" => return Err("err".to_owned()),
-        Ok(s) => folder_path = PathBuf::from(s),
+    let do_extract = match &extract_folder {
+        None => false,
+        Some(s) if s.as_os_str().is_empty() => false,
+        Some(_) => true,
+    };
+
+    if do_extract {
+        if p.exists() {
+            fs::remove_dir_all(&p).unwrap();
+        }
+
+        fs::create_dir(&p).unwrap();
     }
-
-    if p.exists() {
-        fs::remove_dir_all(&p).unwrap();
-    }
-
-    fs::create_dir(&p).unwrap();
 
     let icons_path = &p.parent().unwrap().join("icons");
 
@@ -262,7 +255,6 @@ fn extract_icons(
         }
 
         let relative_path = PathBuf::from(v.icon.replace("Texture2D /Game/", ""));
-        let icon_path = folder_path.join(relative_path.parent().unwrap());
         let icon_start_name_vec = relative_path
             .file_name()
             .unwrap()
@@ -276,65 +268,86 @@ fn extract_icons(
             .collect::<Vec<&str>>();
         let icon_start_name = icon_start_name_vec[0..icon_start_name_vec.len() - 1].join("_");
 
-        let mut min_resolution: i16 = *relative_path
-            .to_str()
-            .unwrap()
-            .split('_')
-            .filter_map(|s| match s.parse::<i16>() {
-                Ok(n) => Some(n),
-                Err(_) => None,
-            })
-            .collect::<Vec<i16>>()
-            .last()
-            .unwrap();
         let mut min_res_file = String::new();
-        min_res_file.push_str(
-            relative_path
-                .file_name()
-                .unwrap()
-                .to_str()
-                .unwrap()
-                .split('.')
-                .next()
-                .unwrap(),
-        );
-        min_res_file.push_str(".png");
 
-        for f in icon_path.read_dir().unwrap() {
-            let entry = f.unwrap();
-            let entry_name_os = entry.file_name();
-            let entry_name = entry_name_os.to_str().unwrap();
+        if !do_extract {
+            for f in icons_path.read_dir().unwrap() {
+                let entry = f?;
+                let entry_name_os = entry.file_name();
+                let entry_name = entry_name_os.to_str().unwrap();
 
-            let base_vec = entry_name.split('_').collect::<Vec<&str>>();
-            let base = base_vec[0..base_vec.len() - 1].join("_");
+                let base_vec = entry_name.split('_').collect::<Vec<&str>>();
+                let base = base_vec[0..base_vec.len() - 1].join("_");
 
-            if base == icon_start_name {
-                let current_resolution = *entry_name
-                    .split('.')
-                    .collect::<Vec<&str>>()
-                    .first()
-                    .unwrap()
-                    .split('_')
-                    .filter_map(|s| match s.parse::<i16>() {
-                        Ok(n) => Some(n),
-                        Err(_) => None,
-                    })
-                    .collect::<Vec<i16>>()
-                    .last()
-                    .unwrap();
-
-                if current_resolution < min_resolution {
-                    min_resolution = current_resolution;
-                    min_res_file = entry.file_name().into_string().unwrap();
+                if base == icon_start_name {
+                    min_res_file.push_str(entry_name);
+                    break;
                 }
             }
-        }
+        } else {
+            static FPATH: OnceLock<PathBuf> = OnceLock::new();
+            folder_path = FPATH.get_or_init(|| PathBuf::from(extract_folder.as_ref().unwrap()));
+            let icon_path = folder_path.join(relative_path.parent().unwrap());
+            let mut min_resolution: i16 = *relative_path
+                .to_str()
+                .unwrap()
+                .split('_')
+                .filter_map(|s| match s.parse::<i16>() {
+                    Ok(n) => Some(n),
+                    Err(_) => None,
+                })
+                .collect::<Vec<i16>>()
+                .last()
+                .unwrap();
 
-        fs::copy(
-            folder_path.join(icon_path).join(&min_res_file),
-            &icons_path.join(&min_res_file),
-        )
-        .unwrap();
+            min_res_file.push_str(
+                relative_path
+                    .file_name()
+                    .unwrap()
+                    .to_str()
+                    .unwrap()
+                    .split('.')
+                    .next()
+                    .unwrap(),
+            );
+            min_res_file.push_str(".png");
+
+            for f in icon_path.read_dir().unwrap() {
+                let entry = f.unwrap();
+                let entry_name_os = entry.file_name();
+                let entry_name = entry_name_os.to_str().unwrap();
+
+                let base_vec = entry_name.split('_').collect::<Vec<&str>>();
+                let base = base_vec[0..base_vec.len() - 1].join("_");
+
+                if base == icon_start_name {
+                    let current_resolution = *entry_name
+                        .split('.')
+                        .collect::<Vec<&str>>()
+                        .first()
+                        .unwrap()
+                        .split('_')
+                        .filter_map(|s| match s.parse::<i16>() {
+                            Ok(n) => Some(n),
+                            Err(_) => None,
+                        })
+                        .collect::<Vec<i16>>()
+                        .last()
+                        .unwrap();
+
+                    if current_resolution < min_resolution {
+                        min_resolution = current_resolution;
+                        min_res_file = entry.file_name().into_string().unwrap();
+                    }
+                }
+            }
+
+            fs::copy(
+                folder_path.join(icon_path).join(&min_res_file),
+                &icons_path.join(&min_res_file),
+            )
+            .unwrap();
+        }
 
         *v = InItem {
             icon: PathBuf::from("assets/icons/")
@@ -350,7 +363,11 @@ fn extract_icons(
     Ok(())
 }
 
-pub fn parse_docs(input_path: PathBuf, output_path: PathBuf) -> Result<(), Box<dyn Error>> {
+pub fn parse_docs(
+    input_path: PathBuf,
+    output_path: PathBuf,
+    satisfactory_path: Option<PathBuf>,
+) -> Result<(), Box<dyn Error>> {
     let rdr = read_to_string(input_path)?;
     let mut docs: Vec<InRootType> = serde_json::from_str(&rdr)?;
 
@@ -423,18 +440,25 @@ pub fn parse_docs(input_path: PathBuf, output_path: PathBuf) -> Result<(), Box<d
 
     let mut removed: Vec<String> = vec![];
 
-    let res = extract_icons(&output_path, &mut items_map, &recipes_map, &mut removed);
-
-    if res.is_err() {
-        // stop extracting, missing game folder
-        return Ok(());
-    }
+    extract_icons(
+        &output_path,
+        satisfactory_path,
+        &mut items_map,
+        &recipes_map,
+        &mut removed,
+    )?;
 
     let mut outb: Vec<OutBuilding> = buildings_map.into_values().collect();
     outb.sort_unstable_by(|a, b| a.name.cmp(&b.name));
 
     let mut outr: Vec<OutRecipe> = recipes_map.into_values().collect();
-    outr.sort_unstable_by(|a, r| a.name.cmp(&r.name));
+    outr.sort_unstable_by(|a, b| {
+        match a.name.cmp(&b.name) {
+            Ordering::Greater => Ordering::Greater,
+            Ordering::Less => Ordering::Less,
+            Ordering::Equal => a.building.cmp(&b.building)
+        }
+    });
 
     let mut outi: Vec<InItem> = items_map.into_values().collect();
     outi.sort_unstable_by(|a, b| a.name.cmp(&b.name));

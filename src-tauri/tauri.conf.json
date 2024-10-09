@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "satisfactory-editor",
+        "title": "Satisfactory Editor",
         "width": 800,
         "height": 600
       }

@@ -22,7 +22,7 @@ export class DataService {
   }
 
   public getBgForItem(key: string) {
-    return `url('${this.icons.get(key)}')`;
+    return `url('${this.icons.get(key) ?? ""}')`;
   }
 
   public getIcon(key: string) {

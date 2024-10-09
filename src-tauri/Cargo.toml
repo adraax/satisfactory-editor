@@ -22,12 +22,7 @@ satisfactory-extractor = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 tauri-plugin-window-state = { workspace = true }
-
-#tauri-plugin-devtools = "2.0.0-rc"
-#tauri-plugin-devtools-app = "2.0.0-rc.0"
+tauri-plugin-updater = { workspace = true }
 
 [features]
 custom-protocol = ["tauri/custom-protocol"]
-
-[target."cfg(not(any(target_os = \"android\", target_os = \"ios\")))".dependencies]
-tauri-plugin-updater = { workspace = true }
