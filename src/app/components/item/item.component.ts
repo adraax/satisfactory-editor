@@ -4,10 +4,10 @@ import { MatCheckboxChange, MatCheckboxModule } from "@angular/material/checkbox
 import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { DataService } from "../../data.service";
 import { CustomDynamicNodeComponent, EditorModule } from "../../editor/api";
 import { ItemData } from "../../interfaces/item-data.interface";
 import { Recipe } from "../../interfaces/recipe.interface";
+import { DataService } from "../../services/data.service";
 import { EntitiesService } from "../../services/entities.service";
 
 @Component({
@@ -40,5 +40,13 @@ export class ItemComponent extends CustomDynamicNodeComponent<ItemData> implemen
     if (this.selected()) {
       this.entitiesService.deleteNode(this.node.id);
     }
+  }
+
+  public getBgIcon(key?: string) {
+    return key ? this.dataService.getBgForItem(key) : "";
+  }
+
+  public getIcon(key: string) {
+    
   }
 }

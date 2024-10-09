@@ -81,6 +81,9 @@ export class MapContextDirective implements OnInit {
 
   public ngOnInit(): void {
     this.zoomBehavior = zoom<SVGSVGElement, unknown>()
+      .wheelDelta((event: WheelEvent) => {
+        return -event.deltaY * (event.deltaMode === 1 ? 0.05 : event.deltaMode ? 1 : 0.002) * (event.ctrlKey ? 8 : 0.8);
+      })
       .scaleExtent([this.editorSettingsService.minZoom(), this.editorSettingsService.maxZoom()])
       .on("start", (event: ZoomEvent) => this.onD3ZoomStart(event))
       .on("zoom", (event: ZoomEvent) => this.handleZoom(event))

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { zoomTransform } from "d3-zoom";
 import {
   animationFrameScheduler,
@@ -14,9 +14,12 @@ import {
 } from "rxjs";
 import { NodeModel } from "../models/node.model";
 import { round } from "../utils/round";
+import { EntitiesService } from './entities.service';
 
 @Injectable()
 export class DraggableService {
+  private entitiesService = inject(EntitiesService);
+
   private events$: Map<
     Element,
     {
@@ -60,11 +63,15 @@ export class DraggableService {
     let drag = mouseMovement$.subscribe((event) => {
       event.originalEvent.stopPropagation();
       const transform = zoomTransform(rootSvg);
-      let deltaX = model.point().x;
-      let deltaY = model.point().y;
-      let point = { x: round(event.tx / transform.k + deltaX), y: round(event.ty / transform.k + deltaY) };
-      
-      model.setPoint(point);
+
+      this.entitiesService.nodes().filter(e => e.selected()).forEach(n => {
+        let deltaX = n.point().x;
+        let deltaY = n.point().y;
+        let point = { x: round(event.tx / transform.k + deltaX), y: round(event.ty / transform.k + deltaY) };
+        
+        n.setPoint(point);
+      }) 
+
     });
 
     this.events$.set(element, {

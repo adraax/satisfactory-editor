@@ -6346,5 +6346,962 @@
         }
       ]
     }
+  ],
+  "items": [
+    {
+      "name": "Acide nitrique",
+      "icon": "assets/icons/IconDesc_NitricAcid_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Acide nitrique conditionné",
+      "icon": "assets/icons/IconDesc_PackagedNitricAcid_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Acide sulfurique",
+      "icon": "assets/icons/IconDesc_LiquidSulfuricAcid_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Acide sulfurique conditionné",
+      "icon": "assets/icons/IconDesc_PckagedSulphuricAcid_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Agaric lardon",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Environment/DesertShroom/UI/Mushroom_256.Mushroom_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Azote",
+      "icon": "assets/icons/IconDesc_NitrogenGas_64.png",
+      "state": "Gas"
+    },
+    {
+      "name": "Azote gazeux conditionné",
+      "icon": "assets/icons/IconDesc_PackagedNitrogen_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre d'armature en fer",
+      "icon": "assets/icons/IconDesc_Rebar_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre d'armature à fragmentation",
+      "icon": "assets/icons/IconDesc_ScatterRebar_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre d'armature étourdissante",
+      "icon": "assets/icons/IconDesc_StunRebar_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre d'uranium",
+      "icon": "assets/icons/IconDesc_NuclearFuelRod_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre de fer",
+      "icon": "assets/icons/IconDesc_IronRods_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre de ficsonium",
+      "icon": "assets/icons/IconDesc_FicsoniumFuelRod_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Barre de plutonium",
+      "icon": "assets/icons/IconDesc_PlutoniumFuelRod_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Batterie",
+      "icon": "assets/icons/IconDesc_Battery_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Bauxite",
+      "icon": "assets/icons/IconDesc_Bauxite_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Bidon en aluminium",
+      "icon": "assets/icons/IconDesc_AluminiumCasing_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Bidon vide",
+      "icon": "assets/icons/IconDesc_EmptyCannister_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Biocarburant liquide",
+      "icon": "assets/icons/IconDesc_LiquidBiofuel_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Biocarburant liquide conditionné",
+      "icon": "assets/icons/IconDesc_LiquidBiofuel_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Biocarburant solide",
+      "icon": "assets/icons/IconDesc_SolidBiofuel_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Biomasse",
+      "icon": "assets/icons/IconDesc_Biomass_Final_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Bois",
+      "icon": "assets/icons/IconDesc_Wood_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Boule de neige",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_SnowballProjectile_256.IconDesc_SnowballProjectile_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Branche d’arbre FICSMAS",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Branch_256.IconDesc_Branch_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Béton",
+      "icon": "assets/icons/IconDesc_Concrete_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cadeau FICSMAS",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Gift_256.IconDesc_Gift_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Cadre modulaire",
+      "icon": "assets/icons/IconDesc_ModularFrame_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cadre modulaire fusionné",
+      "icon": "assets/icons/IconDesc_FusedModularFrame_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cadre modulaire lourd",
+      "icon": "assets/icons/IconDesc_ModularFrameHeavy_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Calcaire",
+      "icon": "assets/icons/Stone_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Caoutchouc",
+      "icon": "assets/icons/IconDesc_Rubber_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Capsule ADN extraterrestre",
+      "icon": "assets/icons/IconDesc_AlienDNA_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Carburant",
+      "icon": "assets/icons/IconDesc_LiquidFuel_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Carburant conditionné",
+      "icon": "assets/icons/IconDesc_Fuel_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Carburant de fusée",
+      "icon": "assets/icons/IconDesc_RocketFuelPipe_64.png",
+      "state": "Gas"
+    },
+    {
+      "name": "Carburant de fusée conditionné",
+      "icon": "assets/icons/IconDesc_PackagedRocketFuel_256.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Carburant ionisé",
+      "icon": "assets/icons/IconDesc_IonizedFuel_64.png",
+      "state": "Gas"
+    },
+    {
+      "name": "Carburant ionisé conditionné",
+      "icon": "assets/icons/IconDesc_IonizedRocketFuel_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cellule d'uranium",
+      "icon": "assets/icons/IconDesc_NuclearCell_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cellule de plutonium encastré",
+      "icon": "assets/icons/IconDesc_EncasedPlutoniumCell_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cellule de singularité",
+      "icon": "assets/icons/IconDesc_SingularityCell_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Charbon",
+      "icon": "assets/icons/IconDesc_CoalOre_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Charbon compacté",
+      "icon": "assets/icons/IconDesc_CompactedCoal_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Chariot d'usine™",
+      "icon": "Texture2D /Game/FactoryGame/Equipment/GolfCart/UI/IconDesc_GolfCart_256.IconDesc_GolfCart_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Chariot d'usine™ doré",
+      "icon": "Texture2D /Game/FactoryGame/Equipment/GolfCart/UI/IconDesc_GolfCartGold_256.IconDesc_GolfCartGold_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Circuit imprimé",
+      "icon": "assets/icons/IconDesc_CircuitBoard_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cogne-xénos",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/StunSpear/UI/IconDesc_XenoBasher_256.IconDesc_XenoBasher_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Coke de pétrole",
+      "icon": "assets/icons/IconDesc_PetroleumCoke_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Combinaison de protection",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Parts/HazmatSuit/UI/IconDesc_HazmatSuit_256.IconDesc_HazmatSuit_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Connecteur haute vitesse",
+      "icon": "assets/icons/IconDesc_HighSpeedConnector_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Contrôleur d'I.A.",
+      "icon": "assets/icons/IconDesc_AILimiter_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cristal de matière noire",
+      "icon": "assets/icons/IconDesc_TimeCrystal_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cristal de quartz",
+      "icon": "assets/icons/IconDesc_QuartzResource_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cristal temporel",
+      "icon": "assets/icons/IconDesc_ExoticMatter_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Cube de conversion de pression",
+      "icon": "assets/icons/IconDesc_ConversionCube_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Câblage automatisé",
+      "icon": "assets/icons/SpelevatorPart_3_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Câble",
+      "icon": "assets/icons/IconDesc_Cables_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Dekatlons",
+      "icon": "Texture2D /Game/FactoryGame/Equipment/JumpingStilts/UI/IconDesc_SprintingStilts_256.IconDesc_SprintingStilts_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Diamants",
+      "icon": "assets/icons/IconDesc_Diamonds_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Dissipateur de chaleur",
+      "icon": "assets/icons/IconDesc_Heatsink_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Déchets d'uranium",
+      "icon": "assets/icons/IconDesc_NuclearWaste_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Déchets de plutonium",
+      "icon": "assets/icons/IconDesc_PlutoniumWaste_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Décoration FICSMAS bleue",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Blue_256.IconDesc_XmasBall_Blue_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Décoration FICSMAS en cuivre",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Yellow_256.IconDesc_XmasBall_Yellow_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Décoration FICSMAS en fer",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Silver_256.IconDesc_XmasBall_Silver_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Décoration FICSMAS rouge",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_XmasBall_Red_256.IconDesc_XmasBall_Red_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Décoration de FICSMAS",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Wreath_256.IconDesc_Wreath_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Détonateur de nobélisques",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/NobeliskDetonator/UI/Detonator_256.Detonator_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Eau",
+      "icon": "assets/icons/LiquidWater_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Eau conditionnée",
+      "icon": "assets/icons/IconDesc_PackagedWater_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Fer explosif",
+      "icon": "assets/icons/IconDesc_ExpRebar_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Feuilles",
+      "icon": "assets/icons/IconDesc_Leaves_256.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Feux d'artifice fantaisie",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Fireworks/UI/IconDesc_Rocket02_256.IconDesc_Rocket02_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Feux d'artifice étincelants",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Fireworks/UI/IconDesc_Rocket03_256.IconDesc_Rocket03_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Ficsonium",
+      "icon": "assets/icons/IconDesc_FicsoniumCell_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Fil électrique",
+      "icon": "assets/icons/IconDesc_Wire_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Filactif",
+      "icon": "assets/icons/IconDesc_Quickwire_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Filtre à gaz",
+      "icon": "assets/icons/IconDesc_GasMaskFilter_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Filtre à infusion d'iode",
+      "icon": "assets/icons/IconDesc_HazmatFilter_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Fluctuateur d'É.M.E.",
+      "icon": "assets/icons/IconDesc_SamFluctuator_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Foreuse portable",
+      "icon": "assets/icons/IconDesc_PortableMiner_256.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Fusil",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/Rifle/UI/RifleMk1_256.RifleMk1_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Fusée à propulsion thermique",
+      "icon": "assets/icons/IconDesc_ThermalPropulsionRocket_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Granulés de plutonium",
+      "icon": "assets/icons/IconDesc_PlutoniumPellet_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Générateur de champ magnétique",
+      "icon": "assets/icons/IconDesc_MagneticFieldGenerator_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Hoverpack",
+      "icon": "Texture2D /Game/FactoryGame/Equipment/HoverPack/UI/IconDesc_Hoverpack_256.IconDesc_Hoverpack_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Inhalateur médicinal",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/Medkit/UI/Inhaler_256.Inhaler_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Jolis feux d'artifice",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Fireworks/UI/IconDesc_Rocket01_256.IconDesc_Rocket01_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Lingot d'acier",
+      "icon": "assets/icons/IconDesc_SteelIngot_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Lingot d'aluminium",
+      "icon": "assets/icons/IconDesc_AluminiumIngot_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Lingot de caterium",
+      "icon": "assets/icons/IconDesc_CateriumIngot_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Lingot de cuivre",
+      "icon": "assets/icons/IconDesc_CopperIngot_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Lingot de fer",
+      "icon": "assets/icons/IconDesc_IronIngot_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Lingot de ficsite",
+      "icon": "assets/icons/IconDesc_FicsiteIngot_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Lot d'ornements FICSMAS",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Balls_256.IconDesc_Balls_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Masque à gaz",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/GasMask/UI/GasMask_256.GasMask_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Matière photonique agitée",
+      "icon": "assets/icons/IconDesc_QuantumEnergy_64.png",
+      "state": "Gas"
+    },
+    {
+      "name": "Matrice de charge extraterrestre",
+      "icon": "assets/icons/IconDesc_AlienPowerMatrix_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Minerai de caterium",
+      "icon": "assets/icons/IconDesc_CateriumOre_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Minerai de cuivre",
+      "icon": "assets/icons/IconDesc_copper_new_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Minerai de fer",
+      "icon": "assets/icons/IconDesc_iron_new_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Moteur",
+      "icon": "assets/icons/IconDesc_Engine_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Moteur modulaire",
+      "icon": "assets/icons/IconDesc_SpelevatorPart_4_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Moteur à distorsion balistique",
+      "icon": "assets/icons/IconDesc_BallisticWarpDrive_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Munitions de fusil",
+      "icon": "assets/icons/IconDesc_Rifle_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Munitions de fusil turbo",
+      "icon": "assets/icons/IconDesc_TurboRifle_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Munitions de fusil à têtes chercheuses",
+      "icon": "assets/icons/IconDesc_HomingRifle_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Mycélium",
+      "icon": "assets/icons/IconDesc_Mycelia_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Nobélisque",
+      "icon": "assets/icons/IconDesc_Explosive_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Nobélisque nucléaire",
+      "icon": "assets/icons/IconDesc_Nuke_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Nobélisque à fragmentation",
+      "icon": "assets/icons/IconDesc_Cluster_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Nobélisque à gaz",
+      "icon": "assets/icons/IconDesc_Gas_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Nobélisque à impulsion",
+      "icon": "assets/icons/IconDesc_Shock_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Noix de béryl",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Environment/Nut/UI/Nut_256_New.Nut_256_New",
+      "state": "Solid"
+    },
+    {
+      "name": "Nœud de FICSMAS",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Bow_256.IconDesc_Bow_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Ordinateur",
+      "icon": "assets/icons/IconDesc_Computer_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Oscillateur de superposition",
+      "icon": "assets/icons/IconDesc_SuperPositionOscillator_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Oscillateur à cristal",
+      "icon": "assets/icons/IconDesc_CrystalOscillator_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Parachute",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/Beacon/UI/Parachute_256.Parachute_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Pistolet à barres d'armature",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/NailGun/UI/IconDesc_RebarGun_256.IconDesc_RebarGun_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Placage intelligent",
+      "icon": "assets/icons/IconDesc_SpelevatorPart_1_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Plaque de fer",
+      "icon": "assets/icons/IconDesc_IronPlates_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Plaque de fer renforcée",
+      "icon": "assets/icons/IconDesc_ReinforcedIronPlates_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Plastique",
+      "icon": "assets/icons/IconDesc_Plastic_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Poudre de cuivre",
+      "icon": "assets/icons/IconDesc_CopperDust_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Poudre noire",
+      "icon": "assets/icons/IconDesc_Gunpowder_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Poudre sans fumée",
+      "icon": "assets/icons/IconDesc_GunpowderMk2_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Poutre en acier",
+      "icon": "assets/icons/IconDesc_SteelBeam_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Poutre en béton armé",
+      "icon": "assets/icons/IconDesc_EncasedSteelBeam_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Processeur neuro-quantique",
+      "icon": "assets/icons/IconDesc_TemporalProcessor_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Protéine extraterrestre",
+      "icon": "assets/icons/IconDesc_AlienProtein_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Pâlebaie",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Environment/Berry/UI/IconDesc_Berry_256.IconDesc_Berry_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Pâte nucléaire",
+      "icon": "assets/icons/IconDesc_NuclearPasta_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Pétrole brut",
+      "icon": "assets/icons/LiquidOil_Pipe_256.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Pétrole conditionné",
+      "icon": "assets/icons/Oil_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Quartz brut",
+      "icon": "assets/icons/IconDesc_QuartzCrystal_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Rebuts d'aluminium",
+      "icon": "assets/icons/IconDesc_AluminiumScrap_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Repousse-xénos",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/ShockShank/UI/IconDesc_XenoZapper_256.IconDesc_XenoZapper_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Restes d'écloseur",
+      "icon": "assets/icons/IconDesc_HatcherPart_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Restes de cracheur",
+      "icon": "assets/icons/IconDesc_SpitterPart_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Restes de dardeuse",
+      "icon": "assets/icons/IconDesc_StingerPart_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Restes de sanglier extraterrestre",
+      "icon": "assets/icons/IconDesc_HogPart_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Rotor",
+      "icon": "assets/icons/IconDesc_Rotor_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Réacteur dorsal",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/JetPack/UI/Jetpack_256.Jetpack_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Réservoir vide",
+      "icon": "assets/icons/IconDesc_PressureTank_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Résidus de matière noire",
+      "icon": "assets/icons/IconDesc_DarkEnergy_64.png",
+      "state": "Gas"
+    },
+    {
+      "name": "Résidus de pétrole lourd",
+      "icon": "assets/icons/IconDesc_LiquidHeavyOilResidue_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Résidus de pétrole lourd conditionnés",
+      "icon": "assets/icons/OilResidue_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Résine polymère",
+      "icon": "assets/icons/IconDesc_PolymerResin_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Scanner d'objets",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/GemstoneScanner/UI/ObjectScanner_256.ObjectScanner_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Sculptrice biochimique",
+      "icon": "assets/icons/IconDesc_BiochemicalSculptor_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Serveur d'expansion d'I.A.",
+      "icon": "assets/icons/IconDesc_AIExpension_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Silice",
+      "icon": "assets/icons/IconDesc_Silica_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Silice dissoute",
+      "icon": "assets/icons/IconDesc_DissolvedSilica_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Solution d'alumine",
+      "icon": "assets/icons/LiquidAlumina_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Solution d'aluminium conditionnée",
+      "icon": "assets/icons/IconDesc_PackagedAluminaSolution_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Somersloop",
+      "icon": "Texture2D /Game/FactoryGame/Prototype/WAT/UI/Wat_1_256.Wat_1_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Soufre",
+      "icon": "assets/icons/Sulfur_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Sphère de Mercer",
+      "icon": "Texture2D /Game/FactoryGame/Prototype/WAT/UI/Wat_2_256.Wat_2_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Stator",
+      "icon": "assets/icons/IconDesc_Stator_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Structure polyvalente",
+      "icon": "assets/icons/IconDesc_SpelevatorPart_2_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Sucre d'orge",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_CanePart_256.IconDesc_CanePart_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Sucre d'orge cogneur",
+      "icon": "Texture2D /Game/FactoryGame/Resource/Equipment/StunSpear/UI/IconDesc_CaneEquipment_256.IconDesc_CaneEquipment_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Superordinateur",
+      "icon": "assets/icons/IconDesc_QuantumComputer_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Système de directeur d'assemblage",
+      "icon": "assets/icons/IconDesc_AssemblyDirectorSystem_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Système de refroidissement",
+      "icon": "assets/icons/IconDesc_CoolingSystem_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Tige de contrôle électromagnétique",
+      "icon": "assets/icons/IconDesc_ElectromagneticControlRod_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Tissu",
+      "icon": "assets/icons/IconDesc_Fabric_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Trigon en ficsite",
+      "icon": "assets/icons/IconDesc_FicsiteMesh_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Tronçonneuse",
+      "icon": "Texture2D /Game/FactoryGame/Equipment/Chainsaw/UI/IconDesc_Chainsaw_256.IconDesc_Chainsaw_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Turbocarburant",
+      "icon": "assets/icons/IconDesc_LiquidTurboFuel_Pipe_64.png",
+      "state": "Liquid"
+    },
+    {
+      "name": "Turbocarburant conditionné",
+      "icon": "assets/icons/IconDesc_TurboFuel_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Turbomoteur",
+      "icon": "assets/icons/IconDesc_TurboMotor_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Tuyau en acier",
+      "icon": "assets/icons/IconDesc_SteelPipe_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Tyrolienne",
+      "icon": "Texture2D /Game/FactoryGame/Equipment/Zipline/UI/IconDesc_Zipline_256.IconDesc_Zipline_256",
+      "state": "Solid"
+    },
+    {
+      "name": "Tôle d'aluminium en alliage Alclad",
+      "icon": "assets/icons/IconDesc_AluminiumSheet_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Tôle de cuivre",
+      "icon": "assets/icons/IconDesc_CopperSheet_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Unité de contrôle adaptative",
+      "icon": "assets/icons/IconDesc_SpelevatorPart_5_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Unité de contrôle radio",
+      "icon": "assets/icons/IconDesc_RadioControlUnit_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Uranium",
+      "icon": "assets/icons/IconDesc_UraniumOre_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Uranium non fissile",
+      "icon": "assets/icons/IconDesc_NonFissileUranium_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Vis",
+      "icon": "assets/icons/IconDesc_IronScrews_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Vraie neige",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Snow_256.IconDesc_Snow_256",
+      "state": "Solid"
+    },
+    {
+      "name": "É.M.E.",
+      "icon": "assets/icons/IconDesc_SameOre_256.png",
+      "state": "Solid"
+    },
+    {
+      "name": "É.M.E. réanimée",
+      "icon": "assets/icons/IconDesc_ReanimatedSam_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Éclat de charge",
+      "icon": "assets/icons/PowerShard_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Électrolimace bleue",
+      "icon": "assets/icons/PowerSlugGreen_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Électrolimace jaune",
+      "icon": "assets/icons/PowerSlugYellow_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Électrolimace violette",
+      "icon": "assets/icons/PowerSlugPurple_64.png",
+      "state": "Solid"
+    },
+    {
+      "name": "Étoile merveilleuse FICSMAS",
+      "icon": "Texture2D /Game/FactoryGame/Events/Christmas/Parts/UI/IconDesc_Star_256.IconDesc_Star_256",
+      "state": "Solid"
+    }
   ]
 }

@@ -2,18 +2,21 @@
     display: flex;
     flex-direction: row;
 
-    &>div:not(:first-child) {
-        padding-left: 20px;
-
-        input {
-            margin-left: 20px;
+    &>.column:last-of-type {
+        .ng-star-inserted {
+            display: flex;
+            justify-content: flex-end;
         }
-    } 
+    }
 }
 
 .column {
     display: flex;
     flex-direction: column;
+
+    &:not(:first-child) {
+        padding-left: 20px;
+    }
 }
 
 mat-divider {
@@ -26,7 +29,8 @@ mat-card-header {
     justify-content: center;
     display: flex;
 
-    mat-card-title, mat-checkbox {
+    mat-card-title,
+    mat-checkbox {
         flex-grow: 0;
     }
 
@@ -50,4 +54,25 @@ input {
 
 .spacer {
     flex: 1;
+}
+
+.icon,
+.mat-mdc-card-avatar {
+    background-size: cover;
+    margin-bottom: 0;
+
+}
+
+.icon {
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.ng-star-inserted {
+    display: flex;
 }

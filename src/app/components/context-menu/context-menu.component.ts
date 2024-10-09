@@ -14,8 +14,8 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from "@angular/material/list";
-import { DataService } from "../../data.service";
 import { Recipe } from "../../interfaces/recipe.interface";
+import { DataService } from "../../services/data.service";
 
 @Component({
   templateUrl: "./context-menu.component.html",
