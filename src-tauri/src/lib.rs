@@ -11,15 +11,19 @@ pub fn run() {
         use satisfactory_extractor::parse_docs;
         use std::path::PathBuf;
 
-        let root_path = PathBuf::from(std::env::var("CARGO_WORKSPACE_DIR").unwrap());
+        let workspace_dir = std::env::var("CARGO_WORKSPACE_DIR");
 
-        let input_path = root_path.join("src-tauri").join("assets").join("fr.json");
-        let output_path = root_path
-            .join("src")
-            .join("assets")
-            .join("data.json");
+        match workspace_dir {
+            Ok(s) => {
+                let root_path = PathBuf::from(s);
 
-        parse_docs(input_path, output_path).unwrap();
+                let input_path = root_path.join("src-tauri").join("assets").join("fr.json");
+                let output_path = root_path.join("src").join("assets").join("data.json");
+
+                parse_docs(input_path, output_path).unwrap();
+            }
+            Err(_) => (),
+        };
     }
 
     tauri::Builder::default()
