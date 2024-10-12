@@ -48,6 +48,40 @@ mat-card {
     }
 }
 
+mat-card-footer {
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 10px;
+
+    mat-form-field {
+        max-width: 60px;
+        --mat-form-field-container-height: 30px;
+        --mat-form-field-filled-label-display: none;
+        --mat-form-field-container-vertical-padding: 5px;
+        --mat-form-field-filled-with-label-container-padding-top: 5px;
+        --mat-form-field-filled-with-label-container-padding-bottom: 5px;
+
+        ::ng-deep {
+            .mdc-text-field {
+                padding: 0 7px;
+            }
+        }
+    }
+
+    input {
+        max-width: unset;
+        text-align: right;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            display: none;
+        }
+    }
+}
+
 input {
     max-width: 60px;
 }

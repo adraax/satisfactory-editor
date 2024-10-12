@@ -1,6 +1,7 @@
 import { Directive, ElementRef, inject } from "@angular/core";
 import {
   animationFrameScheduler,
+  filter,
   fromEvent,
   map,
   mergeMap,
@@ -20,9 +21,13 @@ export class RootPointerDirective {
 
   private previous = { x: 0, y: 0 };
 
-  private mouseDownWithCapture$ = fromEvent<MouseEvent>(this.host, "mousedown", { capture: true });
+  private mouseDownWithCapture$ = fromEvent<MouseEvent>(this.host, "mousedown", { capture: true }).pipe(
+    filter((e) => !(e.target instanceof HTMLInputElement))
+  );
 
-  private mouseDown$ = fromEvent<MouseEvent>(this.host, "mousedown");
+  private mouseDown$ = fromEvent<MouseEvent>(this.host, "mousedown").pipe(
+    filter((e) => !(e.target instanceof HTMLInputElement))
+  );
   private mouseUp$ = fromEvent(document, "mouseup");
   private mouseMove$ = fromEvent<MouseEvent>(document, "mousemove");
 

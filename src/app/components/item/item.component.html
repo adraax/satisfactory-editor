@@ -20,7 +20,7 @@
         @for(input of recipe.inputs; track input.name) {
         <div>
           <div class="row">
-            <input disabled type="number" value="{{ (60 / recipe.time) * input.quantity }}" />
+            <input disabled type="number" value="{{ (60 / recipe.time) * input.quantity * overclock() / 100 }}" />
 
             <div><div class="icon" [style.background-image]="getBgIcon(input.name)"></div>{{ input.name }}</div>
           </div>
@@ -33,7 +33,7 @@
         <div>
           <div class="row">
             <div>{{ output.name }}<div class="icon" [style.background-image]="getBgIcon(output.name)"></div></div>
-            <input disabled type="number" value="{{ (60 / recipe.time) * output.quantity }}" />
+            <input disabled type="number" value="{{ (60 / recipe.time) * output.quantity * overclock() / 100}}" />
           </div>
           <handle position="right" type="source" [id]="output.name" />
         </div>
@@ -41,4 +41,14 @@
       </div>
     </div>
   </mat-card-content>
+  <mat-divider />
+  <mat-card-footer>
+    <mat-chip-set>
+      <mat-chip>{{recipe.building}}</mat-chip>
+    </mat-chip-set>
+    <mat-form-field subscriptSizing="dynamic" class="thin-input">
+      <input matInput type="number" value="100" min="1" max="250" (change)="overclockChange($event)">
+      <span matTextSuffix>%</span>
+    </mat-form-field>
+  </mat-card-footer>
 </mat-card>

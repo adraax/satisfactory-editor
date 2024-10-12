@@ -1,3 +1,30 @@
+@use '@angular/material'as mat;
+
+@include mat.core();
+$theme: mat.define-theme((color: (theme-type: dark,
+      primary: mat.$cyan-palette,
+      tertiary: mat.$orange-palette),
+  ));
+
+html {
+  @include mat.core-theme($theme);
+  @include mat.all-component-typographies($theme);
+  @include mat.card-theme($theme);
+  @include mat.chips-theme($theme);
+  @include mat.progress-bar-theme($theme);
+  @include mat.progress-spinner-theme($theme);
+  @include mat.input-theme($theme);
+  @include mat.autocomplete-theme($theme);
+  @include mat.list-theme($theme);
+  @include mat.form-field-theme($theme);
+}
+
+@include mat.typography-hierarchy($theme);
+
+.thin-input {
+  @include mat.form-field-density(-4);
+}
+
 body {
   min-height: 100vh;
   min-width: 100vw;

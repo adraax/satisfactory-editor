@@ -144,6 +144,7 @@ export class MainComponent implements AfterViewInit {
         data: signal({
           name: text,
           constructed: false,
+          overclock: 100,
         } satisfies ItemData),
         point: signal(this.editor.documentPointToEditorPoint(this.lastRightClick)),
       },

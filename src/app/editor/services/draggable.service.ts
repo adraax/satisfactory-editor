@@ -2,6 +2,7 @@ import { inject, Injectable } from "@angular/core";
 import { zoomTransform } from "d3-zoom";
 import {
   animationFrameScheduler,
+  filter,
   fromEvent,
   map,
   mergeMap,
@@ -14,7 +15,7 @@ import {
 } from "rxjs";
 import { NodeModel } from "../models/node.model";
 import { round } from "../utils/round";
-import { EntitiesService } from './entities.service';
+import { EntitiesService } from "./entities.service";
 
 @Injectable()
 export class DraggableService {
@@ -32,7 +33,9 @@ export class DraggableService {
   > = new Map();
 
   public enable(element: Element, rootSvg: SVGSVGElement, model: NodeModel) {
-    let mouseDown$ = fromEvent<MouseEvent>(element, "mousedown");
+    let mouseDown$ = fromEvent<MouseEvent>(element, "mousedown").pipe(
+      filter((e) => !(e.target instanceof HTMLInputElement))
+    );
     let mouseUp$ = fromEvent<MouseEvent>(document, "mouseup");
     let mouseMove$ = fromEvent<MouseEvent>(document, "mousemove");
 
@@ -64,14 +67,16 @@ export class DraggableService {
       event.originalEvent.stopPropagation();
       const transform = zoomTransform(rootSvg);
 
-      this.entitiesService.nodes().filter(e => e.selected()).forEach(n => {
-        let deltaX = n.point().x;
-        let deltaY = n.point().y;
-        let point = { x: round(event.tx / transform.k + deltaX), y: round(event.ty / transform.k + deltaY) };
-        
-        n.setPoint(point);
-      }) 
+      this.entitiesService
+        .nodes()
+        .filter((e) => e.selected())
+        .forEach((n) => {
+          let deltaX = n.point().x;
+          let deltaY = n.point().y;
+          let point = { x: round(event.tx / transform.k + deltaX), y: round(event.ty / transform.k + deltaY) };
 
+          n.setPoint(point);
+        });
     });
 
     this.events$.set(element, {
