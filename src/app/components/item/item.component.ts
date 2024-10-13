@@ -30,7 +30,7 @@ export class ItemComponent extends CustomDynamicNodeComponent<ItemData> implemen
   private entitiesService = inject(EntitiesService);
 
   public overclock = computed(() => {
-    return this.data() !== undefined ? this.data()!.overclock : 100;
+    return this.data()!.overclock;
   });
 
   public constructedCheckChange(event: MatCheckboxChange) {

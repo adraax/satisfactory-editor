@@ -47,7 +47,7 @@
       <mat-chip>{{recipe.building}}</mat-chip>
     </mat-chip-set>
     <mat-form-field subscriptSizing="dynamic" class="thin-input">
-      <input matInput type="number" value="100" min="1" max="250" (change)="overclockChange($event)">
+      <input matInput type="number" value="100" min="1" max="250" [value]="overclock()" (change)="overclockChange($event)">
       <span matTextSuffix>%</span>
     </mat-form-field>
   </mat-card-footer>
