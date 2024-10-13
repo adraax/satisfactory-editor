@@ -16,6 +16,9 @@ satisfactory-extractor = { workspace = true }
 
 
 [dependencies]
+# internal
+commands ={ workspace = true}
+#external
 regex = {workspace = true, features = []}
 tauri = { workspace = true, features = [] }
 satisfactory-extractor = { workspace = true }

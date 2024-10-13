@@ -1,11 +1,13 @@
 [workspace]
 resolver = "2"
-members = ["crates/satisfactory-extractor", "src-tauri"]
+members = [ "crates/commands","crates/models", "crates/satisfactory-extractor", "src-tauri"]
 default-members = ["src-tauri"]
 
 [workspace.dependencies]
 #internals
 satisfactory-extractor = { path = "./crates/satisfactory-extractor" }
+models = { path = "./crates/models" }
+commands = { path = "./crates/commands" }
 #externals
 regex = "1.10.6"
 serde = "1"

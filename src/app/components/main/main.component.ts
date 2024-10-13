@@ -7,6 +7,7 @@ import {
   Component,
   computed,
   ElementRef,
+  HostListener,
   inject,
   signal,
   Signal,
@@ -24,6 +25,7 @@ import {
 import { EditorModule } from "../../editor/editor.module";
 import { ItemData } from "../../interfaces/item-data.interface";
 import { EntitiesService } from "../../services/entities.service";
+import { SaveService } from "../../services/save.service";
 import { ContextMenuComponent } from "../context-menu/context-menu.component";
 import { ItemComponent } from "../item/item.component";
 
@@ -34,11 +36,12 @@ import { ItemComponent } from "../item/item.component";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [EditorModule, OverlayModule],
-  providers: [EntitiesService],
+  providers: [EntitiesService, SaveService],
 })
 export class MainComponent implements AfterViewInit {
   private overlay = inject(Overlay);
   private entitiesService = inject(EntitiesService);
+  private saveService = inject(SaveService);
 
   private overlayRef!: OverlayRef;
   private portal!: ComponentPortal<ContextMenuComponent>;
@@ -209,5 +212,10 @@ export class MainComponent implements AfterViewInit {
   }
   public dagreRender() {
     this.editor.nodes;
+  }
+
+  @HostListener("window:beforeunload")
+  public unload() {
+    this.saveService.saveState();
   }
 }
