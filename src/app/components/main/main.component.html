@@ -1,5 +1,8 @@
-<div class="container"></div>
-<h1>Satisfactory Editor</h1>
+<div class="container">
+  <h1>Satisfactory Editor</h1>
+  <div class="spacer"></div>
+  <mat-checkbox [checked]="true" (change)="dagreCheckedChange($event)">Dagre Render</mat-checkbox>
+</div>
 
 <editor
   view="auto"
@@ -10,6 +13,8 @@
   (onConnect)="createEdge($event)"
   (onConnectCancel)="triggerOverlay($event)"
   (contextmenu)="rightClick($event)"
+  [maxZoom]="3"
+  [minZoom]="0.1"
 >
   <ng-template edge let-ctx>
     <svg:path

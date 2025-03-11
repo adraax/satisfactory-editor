@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^18.2.7",
     "@angular/platform-browser-dynamic": "^18.2.7",
     "@angular/router": "^18.2.7",
+    "@dagrejs/dagre": "^1.1.4",
     "@tauri-apps/api": "2.0.0-rc.4",
     "@tauri-apps/plugin-process": "^2.0.0",
     "@tauri-apps/plugin-shell": "2.0.0-rc.1",

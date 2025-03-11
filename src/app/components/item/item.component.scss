@@ -3,7 +3,7 @@
     flex-direction: row;
 
     &>.column:last-of-type {
-        .ng-star-inserted {
+        div {
             display: flex;
             justify-content: flex-end;
         }
@@ -86,9 +86,7 @@ input {
     max-width: 60px;
 }
 
-.spacer {
-    flex: 1;
-}
+
 
 .icon,
 .mat-mdc-card-avatar {

@@ -86,7 +86,7 @@ export class NodeComponent implements OnInit, AfterViewInit, OnDestroy, WithInje
       .pipe(
         switchMap((handles) => resizable(handles.map((h) => h.parentReference!)).pipe(map(() => handles))),
         tap((handles) => {
-          // TODO (performance) inspect how to avoid calls of this when flow initially rendered
+          // TODO (performance) inspect how to avoid calls of this when editor initially rendered
           handles.forEach((h) => h.updateParent());
         })
       )

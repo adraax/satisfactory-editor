@@ -344,7 +344,7 @@ fn extract_icons(
 
             fs::copy(
                 folder_path.join(icon_path).join(&min_res_file),
-                &icons_path.join(&min_res_file),
+                icons_path.join(&min_res_file),
             )
             .unwrap();
         }

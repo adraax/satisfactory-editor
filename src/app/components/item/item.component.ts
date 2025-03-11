@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, inject, OnInit } from "@angular/core";
+import { AfterViewInit, Component, computed, ElementRef, HostListener, inject, OnInit } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { MatCheckboxChange, MatCheckboxModule } from "@angular/material/checkbox";
 import { MatChipsModule } from "@angular/material/chips";
@@ -25,9 +25,13 @@ import { EntitiesService } from "../../services/entities.service";
     MatChipsModule,
   ],
 })
-export class ItemComponent extends CustomDynamicNodeComponent<ItemData> implements OnInit {
+export class ItemComponent extends CustomDynamicNodeComponent<ItemData> implements OnInit, AfterViewInit {
   private dataService = inject(DataService);
   private entitiesService = inject(EntitiesService);
+
+  constructor(private host: ElementRef) {
+    super();
+  }
 
   public overclock = computed(() => {
     return this.data()!.overclock;
@@ -47,9 +51,6 @@ export class ItemComponent extends CustomDynamicNodeComponent<ItemData> implemen
     if (value < 1) {
       value = 1;
       target.valueAsNumber = 1;
-    } else if (value > 250) {
-      value = 250;
-      target.valueAsNumber = 250;
     }
 
     this.data.set({
@@ -80,5 +81,11 @@ export class ItemComponent extends CustomDynamicNodeComponent<ItemData> implemen
     return key ? this.dataService.getBgForItem(key) : "";
   }
 
-  public getIcon(key: string) {}
+  ngAfterViewInit(): void {
+    this.data.set({
+      ...this.data(),
+      width: this.host.nativeElement.offsetWidth,
+      height: this.host.nativeElement.offsetHeight,
+    } as ItemData);
+  }
 }

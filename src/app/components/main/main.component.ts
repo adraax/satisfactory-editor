@@ -7,12 +7,16 @@ import {
   Component,
   computed,
   ElementRef,
+  HostBinding,
   HostListener,
   inject,
   signal,
   Signal,
   ViewChild,
 } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { MatCheckboxChange, MatCheckboxModule } from "@angular/material/checkbox";
+import { tap } from "rxjs";
 import {
   Background,
   Connection,
@@ -25,6 +29,7 @@ import {
 import { EditorModule } from "../../editor/editor.module";
 import { ItemData } from "../../interfaces/item-data.interface";
 import { EntitiesService } from "../../services/entities.service";
+import { LayoutService } from "../../services/layout.service";
 import { SaveService } from "../../services/save.service";
 import { ContextMenuComponent } from "../context-menu/context-menu.component";
 import { ItemComponent } from "../item/item.component";
@@ -35,13 +40,14 @@ import { ItemComponent } from "../item/item.component";
   styleUrl: "./main.component.scss",
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [EditorModule, OverlayModule],
-  providers: [EntitiesService, SaveService],
+  imports: [EditorModule, OverlayModule, MatCheckboxModule],
+  providers: [EntitiesService, SaveService, LayoutService],
 })
 export class MainComponent implements AfterViewInit {
   private overlay = inject(Overlay);
   private entitiesService = inject(EntitiesService);
   private saveService = inject(SaveService);
+  private layoutService = inject(LayoutService);
 
   private overlayRef!: OverlayRef;
   private portal!: ComponentPortal<ContextMenuComponent>;
@@ -88,7 +94,16 @@ export class MainComponent implements AfterViewInit {
     ]);
   }
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) {
+    this.saveService.saveLoaded$
+      .pipe(
+        tap(() => setTimeout(() => this.editor.fitView())), // use set timeout to let signal propagate before fitting to view
+        takeUntilDestroyed()
+      )
+      .subscribe();
+
+    this.layoutService.setup();
+  }
 
   ngAfterViewInit(): void {
     this.overlayRef = this.overlay.create({
@@ -217,5 +232,13 @@ export class MainComponent implements AfterViewInit {
   @HostListener("window:beforeunload")
   public unload() {
     this.saveService.saveState();
+  }
+
+  public dagreCheckedChange(event: MatCheckboxChange) {
+    if (event.checked) {
+      this.layoutService.setup();
+    } else {
+      this.layoutService.reset();
+    }
   }
 }
