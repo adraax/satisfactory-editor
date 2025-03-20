@@ -7,7 +7,6 @@ import {
   Component,
   computed,
   ElementRef,
-  HostBinding,
   HostListener,
   inject,
   signal,
@@ -152,7 +151,7 @@ export class MainComponent implements AfterViewInit {
   }
 
   public addNode(text: string): string {
-    let id = crypto.randomUUID();
+    let id = self.crypto.randomUUID();
 
     this.entitiesService.nodes.set([
       ...this.nodes(),
